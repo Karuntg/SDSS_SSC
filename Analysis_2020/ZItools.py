@@ -23,7 +23,7 @@ def plotdelMag(d, kw):
     print('N=', np.size(d[kw['Ystr']]), 'min=', np.min(d[kw['Ystr']]), 'max=', np.max(d[kw['Ystr']]))
 
     fig, ax = plt.subplots(figsize=(12, 8))
-    ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=0.003, c='black') 
+    ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=kw['symbSize'], c='black') 
     # binning
     xBinM, nPtsM, medianBinM, sigGbinM = fitMedians(d[kw['Xstr']], \
                                          d[kw['Ystr']], kw['XminBin'], kw['XmaxBin'], kw['nBin'], 1)
@@ -89,7 +89,6 @@ def fitMedians(x, y, xMin, xMax, Nbin, verbose=1):
         print('median:', np.median(medianBin[nPts>0]), 'std.dev:', np.std(medianBin[nPts>0]))
 
     return xBin, nPts, medianBin, sigGbin
-
 
 
 
