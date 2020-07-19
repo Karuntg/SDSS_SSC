@@ -114,24 +114,25 @@ def plotdelMag_KT(d, kw):
     cs = ax.pcolormesh(X,Y, Histo2D, cmap=cmap)
 
     if (kw['offset'] >= 0):
+        offsetColor = 'green'
         xL = np.linspace(kw['XminBin'], kw['XmaxBin'])
-        ax.plot(xL, 0*xL, '-', c='red', linewidth=3)
-        ax.plot(xL, 0*xL+kw['offset'], '--', c='red', linewidth=3)
-        ax.plot(xL, 0*xL-kw['offset'], '--', c='red', linewidth=3)
+        ax.plot(xL, 0*xL, '-', c=offsetColor, linewidth=3)
+        ax.plot(xL, 0*xL+kw['offset'], '--', c=offsetColor, linewidth=3)
+        ax.plot(xL, 0*xL-kw['offset'], '--', c=offsetColor, linewidth=3)
     if (0):
         ax.scatter(xBinM, medianBinM, s=30.0, c='black', alpha=0.8)
         ax.scatter(xBinM, medianBinM, s=15.0, c='yellow', alpha=0.3)
     #
     TwoSigP = medianBinM + kw['Nsigma']*sigGbinM
     TwoSigM = medianBinM - kw['Nsigma']*sigGbinM 
-    ax.plot(xBinM, TwoSigP, c='yellow', linewidth=3)
-    ax.plot(xBinM, TwoSigM, c='yellow', linewidth=3)
+    ax.plot(xBinM, TwoSigP, c='cyan', linewidth=3)
+    ax.plot(xBinM, TwoSigM, c='cyan', linewidth=3)
     #
     rmsBin = np.sqrt(nPtsM) / np.sqrt(np.pi/2) * sigGbinM
     rmsP = medianBinM + rmsBin
     rmsM = medianBinM - rmsBin
-    ax.plot(xBinM, rmsP, c='cyan', linewidth=3)
-    ax.plot(xBinM, rmsM, c='cyan', linewidth=3)
+    ax.plot(xBinM, rmsP, c='cyan', linewidth=2, linestyle='dashed')
+    ax.plot(xBinM, rmsM, c='cyan', linewidth=2, linestyle='dashed')
     # 
     ax.set_xlabel(kw['Xlabel'], fontsize=22)
     ax.set_ylabel(kw['Ylabel'], fontsize=22)
