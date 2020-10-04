@@ -1,0 +1,193 @@
+%% KT: June 9, 2020
+\documentclass{aastex63} 
+\usepackage{amssymb,amsmath}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\received{\today}
+\revised{Feb 30, 2022}
+\accepted{Feb 31, 2022}
+\submitjournal{AJ}
+\shorttitle{SDSS Stripe 82 Standard Stars Catalog: New and Improved}
+\shortauthors{Thanjavur et al.}
+\graphicspath{{./}{figures/}}
+
+% user defined
+\newcommand{\tbd}[1]{\textcolor{magenta}{#1}} % indicate TBDs
+\def\eq#1{\begin{equation} #1 \end{equation}}
+\def\mic              {\hbox{$\mu\mathrm{m}$}}
+% paper 1
+\def\pO               {\hbox{I007}}
+\def\pOc               {\hbox{I007 catalog}}
+
+\begin{document}
+\title{Photometric Cross-Calibration and Comparison of the SDSS Stripe 82 Standard Stars Catalog with Gaia DR2, Pan-STARRS1, DES and CFIS Catalogs}
+
+\correspondingauthor{Karun Thanjavur}
+\email{karun@uvic.ca}
+
+\author[0000-0003-1187-2544]{Karun Thanjavur}
+\affiliation{Canada}
+
+\author[0000-0001-5250-2633]{\v{Z}eljko Ivezi\'{c}}
+\affiliation{Department of Astronomy and the DiRAC Institute, University of Washington, 3910 15th Avenue NE, Seattle, WA 98195, USA}
+
+\author[0000-0002-7069-7857]{Sahar Allam}
+\affiliation{Batavia}
+
+\author[0000-0001-7211-5729]{Doug Tucker}
+\affiliation{Batavia}
+
+\author[0000-0002-6261-4601]{J. Allyn Smith}
+\affiliation{Dept. of Physics, Engineering \& Astronomy, Austin Peay State University, 601 College St., Clarksville, TN 37044, USA}
+  
+%% Note that the \and command from previous versions of AASTeX is now
+%% depreciated in this version as it is no longer necessary. AASTeX 
+%% automatically takes care of all commas and "and"s between authors names.
+
+%% Mark off the abstract in the ``abstract'' environment. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with
+post-2007 SDSS imaging data. Their catalog lists averaged SDSS $ugriz$ photometry
+for about a million stars brighter than $r\sim22$. The new version released here is based on 
+2-3 times more measurements per star, resulting in 1.4-1.7 times smaller random errors
+than in the original catalog, and about three times as small as for individual SDSS runs.
+Random errors in the new catalog are below 0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0
+in $ugriz$, respectively. We use Gaia DR2 Gmag photometry to derive gray photometric
+zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, 
+and Gaia's BP-RP colors to derive corrections in the $ugiz$ bands, relative to the $r$ band.
+We test the quality of recalibrated SDSS photometry by comparing it to Gaia DR2, Pan-STARRS1, DES and CFIS photometry for the same stars. This multi-survey comparison indicates that the spatial variation 
+of photometric zero points in the updated SDSS catalog is well below 0.01 mag (rms), 
+with typical values of 3-7 millimag in the R.A. direction and 1-2 millimag in the Declination
+direction, except for the $u$ band with a scatter of about 6 millimag. We also report a few minor 
+photometric problems with all the surveys considered here, including Gaia DR2. 
+Due to its large size and cross-checks with other surveys, this SDSS catalog can be used to robustly calibrate or test $ugriz$ photometry below 1\% level, 
+for example, as part of the commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
+\end{abstract}
+
+%% Keywords from 2007 ZI
+\keywords{catalogs -- instrumentation: photometers -- methods: data analysis -- standards -- surveys --
+techniques: photometric}
+
+
+\section{Introduction} \label{sec:intro}
+
+\input{introduction}
+
+\section{Datasets} \label{sec:data}
+
+\subsection{SDSS Stripe 82 Imaging Data} \label{ssec:s82}
+
+In the SDSS survey, Stripe 82 is a contiguous, 300 deg$^2$ equatorial region, which stretches between $-60^{\circ}\;\leq\;RA\;\leq\;60^{\circ}$ [20h to 4h], and $-1.266^{\circ}\;\leq\;Dec\;\leq\;1.266^{\circ}$. Following the initial concerted effort by the SDSS collaboration between 2001 and 2008 to map this region repeatedly to a forecast imaging depth, $r \leq 22$, several other surveys in various wavebands too have targeted this same patch of sky to provide a rich multi-wavelength dataset suitable for a variety of investigations. SDSS observations too have continued in this region \citep[e.g., the SDSS-II search for supernovae,][]{2008AJ....135..338F},
+resulting in an imaging depth deeper than what was initially planned.  
+
+Data from the SDSS imaging camera \citep{1998AJ....116.3040G} are collected in drift-scan mode. The images that correspond to the same sky location in each of the five photometric bandpasses (these five images are collected over $\sim$5 minutes, with an exposure time of 54 seconds for each band) are grouped together for simultaneous processing as a field. A field is defined as a 36 seconds (1361 pixels)  stretch of drift-scanning data from a single column of CCDs (sometimes called a ‘‘scan line’’; for more details, see \pO\ and references therein). 
+
+\subsubsection{The 2007 SDSS Standard Star Catalog}
+
+The SDSS standard star catalog published by \pO\ (version 2.6) was constructed by averaging multiple SDSS photometric observations (at least four per band, with a median of 10) in the $ugriz$ system. The catalog includes 1.01 million non-variable unresolved objects. The measurements for individual sources have random photometric errors below 0.01 mag for stars brighter than 19.5, 20.5, 20.5, 20, and 18.5 in $ugriz$, respectively (about twice as good as for individual SDSS runs). Several independent tests of the internal consistency suggested that the spatial variation of photometric zero points is not larger than $\sim$0.01 mag (rms).  
+
+\subsubsection{Post-2007 SDSS data \label{ssec:DR15}}
+
+In this work, we have used the SDSS Data Release 15 (DR15) as available in April 2019 \citep{Blan17}. In DR15, the Stripe 82 region is covered by 118 {\it runs}, which include 32,292 fields, each with observations in the five   $ugriz$ SDSS filters. Using our programmatic query tool, we obtained the processed data for all these runs from the DR15 public database. In the database, the data are presented as individual FITS tables, named \verb photoObj_<run>_<camcol>_<field>.fits. From each table, we extracted photometric and astrometric quantities, time of observation, and several ancillary data for all the objects into a formatted, 107-column wide ascii master file for further processing.
+
+The objects in each of these data files were then matched with the standard stars in the \pO\ catalog using their mean sky positions (R.A. and Declination) and a matching radius of 0.5 arcsec. For matching, only deblended objects ({\it nchild}=0), lying between rows $64 < objc\_rowc < 1424$ in each field, were selected to avoid poor photometry due to blending or lying close to edges of the CCD. From these matched objects, only those with photometric error $<$0.1 mag were selected to compute photometric zeropoint offsets between the \pO\ catalog and DR15. These offsets were obtained independently for all runs and fields, and in all five filters, and applied to bring our DR15 based catalog to the same photometric scale as the \pO\ catalog -- in essence, we have re-calibrated photometry for all Stripe 82 runs in DR15 using the \pO\ catalog. In addition, the MJD and fractional MJD of observation were computed using the median of the TAI values (the GPS based time reported by the SDSS Apache Point Observatory) for these matched objects. In the final step, the photometric, astrometric and other details for each of these matched standard stars were written to independent (one per star) light curve files. Further processing of these light curves is described in Section~\ref{sec:averaging}. 
+
+All these processing steps were completed on a single quad-core desktop needing several days of processing. The final dataset, consisting of all the light curves in the five $ugriz$ filters for the 1,006,849 standard stars in the \pO\ catalog resulted in $\sim$20 GB of tabular data. To make file search and access fast, the data have been chunked into sub-directories, each spanning 1 $\deg$ in RA, and 0.1 $\deg$ in Dec (a ''poor-man's" two-dimensional tree structure). These light curve data files
+can be made available as a single tarball by emailing the contact author. 
+
+
+\subsection{Gaia Data Release 2 (DR2) Data} \label{ssec:gaia}
+ 
+The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for sources brighter than magnitude Gmag$\sim$21 \citep{2018A&A...616A...1G}. This dataset
+is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for approximately 1.7 billion sources. This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm), for 1.4 billion sources.
+    
+Gaia DR2 photometry is superior to ground-based photometry for sources with 
+sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections
+for SDSS photoometry, as described in Section~\ref{sec:v34}. 
+
+
+\subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
+
+\tbd{KT to fill in details}
+
+Pan-STARRS \citep{2010SPIE.7733E..0EK}
+
+\subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
+
+\tbd{DT/SA to fill in details}
+ 
+Dark Energy Survey \citep{2016MNRAS.460.1270D}
+
+Old text from Doug, needs editing: 
+
+We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
+
+
+\subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
+
+\tbd{Emails from SGwyn to fill in details}
+ 
+\newpage 
+\subsection{OLD TEXT FROM DOUG: Comparison of SSC 2020 vs DES DR1}\label{SSCvsDES}
+We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
+
+After matching both catalogs were final data set contains 619,741 stars, with mean separation 0.135$\arcsec\pm0.094\arcsec$, with a median of 0.116$\arcsec$. We transform the DES to the SDSS system following Drlica-Wagner 2017, cf.\ APPENDIX A.4 eq.\ A9--A12). In particularly we used:xdse
+
+\begin{align}
+g_{sdss} &= g_{des} - 0.1174 \times (g - r)_{des} + 0.0217 \label{eqn:sdss_des_g} \\ 
+r_{sdss} &= r_{des} - 0.0115 \times (g - r)_{des} + 0.0201 \label{eqn:sdss_des_r} \\ 
+i_{sdss} &= i_{des} - 0.3891 \times (i - z)_{des} + 0.0067 \label{eqn:sdss_des_i} \\ 
+z_{sdss} &= z_{des} + 0.1307 \times (i - z)_{des} + 0.0114 . \label{eqn:sdss_des_z} 
+\end{align}
+
+
+\tbd{SSA Added a new Dir for some comparison Figs}
+\tbd{DT/SA to fill in details}
+
+\subsection{Comparison of SSC 2020 vs PSI}\label{SSCvsPSI}
+
+\tbd{KT to fill in details}
+
+\subsection{Comparison of SSC 2020 vs CFIS}\label{SSCvsCFIS}
+
+\tbd{ZI/SG to fill in details}
+
+\subsection{Comparison of SSC 2020 vs HSC}\label{SSCvsHSC}
+
+\tbd{KT to fill in details}
+
+\subsection{Comparison of SSC 2020 vs Galex}\label{SSCvsGalex}
+
+\tbd{SA to fill in details}
+ 
+\newpage 
+
+\section{The Construction and Analysis of the New v3.4 Catalog \label{sec:v34}}
+\input{zeljko2.tex}
+
+\section{Discussion and Conclusions} \label{sec:disc}
+
+
+\acknowledgments
+Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the US Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web site is http://www.sdss.org.
+ 
+\vspace{5mm}
+\facilities{SDSS, Pan-STARRS, DECam}
+
+\software{numpy \citep{numpy}, matplotlib \citep{matplotlib}, scipy \citep{scipy}, 
+       astropy \citep{astropy-1, astropy-2}, astroML \citep{2012cidu.conf...47V}.}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY
+\bibliography{S82SSC}{}
+\bibliographystyle{aasjournal}
+
+\appendix
+\section{Appendix information}
+
+Here is Appendix A.
+ 
+\end{document}
+ 
