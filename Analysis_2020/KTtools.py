@@ -112,28 +112,30 @@ def plotdelMag_KT(d, kw):
     X, Y = np.meshgrid(xedges, yedges)
     # cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
     cs = ax.pcolormesh(X,Y, Histo2D, cmap=cmap)
-
-    if (kw['offset'] >= 0):
-        offsetColor = 'green'
-        xL = np.linspace(kw['XminBin'], kw['XmaxBin'])
-        ax.plot(xL, 0*xL, '-', c=offsetColor, linewidth=3)
-        ax.plot(xL, 0*xL+kw['offset'], '--', c=offsetColor, linewidth=3)
-        ax.plot(xL, 0*xL-kw['offset'], '--', c=offsetColor, linewidth=3)
-    if (0):
-        ax.scatter(xBinM, medianBinM, s=30.0, c='black', alpha=0.8)
-        ax.scatter(xBinM, medianBinM, s=15.0, c='yellow', alpha=0.3)
-    #
-    TwoSigP = medianBinM + kw['Nsigma']*sigGbinM
-    TwoSigM = medianBinM - kw['Nsigma']*sigGbinM 
-    ax.plot(xBinM, TwoSigP, c='cyan', linewidth=3)
-    ax.plot(xBinM, TwoSigM, c='cyan', linewidth=3)
+    ## Rearrange the plotting order in order to make the lines stand out
     #
     rmsBin = np.sqrt(nPtsM) / np.sqrt(np.pi/2) * sigGbinM
     rmsP = medianBinM + rmsBin
     rmsM = medianBinM - rmsBin
-    ax.plot(xBinM, rmsP, c='cyan', linewidth=2, linestyle='dashed')
-    ax.plot(xBinM, rmsM, c='cyan', linewidth=2, linestyle='dashed')
+    ax.plot(xBinM, rmsP, c='black', linewidth=2, linestyle='dashdot')
+    ax.plot(xBinM, rmsM, c='black', linewidth=2, linestyle='dashdot')
+    #
+    TwoSigP = medianBinM + kw['Nsigma']*sigGbinM
+    TwoSigM = medianBinM - kw['Nsigma']*sigGbinM 
+    ax.plot(xBinM, TwoSigP, c='blue', linewidth=3)
+    ax.plot(xBinM, TwoSigM, c='blue', linewidth=3)
     # 
+    if (kw['offset'] >= 0):
+        offsetColor0 = 'magenta'
+        offsetColor1 = 'black'
+        xL = np.linspace(kw['XminBin'], kw['XmaxBin'])
+        ax.plot(xL, 0*xL, '-', c=offsetColor0, linewidth=3)
+        ax.plot(xL, 0*xL+kw['offset'], '--', c=offsetColor1, linewidth=3)
+        ax.plot(xL, 0*xL-kw['offset'], '--', c=offsetColor1, linewidth=3)
+    if (0):
+        ax.scatter(xBinM, medianBinM, s=30.0, c='black', alpha=0.8)
+        ax.scatter(xBinM, medianBinM, s=15.0, c='yellow', alpha=0.3)
+    #
     ax.set_xlabel(kw['Xlabel'], fontsize=22)
     ax.set_ylabel(kw['Ylabel'], fontsize=22)
     ax.set_xlim(kw['Xmin'], kw['Xmax'])
@@ -145,6 +147,74 @@ def plotdelMag_KT(d, kw):
     plt.show()
     return
 
+################################
+# THIS DOES THE 2D HISTO, in Black & White
+# CHANGING ALL LINES TO BLACK, WITH GREYS CMAP
+def plotdelMagBW_KT(d, kw):
+ 
+    print('medianAll:', np.median(d[kw['Ystr']]), 'std.dev.All:', sigG(d[kw['Ystr']]))
+    print('N=', np.size(d[kw['Ystr']]), 'min=', np.min(d[kw['Ystr']]), 'max=', np.max(d[kw['Ystr']]))
+
+    # get binned medians and std devs
+    # get med, sig, as well as x-binning
+    xBinM, nPtsM, medianBinM, sigGbinM = fitMedians(d[kw['Xstr']], \
+                                         d[kw['Ystr']], kw['XminBin'], kw['XmaxBin'], kw['nBinX'], 1)
+    # get x-binning
+    xMin,xMax,nBinX = kw['Xmin'], kw['Xmax'], kw['nBinX']
+    # xEdge = np.linspace(yMin, yMax, (nBinY+1))    
+    # get y-binning
+    yMin,yMax,nBinY = kw['Ymin'], kw['Ymax'], kw['nBinY']
+    # form the x,y edges vectors for 2d histo
+    xedges = np.linspace(xMin,xMax,nBinX+1,endpoint=False,dtype=float)
+    yedges = np.linspace(yMin,yMax,nBinY+1,endpoint=False,dtype=float)
+
+    # create the 2D histo
+    xvect,yvect = d[kw['Xstr']], d[kw['Ystr']]
+    Histo2D, xedges, yedges = np.histogram2d(xvect,yvect, bins=(xedges, yedges))
+    Histo2D = Histo2D.T
+    
+    # plotting
+    # get the colormap from kw
+    cmap = kw['cmap']
+    fig, ax = plt.subplots(figsize=(12, 8))
+    # ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=kw['symbSize'], c='black') 
+    X, Y = np.meshgrid(xedges, yedges)
+    # cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
+    cs = ax.pcolormesh(X,Y, Histo2D, cmap=cmap)
+    ## Rearrange the plotting order in order to make the lines stand out
+    #
+    rmsBin = np.sqrt(nPtsM) / np.sqrt(np.pi/2) * sigGbinM
+    rmsP = medianBinM + rmsBin
+    rmsM = medianBinM - rmsBin
+    ax.plot(xBinM, rmsP, c='black', linewidth=2, linestyle='dashdot')
+    ax.plot(xBinM, rmsM, c='black', linewidth=2, linestyle='dashdot')
+    # 
+    if (kw['offset'] >= 0):
+        offsetColor0 = 'black'
+        offsetColor1 = 'black'
+        xL = np.linspace(kw['XminBin'], kw['XmaxBin'])
+        ax.plot(xL, 0*xL, '-', c=offsetColor0, linewidth=3)
+        ax.plot(xL, 0*xL+kw['offset'], '--', c=offsetColor1, linewidth=3)
+        ax.plot(xL, 0*xL-kw['offset'], '--', c=offsetColor1, linewidth=3)
+    if (0):
+        ax.scatter(xBinM, medianBinM, s=30.0, c='black', alpha=0.8)
+        ax.scatter(xBinM, medianBinM, s=15.0, c='black', alpha=0.3)
+    #
+    TwoSigP = medianBinM + kw['Nsigma']*sigGbinM
+    TwoSigM = medianBinM - kw['Nsigma']*sigGbinM 
+    ax.plot(xBinM, TwoSigP, c='silver', linewidth=3)
+    ax.plot(xBinM, TwoSigM, c='silver', linewidth=3)
+    #
+    ax.set_xlabel(kw['Xlabel'], fontsize=22)
+    ax.set_ylabel(kw['Ylabel'], fontsize=22)
+    ax.set_xlim(kw['Xmin'], kw['Xmax'])
+    ax.set_ylim(kw['Ymin'], kw['Ymax'])
+    plt.xticks(fontsize=22)
+    plt.yticks(fontsize=22)
+    plt.savefig(kw['plotName'], dpi=600)
+    print('saved plot as:', kw['plotName']) 
+    plt.show()
+    return
 ################################
 # given vectors x and y, fit medians in bins from xMin to xMax, with Nbin steps,
 # and return xBin, medianBin, medianErrBin 
