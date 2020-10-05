@@ -31,6 +31,9 @@ http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/Stripe82_GaiaDR2_BPRP.d
 http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/cfis_stripe82.dat
 http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/match_stripe82calibStars_v3.2_des_dr1_cleaned.csv
 http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/nSSC2PS1_matched.csv
+
+or in one step as (967 MB, expands to 2.8 GB)
+http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/allDataThanjavurPaper.tar.gz 
  
 
 B. Execute notebooks stored in Analysis_2020 directory from PaperPlots directory:
@@ -82,7 +85,7 @@ B. Execute notebooks stored in Analysis_2020 directory from PaperPlots directory
       colorResidCFISug_Dec_Hess.png 
 
 
-=== Notebooks for figures selected for the paper (same order as in tex file) ===  
+=== Quick look: notebooks for figures selected for the paper (same order as in tex file) ===  
 astroVSpm_RA_pm.png: recalibration_gray.ipynb
 astroVSpm_RA_r.png: recalibration_gray.ipynb 
 GrVSgi.png: recalibration_gray.ipynb
@@ -121,4 +124,11 @@ colorResidCFISug_Dec_Hess.png: compareCFIS.ipynb
 
 C. All *png files are removed by hand from Analysis_2020 directory and are NOT uploaded to GitHub 
 
+D. Paper is at https://github.com/Karuntg/SDSS_SSC/tree/master/paper
 
+E.g. 
+> git clone git@github.com:Karuntg/SDSS_SSC.git
+> cd SDSS_SSC/paper
+> make 
+
+to recompile. 
