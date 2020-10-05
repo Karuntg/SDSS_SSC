@@ -1,5 +1,5 @@
 
-Modern multi-band photometric sky surveys aim to deliver measurements accurate\footnote{Except for zeropoint offsets from the AB magnitude scale, discussed in Section XXX.} at the 1\% (0.01 mag) level, to 
+Modern multi-band photometric sky surveys aim to deliver measurements accurate\footnote{Except for zeropoint offsets from the AB magnitude scale, discussed in Section~\ref{sec:AB}.} at the 1\% (0.01 mag) level, to 
 enable cosmological and other high-precision measurements \cite[e.g., the Vera Rubin Observatory Legacy Survey of Space and Time,][]{LSSToverview}. 
 Photometric data are usually calibrated using sets of standard stars whose brightness is known from previous work.
 One of the largest catalogs with sub-percent measurement precision and optical multi-band $ugriz$ photometry
@@ -11,10 +11,15 @@ After the completion of \pOc, SDSS has obtained additional imaging data, about 2
 per star depending on its sky position within Stripe 82. This increased number of data points can result in averaged photometry with
 1.4-1.7 times smaller random errors (precision) than in the original catalog (and about three times as small as for individual 
 SDSS runs). In addition, the availability of photometric data from recent wide-field surveys such as the 
-Dark Energy Survey \citep{2016MNRAS.460.1270D}, Pan-STARRS \citep{2010SPIE.7733E..0EK} and Gaia \citep{2018A&A...616A...1G}, enables a much more  
-detailed and robust cross-calibration, including
-correcting for residual photometric zeropoint eerrors in SDSS flat-fielding (e.g., a saw-tooth pattern, as a function of Declination,
-was reported by \citealt{2013A&A...552A.124B}; see their Fig.~23). These are the main reasons that motivated us to construct an updated version of the SDSS Standard Star Catalog.
- 
+Dark Energy Survey \citep[DES,][]{2016MNRAS.460.1270D}, Pan-STARRS \citep[PS1,][]{2010SPIE.7733E..0EK} and Gaia \citep{2018A&A...616A...1G}, enables a much more detailed and robust cross-calibration, including
+correcting for residual photometric zeropoint errors in SDSS flat-fielding. For example, \cite{2013A&A...552A.124B}
+reported a saw-tooth pattern in photometric residuals between the SDSS and DES catalogs, as a function of Declination
+(see their Fig.~23). Such a pattern is most likely due to errors in SDSS zeropoint calibration because
+flat-field correction for Stripe 82 is only a function of Declination (due to drift-scanning in R.A. direction). 
+Given that systematic errors in other catalogs are much smaller (Gaia), or are expected to display different 
+spatial patterns (DES and PS1), it is likely that a cross-comparison of several catalogs can result in
+significant improvements. These are the main reasons that motivated us to construct an updated version of the 
+SDSS Standard Star Catalog. 
 
-We describe datasets used in our analysis in \S2, and the construction of the new catalog and its analysis in \S3. Our results are summarized and discussed in \S4. 
+We describe datasets used in our analysis in \S2, and the construction of the new catalog and its analysis in \S3. 
+Our results are summarized and discussed in \S4. 

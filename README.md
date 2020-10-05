@@ -40,49 +40,83 @@ http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/allDataThanjavurPaper.t
 B. Execute notebooks stored in Analysis_2020 directory from PaperPlots directory:
 
 1. recalibration_gray.ipynb 
+
       astroVSpm_RA_pm.png
+
       astroVSpm_RA_r.png
+
       GrVSgi.png
+
       GmagCorrection_RA_Hess.png  
+
       GmagCorrection_Dec_Hess.png	
+
       GmagCorrection_Gmag_Hess.png
   
 2. recalibration_colors.ipynb  
+
       colorResidGaiaColorsB_ri_Dec_Hess.png
+
       colorResidGaiaColors_gr_RA_Hess.png
+
       colorResidGaiaColors_gr_Dec_Hess.png
 
 3. test26vs33.ipynb 
+
       testV26vsV33_r_dr_r_mag_Hess.png 
+
       testV26vsV33_r_dr_Dec_Hess.png 
+
       testV26vsV33_r_w_old_RA_Hess.png
+
       testV26vsV33_r_w_new_RA_Hess.png
+
       testV26vsV33_r_w_old_Dec_Hess.png
+
       testV26vsV33_r_w_new_Dec_Hess.png
+
       testV26vsV33_snew_u_s_new_RA_Hess.png
+
       testV26vsV33_snew_u_s_new_Dec_Hess.png  
+
       testV26vsV33_ynew_z_y_new_RA_Hess.png 
+
       testV26vsV33_ynew_z_y_new_Dec_Hess.png 
 
 4. compareDES.ipynb  
+
       colorResidDES2bright_dr_RA_Hess.png  
+
       colorResidDES2bright_di_RA_Hess.png 
+
       colorResidDES2bright_dz_RA_Hess.png 
+
       colorResidDES2bright_dr_Dec_Hess.png  
+
       colorResidDES2bright_di_Dec_Hess.png  
+
       colorResidDES2bright_dz_Dec_Hess.png 
+
       colorResidDES2_dr_rmag_Hess.png  
+
       colorResidDES2_di_rmag_Hess.png  
  
 5. comparePanSTARRS.ipynb
+
       colorResidPSbright_dr_RA_Hess.png
+
       colorResidPSbright_di_RA_Hess.png
+
       colorResidPSbright_dz_RA_Hess.png
+
       colorResidPSbright_dr_Dec_Hess.png
+
       colorResidPSbright_di_Dec_Hess.png
+
       colorResidPSbright_dz_Dec_Hess.png
    
 6. compareCFIS.ipynb
+
       colorResidCFISug_Dec_Hess.png 
 
 

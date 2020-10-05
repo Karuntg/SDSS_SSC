@@ -57,13 +57,18 @@ Random errors in the new catalog are below 0.01 mag for stars brighter than 20.0
 in $ugriz$, respectively. We use Gaia DR2 Gmag photometry to derive gray photometric
 zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, 
 and Gaia's BP-RP colors to derive corrections in the $ugiz$ bands, relative to the $r$ band.
-We test the quality of recalibrated SDSS photometry by comparing it to Gaia DR2, Pan-STARRS1, DES and CFIS photometry for the same stars. This multi-survey comparison indicates that the spatial variation 
+We test the quality of recalibrated SDSS photometry by comparing it to Gaia DR2, Pan-STARRS1, DES and 
+CFIS photometry for the same stars. This multi-survey comparison indicates that the spatial variation 
 of photometric zero points in the updated SDSS catalog is well below 0.01 mag (rms), 
 with typical values of 3-7 millimag in the R.A. direction and 1-2 millimag in the Declination
-direction, except for the $u$ band with a scatter of about 6 millimag. We also report a few minor 
-photometric problems with all the surveys considered here, including Gaia DR2. 
-Due to its large size and cross-checks with other surveys, this SDSS catalog can be used to robustly calibrate or test $ugriz$ photometry below 1\% level, 
-for example, as part of the commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
+direction, except for the $u$ band with a scatter of about 6 millimag.
+XXX By comparing updated SDSS photometry with synthetic SDSS photometry for three stars with 
+the HST CalSpec absolute photometry data, we constrain AB zeropoint offsets in the $ugriz$ bands
+to ..., respectively. XXX 
+We also report a few minor photometric problems with all the surveys considered here, including Gaia DR2. 
+Due to its large size and cross-checks with other surveys, this updated SDSS catalog can be used to robustly 
+calibrate or test $ugriz$ photometry below 1\% level, for example, as needed for the commissioning phase of 
+the Rubin Observatory Legacy Survey of Space and Time. 
 \end{abstract}
 
 %% Keywords from 2007 ZI
@@ -103,9 +108,19 @@ can be made available as a single tarball by emailing the contact author.
 The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for sources brighter than magnitude Gmag$\sim$21 \citep{2018A&A...616A...1G}. This dataset
 is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for approximately 1.7 billion sources. This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm), for 1.4 billion sources.
     
-Gaia DR2 photometry is superior to ground-based photometry for sources with 
-sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections
-for SDSS photoometry, as described in Section~\ref{sec:v34}. 
+Gaia DR2 photometry is superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
+it to derive zeropoint corrections for SDSS photoometry, as described in Section~\ref{sec:v34}. 
+
+
+\subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
+
+\tbd{DT/SA to fill in details}
+ 
+Dark Energy Survey \citep{2016MNRAS.460.1270D}
+
+Old text from Doug, probably a good start but needss editing: 
+
+We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
 
 
 \subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
@@ -114,67 +129,61 @@ for SDSS photoometry, as described in Section~\ref{sec:v34}.
 
 Pan-STARRS \citep{2010SPIE.7733E..0EK}
 
-\subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
-
-\tbd{DT/SA to fill in details}
- 
-Dark Energy Survey \citep{2016MNRAS.460.1270D}
-
-Old text from Doug, needs editing: 
-
-We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
-
 
 \subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
 
 \tbd{Emails from SGwyn to fill in details}
- 
-\newpage 
-\subsection{OLD TEXT FROM DOUG: Comparison of SSC 2020 vs DES DR1}\label{SSCvsDES}
-We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
-
-After matching both catalogs were final data set contains 619,741 stars, with mean separation 0.135$\arcsec\pm0.094\arcsec$, with a median of 0.116$\arcsec$. We transform the DES to the SDSS system following Drlica-Wagner 2017, cf.\ APPENDIX A.4 eq.\ A9--A12). In particularly we used:xdse
-
-\begin{align}
-g_{sdss} &= g_{des} - 0.1174 \times (g - r)_{des} + 0.0217 \label{eqn:sdss_des_g} \\ 
-r_{sdss} &= r_{des} - 0.0115 \times (g - r)_{des} + 0.0201 \label{eqn:sdss_des_r} \\ 
-i_{sdss} &= i_{des} - 0.3891 \times (i - z)_{des} + 0.0067 \label{eqn:sdss_des_i} \\ 
-z_{sdss} &= z_{des} + 0.1307 \times (i - z)_{des} + 0.0114 . \label{eqn:sdss_des_z} 
-\end{align}
-
-
-\tbd{SSA Added a new Dir for some comparison Figs}
-\tbd{DT/SA to fill in details}
-
-\subsection{Comparison of SSC 2020 vs PSI}\label{SSCvsPSI}
-
-\tbd{KT to fill in details}
-
-\subsection{Comparison of SSC 2020 vs CFIS}\label{SSCvsCFIS}
-
-\tbd{ZI/SG to fill in details}
-
-\subsection{Comparison of SSC 2020 vs HSC}\label{SSCvsHSC}
-
-\tbd{KT to fill in details}
-
-\subsection{Comparison of SSC 2020 vs Galex}\label{SSCvsGalex}
-
-\tbd{SA to fill in details}
- 
-\newpage 
+  
 
 \section{The Construction and Analysis of the New v3.4 Catalog \label{sec:v34}}
 \input{zeljko2.tex}
 
+
 \section{Discussion and Conclusions} \label{sec:disc}
 
+To enable further progress in cosmological and other high-precision photometric measurements, 
+modern multi-band photometric sky surveys aim to deliver measurements accurate at the 1\% 
+(0.01 mag) level. Over the last decade a number of such large-scale surveys approached, and
+often exceeded this photometric accuracy threshold. For ground-based surveys, that are 
+affected by variable atmospheric effects and hardware responses to changes in local environment
+(e.g. temperature), significant improvements can be achieved by averaging multiple observations. 
+
+In this paper, we have described the construction and tests of an updated version of the so-called
+SDSS Stripe 82 Standard Star catalog \citep{Ivez07} that lists averaged SDSS photometry for about
+a million non-variable stars. Additional post-2007 SDSS data include about 
+2-3 times more measurements per star than in the original catalog, resulting in 1.4-1.7 times smaller 
+random photometric errors (precision) than in the original catalog, and about three times as small 
+as for individual SDSS runs.
+
+Thanks to the availability of photometric data from recent wide-field surveys (Gaia, DES, Pan-STARRS
+and CFIS), we were able to derive robust zeropoint corrections and establish that this new catalog
+is superior to the original catalog. Using a combination of comparison to other catalogs and 
+astrophysical constraints, we find that that the contribution of the zeropoint errors to photometric
+errors is $<5$ millimag for the $gri$ bands, and $<10$ millimag for the $u$ and $z$ bands. 
+
+Various catalog cross-comparisons have revealed minor problems with all the analyzed catalogs.
+For example, we detected DES $z$ band zeropoint errors of up to 0.01-0.02 mag, as a function 
+of R.A., and demonstreted that Gaia Gmag magnitudes appear too faint by about 0.02 mag at
+Gmag$\sim$20.
+ 
+XXX We constrained offsets from the absolute AB magnitude scale using three stars with 
+the HST CalSpec absolute photometry data. The estimated AB zeropoint offsets in the $ugriz$ bands
+are equal to..., respectively. XXX
+
+Thanks to its high stellar density, about 1 star per square arcmin, and demonstrated sub-percent 
+photometry, this catalog is a good resource for both calibrating and testing other surveys. In
+particular, it will enable high-precision photometric testing of data collected during the 
+commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
+  
 
 \acknowledgments
-Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the US Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web site is http://www.sdss.org.
+Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating
+Institutions, the National Science Foundation, the US Department of Energy, the National Aeronautics and 
+Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education 
+Funding Council for England. The SDSS Web site is http://www.sdss.org.
  
 \vspace{5mm}
-\facilities{SDSS, Pan-STARRS, DECam}
+\facilities{SDSS, Pan-STARRS, DECam, CFHT}
 
 \software{numpy \citep{numpy}, matplotlib \citep{matplotlib}, scipy \citep{scipy}, 
        astropy \citep{astropy-1, astropy-2}, astroML \citep{2012cidu.conf...47V}.}
@@ -184,10 +193,28 @@ Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Founda
 \bibliography{S82SSC}{}
 \bibliographystyle{aasjournal}
 
-\appendix
-\section{Appendix information}
-
-Here is Appendix A.
+%\appendix
+%\section{Appendix information}
+%
+%Here is Appendix A.
  
 \end{document}
  
+
+
+
+
+name     &     R.A. (deg)    &      Dec (deg)       &     $V$   &     $B-V$   &   
+  GD50  &    57.209108    &    $-$0.975636   &   14.06  &  $-$0.28   &  13.409  & 13.784 & 13.784 & 14.6545  & $-$9999  \\ 
+
+                                                                                                 A$_r$ 
+                                                                                          &  0.513    &  13.376  & 13.816 & 14.279 & 14.649 & 15.002  
+
+
+
+
+
+
+GAP? 
+lds749b   323.067638   0.254000 14.463  14.550  14.8037  15.0312  15.2784
+

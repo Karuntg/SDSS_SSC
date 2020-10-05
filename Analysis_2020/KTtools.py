@@ -179,8 +179,8 @@ def plotdelMagBW_KT(d, kw):
     fig, ax = plt.subplots(figsize=(12, 8))
     # ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=kw['symbSize'], c='black') 
     X, Y = np.meshgrid(xedges, yedges)
-    # cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
-    cs = ax.pcolormesh(X,Y, Histo2D, cmap=cmap)
+    cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
+    # cs = ax.pcolormesh(X,Y, Histo2D, cmap=cmap)
     ## Rearrange the plotting order in order to make the lines stand out
     #
     rmsBin = np.sqrt(nPtsM) / np.sqrt(np.pi/2) * sigGbinM

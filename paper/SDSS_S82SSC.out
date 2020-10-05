@@ -4,22 +4,17 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{The 2007 SDSS Standard Star Catalog}{subsection.2.1}% 4
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Post-2007 SDSS data }{subsection.2.1}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Gaia Data Release 2 \(DR2\) Data}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.3}{Pan-STARRS \(PS1\) Data}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.4}{Deep Energy Survey \(DES\) Data}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Deep Energy Survey \(DES\) Data}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.4}{Pan-STARRS \(PS1\) Data}{section.2}% 8
 \BOOKMARK [2][-]{subsection.2.5}{Canada-France Imaging Survey \(CFIS\) Data}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.6}{OLD TEXT FROM DOUG: Comparison of SSC 2020 vs DES DR1}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.7}{Comparison of SSC 2020 vs PSI}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.8}{Comparison of SSC 2020 vs CFIS}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.9}{Comparison of SSC 2020 vs HSC}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.10}{Comparison of SSC 2020 vs Galex}{section.2}% 14
-\BOOKMARK [1][-]{section.3}{The Construction and Analysis of the New v3.4 Catalog }{}% 15
-\BOOKMARK [2][-]{subsection.3.1}{The construction of raw SDSS catalog from light curves }{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.2}{The derivation of photometric zeropoint corrections using Gaia DR2 data}{section.3}% 17
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Positional matching of the SDSS and Gaia catalogs}{subsection.3.2}% 18
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Gaia-based photometric zeropoint corrections}{subsection.3.2}% 19
-\BOOKMARK [2][-]{subsection.3.3}{Comparison of the SDSS v2.6 and v3.4 catalogs }{section.3}% 20
-\BOOKMARK [2][-]{subsection.3.4}{Comparison of the new v3.4 SDSS catalog and Gaia DR2 catalog }{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.5}{Comparison of the new v3.4 SDSS catalog with DES and Pan-STARRS catalogs }{section.3}% 22
-\BOOKMARK [2][-]{subsection.3.6}{Comparison of the new v3.4 SDSS catalog and u band data from the CFIS catalog }{section.3}% 23
-\BOOKMARK [1][-]{section.4}{Discussion and Conclusions}{}% 24
-\BOOKMARK [1][-]{appendix.A}{Appendix information}{}% 25
+\BOOKMARK [1][-]{section.3}{The Construction and Analysis of the New v3.4 Catalog }{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{The construction of raw SDSS catalog from light curves }{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{The derivation of photometric zeropoint corrections using Gaia DR2 data}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Positional matching of the SDSS and Gaia catalogs}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Gaia-based photometric zeropoint corrections}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Validation of recalibration }{subsection.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Comparison of the SDSS v2.6 and v3.4 catalogs }{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.4}{Comparison of the new v3.4 SDSS catalog with DES and Pan-STARRS catalogs }{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.5}{Comparison of the new v3.4 SDSS catalog and u band data from the CFIS catalog }{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.6}{Offsets from AB magnitude scale }{section.3}% 19
+\BOOKMARK [1][-]{section.4}{Discussion and Conclusions}{}% 20
