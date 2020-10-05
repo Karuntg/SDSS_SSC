@@ -17,6 +17,7 @@ http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/match_stripe82calibStar
 http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/nSSC2PS1_matched.csv
 
 or in one step as (967 MB, expands to 2.8 GB)
+
 http://faculty.washington.edu/ivezic/sdss/calib82/dataV2/allDataThanjavurPaper.tar.gz 
  
 For other steps, see SDSS_SSC/README.md 
