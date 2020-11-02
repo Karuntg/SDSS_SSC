@@ -27,16 +27,16 @@
 \email{karun@uvic.ca}
 
 \author[0000-0003-1187-2544]{Karun Thanjavur}
-\affiliation{Canada}
+\affiliation{Department of Physics \& Astronomy, University of Victoria, 3800 Finnerty Road, Victoria, BC V8P 5C2, Canada}
 
 \author[0000-0001-5250-2633]{\v{Z}eljko Ivezi\'{c}}
 \affiliation{Department of Astronomy and the DiRAC Institute, University of Washington, 3910 15th Avenue NE, Seattle, WA 98195, USA}
 
-\author[0000-0002-7069-7857]{Sahar Allam}
-\affiliation{Batavia}
+\author[0000-0002-7069-7857]{Sahar S. Allam}
+\affiliation{Fermi National Accelerator Laboratory, Batavia, Il 60510, USA}
 
-\author[0000-0001-7211-5729]{Doug Tucker}
-\affiliation{Batavia}
+\author[0000-0001-7211-5729]{Douglas L. Tucker}
+\affiliation{Fermi National Accelerator Laboratory, Batavia, Il 60510, USA}
 
 \author[0000-0002-6261-4601]{J. Allyn Smith}
 \affiliation{Dept. of Physics, Engineering \& Astronomy, Austin Peay State University, 601 College St., Clarksville, TN 37044, USA}
@@ -49,15 +49,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with
-post-2007 SDSS imaging data. Their catalog lists averaged SDSS $ugriz$ photometry
-for about a million stars brighter than $r\sim22$. The new version released here is based on 
+post-2007 SDSS imaging data. Our catalog lists averaged SDSS $ugriz$ photometry
+for nearly a million stars brighter than $r\sim22$ matched with the earlier version of the catalog. However, this new version is based on 
 2-3 times more measurements per star, resulting in 1.4-1.7 times smaller random errors
-than in the original catalog, and about three times as small as for individual SDSS runs.
+than in the original catalog, and about three times smaller than those for individual SDSS runs.
 Random errors in the new catalog are below 0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0
-in $ugriz$, respectively. We use Gaia DR2 Gmag photometry to derive gray photometric
+in $ugriz$, respectively. We achieve this error threshold by using Gaia DR2 Gmag photometry to derive gray photometric
 zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, 
 and Gaia's BP-RP colors to derive corrections in the $ugiz$ bands, relative to the $r$ band.
-We test the quality of recalibrated SDSS photometry by comparing it to Gaia DR2, Pan-STARRS1, DES and 
+We test the quality of recalibrated SDSS photometry by comparing it to Pan-STARRS1, DES and 
 CFIS photometry for the same stars. This multi-survey comparison indicates that the spatial variation 
 of photometric zero points in the updated SDSS catalog is well below 0.01 mag (rms), 
 with typical values of 3-7 millimag in the R.A. direction and 1-2 millimag in the Declination
@@ -95,7 +95,7 @@ The SDSS standard star catalog published by \pO\ (version 2.6) was constructed b
 
 \subsubsection{Post-2007 SDSS data \label{ssec:DR15}}
 
-In this work, we have used the SDSS Data Release 15 (DR15) as available in April 2019 \citep{Blan17}. In DR15, the Stripe 82 region is covered by 118 {\it runs}, which include 32,292 fields, each with observations in the five   $ugriz$ SDSS filters. Using our programmatic query tool, we obtained the processed data for all these runs from the DR15 public database. In the database, the data are presented as individual FITS tables, named \verb photoObj_<run>_<camcol>_<field>.fits. From each table, we extracted photometric and astrometric quantities, time of observation, and several ancillary data for all the objects into a formatted, 107-column wide ascii master file for further processing.
+In this work, we have used the SDSS Data Release 15 (DR15) as available in April 2019 \citep{Blan17}. In DR15, the Stripe 82 region is covered by 118 {\it runs}, which include 32,292 fields, each with observations in the five   $ugriz$ SDSS filters. Using our programmatic query tool, we obtained the processed data for all these runs from the DR15 public database. In the database, the data are presented as individual FITS tables, named \verb photoObj_<run>_<camcol>_<field>.fits. From each fits table, we extracted photometric and astrometric quantities, time of observation, and several ancillary data for all the objects into a formatted, 107-column wide ascii master file for further processing.
 
 The objects in each of these data files were then matched with the standard stars in the \pO\ catalog using their mean sky positions (R.A. and Declination) and a matching radius of 0.5 arcsec. For matching, only deblended objects ({\it nchild}=0), lying between rows $64 < objc\_rowc < 1424$ in each field, were selected to avoid poor photometry due to blending or lying close to edges of the CCD. From these matched objects, only those with photometric error $<$0.1 mag were selected to compute photometric zeropoint offsets between the \pO\ catalog and DR15. These offsets were obtained independently for all runs and fields, and in all five filters, and applied to bring our DR15 based catalog to the same photometric scale as the \pO\ catalog -- in essence, we have re-calibrated photometry for all Stripe 82 runs in DR15 using the \pO\ catalog. In addition, the MJD and fractional MJD of observation were computed using the median of the TAI values (the GPS based time reported by the SDSS Apache Point Observatory) for these matched objects. In the final step, the photometric, astrometric and other details for each of these matched standard stars were written to independent (one per star) light curve files. Further processing of these light curves is described in Section~\ref{sec:averaging}. 
 
