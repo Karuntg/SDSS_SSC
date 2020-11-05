@@ -1,7 +1,8 @@
 %% KT: June 9, 2020
 \documentclass{aastex63} 
 \usepackage{amssymb,amsmath}
-
+\usepackage{url}
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%
 \received{\today}
@@ -99,8 +100,7 @@ In this work, we have used the SDSS Data Release 15 (DR15) as available in April
 
 The objects in each of these data files were then matched with the standard stars in the \pO\ catalog using their mean sky positions (R.A. and Declination) and a matching radius of 0.5 arcsec. For matching, only deblended objects ({\it nchild}=0), lying between rows $64 < objc\_rowc < 1424$ in each field, were selected to avoid poor photometry due to blending or lying close to edges of the CCD. From these matched objects, only those with photometric error $<$0.1 mag were selected to compute photometric zeropoint offsets between the \pO\ catalog and DR15. These offsets were obtained independently for all runs and fields, and in all five filters, and applied to bring our DR15 based catalog to the same photometric scale as the \pO\ catalog -- in essence, we have re-calibrated photometry for all Stripe 82 runs in DR15 using the \pO\ catalog. In addition, the MJD and fractional MJD of observation were computed using the median of the TAI values (the GPS based time reported by the SDSS Apache Point Observatory) for these matched objects. In the final step, the photometric, astrometric and other details for each of these matched standard stars were written to independent (one per star) light curve files. Further processing of these light curves is described in Section~\ref{sec:averaging}. 
 
-All these processing steps were completed on a single quad-core desktop needing several days of processing. The final dataset, consisting of all the light curves in the five $ugriz$ filters for the 1,006,849 standard stars in the \pO\ catalog resulted in $\sim$20 GB of tabular data. To make file search and access fast, the data have been chunked into sub-directories, each spanning 1 $\deg$ in RA, and 0.1 $\deg$ in Dec (a ''poor-man's" two-dimensional tree structure). These light curve data files
-can be made available as a single tarball by emailing the contact author. 
+All these processing steps were completed on a single quad-core desktop needing several days of processing. The final dataset, consisting of all the light curves in the five $ugriz$ filters for the 1,006,849 standard stars in the \pO\ catalog resulted in $\sim$20 GB of tabular data. To make file search and access fast, the data have been chunked into sub-directories, each spanning 1 $\deg$ in RA, and 0.1 $\deg$ in Dec (a ``poor-man's'' two-dimensional tree structure). These light curve data files can be made available as a single tarball by emailing the contact author. 
 
 
 \subsection{Gaia Data Release 2 (DR2) Data} \label{ssec:gaia}
@@ -109,7 +109,7 @@ The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial 
 is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for approximately 1.7 billion sources. This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm), for 1.4 billion sources.
     
 Gaia DR2 photometry is superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
-it to derive zeropoint corrections for SDSS photoometry, as described in Section~\ref{sec:v34}. 
+it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:v34}. 
 
 
 \subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
@@ -118,9 +118,9 @@ it to derive zeropoint corrections for SDSS photoometry, as described in Section
  
 Dark Energy Survey \citep{2016MNRAS.460.1270D}
 
-Old text from Doug, probably a good start but needss editing: 
+Old text from Doug, probably a good start but needs editing: 
 
-We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ Depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, a photometric precision of $<$1\% in all bands. The astrometric precision of 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-bands).
+We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, with a photometric precision of $<$1\% in all bands. The quoted astrometric precision is 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-band).
 
 
 \subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
@@ -129,16 +129,96 @@ We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) publ
 
 Pan-STARRS \citep{2010SPIE.7733E..0EK}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
 
-\tbd{Emails from SGwyn to fill in details}
+\tbd{Emails from SGwyn to fill in details, see email on 6/18/2020}
+
+See CFIS DR2 notes on Evernote from Gwyn
   
+%   MAG_AUTO vs MAG_COG: That's pretty standard. While MAG_AUTO works well for galaxies, but not stars. For fainter stars, it systematically underestimates the Kron-radius.
 
+% - I'd be interested in seeing which transformation you derived. I use the one described on this page: \url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/megapipe/docs/filt.html}
+
+% - The SDSS and CFIS filters are different enough that u_SDSS-u_CFIS should start to be thought of as a colour, rather than a shift in filter. Metalicity will have non-negliable effect. I'm not surprised at all that there is 0.03 scatter.
+
+% - On the subject of metalicity, I would view any attempt use GAIA to predict u-magnitudes as quixotic. Dust will also cause problems.
+
+% - My error analysis for the u-band zero-point derived from Pan-STARRS plus GAIA results in an RMS scatter of 0.02 mags in the zero-points. 0.03 (from your Dec plot) seems a little high. However that was measured over the whole survey, so it maybe that the STRIPE-82 part of CFIS is slightly worse than average.
+
+% - Following from that last point, have you considered extending your analsis to the rest of the sky? I find the coloured, all-sky plots very revealing.
+
+{\bf Zeljko 6/19/2020}
+
+% - MAG_AUTO vs MAG_COG: That's pretty standard. While MAG_AUTO works well for galaxies, but not stars. For fainter stars, it systematically underestimates the Kron-radius.
+
+% OK, I didn?t know that - it?s great that there is an explanation! 
+
+% - I'd be interested in seeing which transformation you derived. I use the one described on this page:
+% \url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/megapipe/docs/filt.html}
+
+% We don?t use analytic transformations (too many band and color combinations with multiple surveys/catalogs). Given that we have ~1 million stars, we simply use binned medians, with  very narrow bins (a few hundredths of mag) and then use linear interpolation. Given that the color terms typically have small dynamic ranges and are fairly linear, this numerical approach works fine (the contribution of numerical noise to the final zeropoint scatter is well below 1 milimag). 
+
+% For the SDSS vs. CFIS comparison, we tried to regress uSDSS-uCFIS vs. both g-i color and u-g color, with similar results. We adopted the u-g color for the final analysis, and only blue  stars. The attached plot shows individual stars as blue dots and the binned median as larger yellow dots. As you can see, the relationship is fairly linear across the entire color range, and certainly linear between the successive bins. 
+
+% Should you wish so, we can easily make the SDSS-CFIS matched star catalog available to you.
+
+% - The SDSS and CFIS filters are different enough that u_SDSS-u_CFIS should start to be thought of as a colour, rather than a shift in filter. Metalicity will have non-negliable effect. I'm not surprised at all that there is 0.03 scatter.
+
+% Yes, exactly, we treat the delta(u) it as a color. But metallicity would play a role in our comparison only if there is a substantial metallicity variation across the analyzed region. We know from other work that the variations are small enough not to play a significant role. Thus, the impact of metallicity  on the uSDSS-uCFIS difference is calibrated out in our approach and the scatter in magnitude  difference is dominated by random errors (due to limited photon statistics, background noise and  plausibly readout noise), and by zero point errors, which are likely functions of both R.A. and Dec.  The fact that the scatter of 0.03 mag does not depend on color, magnitude nor position argues that  it?s due to random errors from either CFIS, SDSS or from both. But since the SDSS multi-epoch observations limit the SDSS contribution to <0.01 mag, the scatter of 0.03 mag must be dominated by CFIS.
+
+% Now, you could easily prove me wrong if you have multiple epochs with CFIS u band data. You can simply compare two independent measurements and see what is the empirical rms scatter vs. magnitude.  
+
+
+% - On the subject of metalicity, I would view any attempt use GAIA to predict u-magnitudes as quixotic. Dust will also cause problems.
+
+% We consider the u-r vs. BP-RP color-color diagram and fit the stellar locus in that diagram empirically. This method is essentially the same approach as used for the so-called ?s? color in this paper
+% \url{http://faculty.washington.edu/ivezic/Publications/AN2004.pdf}
+% which we used to assess photometric zero point error in SDSS photometry.
+
+% As you said, for a given value of BP-RP color the corresponding u-r color will also depend on metallicity and dust, but *as long as they don?t change much*, their effects will get absorbed into the empirical locus description. For relative measures, such as variation of the zero points with R.A. and Dec, it works without major systematics (partially because Stripe 82 never gets close to the Galactic plane and lots of dust, and the halo metallicity distribution is fairly smooth). 
+
+% - My error analysis for the u-band zero-point derived from Pan-STARRS plus GAIA results in an RMS scatter of 0.02 mags in the zero-points. 0.03 (from your Dec plot) seems a little high. However that was measured over the whole survey, so it maybe that the STRIPE-82 part of CFIS is slightly worse than average.
+
+% I am assuming here that you meant R.A. plot - not Dec plot - because discrepancies in Dec plot are due to SDSS problems! 
+
+% It?s certainly possible that Stripe 82 is worse. How large were your pixels? Larger pixels will tend the smooth ZP error variation. Our pixels for RA variation are about 2 deg by 2.5 deg. 
+
+% - Following from that last point, have you considered extending your analsis to the rest of the sky? I find the coloured, all-sky plots very revealing.
+
+% It?d be great to do so, but our catalog extends only over Stripe 82 because that?s the only  region on the sky where SDSS obtained ~20 epochs. The main point of our catalog is to  average those multiple epochs to reduce random and systematic errors, with an extra step of correcting a posteriori for obvious zero point errors.
+
+ 
+%  The data you requested is available here:
+
+ %\url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/files/vault/sgwyn/stripe82/cfis_stripe82.dat}
+
+% The last column is a indicator of star/galaxy separation, as discussed in the Evernote. Values between 0.9 and 1.1 are mostly like stars. Values below are mostly likely cosmic rays (Strip82 includes patches where we only have a single image) and values above are most likely galaxies. There is no r-band coverage.
+
+% I've given you MAG_COG = Curve of Growth (again, documented in the Evernote) and MAG_AUTO = Kron-type magnitude.
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{{\it GALEX} Data} \label{ssec:galex}
+
+The Galaxy Evolution Explorer ($GALEX$) survey in the NUV (1771-2831 \AA) and FUV (1344-1786 \AA) bands provides a unique photometric dataset to constrain the u-band of a multi-band survey such as the SDSS.   
+\citep{2017ApJS..230...24B}
+{\bf Doug's email on 10/22} To make the process simpler, we first transformed the GALEX NUV to an estimated u-band using the transformation equation we sent yesterday.  That gets things a lot closer than just starting directly from GALEX NUV.  The E(B-V) tweak has not yet been included; using some sort of median binning like was done to improve the $u_{est}$ to $u_{sdss}$ transformation may be in order.  The results look like they may be qualitatively similar in scope to the CFIS u-band comparison (but sometimes opposite in sign!)  The RA,DEC positions from GALEX seem a bit worse than some of the other catalogs; so we used a match radius of 3 arcsec instead of 1 arcsec in the python notebook (matching SDSS coordinates to GALEX coordinates).
+ 
+The GALEX catalog in the Stripe82 area can be found here:
+
+\url{https://data.darkenergysurvey.org/public_calib/SDSS_Stripe82_stuff/index.html}
+
+It was originally matched to SDSS DR13 by Sahar a couple years ago.  The GALEX catalog is indeed from the Bianchi et al. (2017) \citep{2017ApJS..230...24B}.  As it turns out, it does not go very deep (c. 80\% of the sample is brighter than r=18.0) and  -- as alluded above ? the astrometry seems to be noticeably noisier than that of SDSS.
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
 \section{The Construction and Analysis of the New v3.4 Catalog \label{sec:v34}}
-\input{zeljko2.tex}
+%% \input{zeljko2.tex}
+\input{zeljko2Galx.tex} % This contains a sec on Galex
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion and Conclusions} \label{sec:disc}
 
 To enable further progress in cosmological and other high-precision photometric measurements, 
@@ -175,6 +255,7 @@ photometry, this catalog is a good resource for both calibrating and testing oth
 particular, it will enable high-precision photometric testing of data collected during the 
 commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \acknowledgments
 Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating
