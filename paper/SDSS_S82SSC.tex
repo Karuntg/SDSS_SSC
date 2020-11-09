@@ -111,6 +111,7 @@ is based on the first 22 months of the mission and includes celestial positions 
 Gaia DR2 photometry is superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
 it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:v34}. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
 
@@ -122,6 +123,7 @@ Old text from Doug, probably a good start but needs editing:
 
 We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, with a photometric precision of $<$1\% in all bands. The quoted astrometric precision is 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-band).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
 
@@ -202,15 +204,19 @@ See CFIS DR2 notes on Evernote from Gwyn
 
 \subsection{{\it GALEX} Data} \label{ssec:galex}
 
-The Galaxy Evolution Explorer ($GALEX$) survey in the NUV (1771-2831 \AA) and FUV (1344-1786 \AA) bands provides a unique photometric dataset to constrain the u-band of a multi-band survey such as the SDSS.   
-\citep{2017ApJS..230...24B}
-{\bf Doug's email on 10/22} To make the process simpler, we first transformed the GALEX NUV to an estimated u-band using the transformation equation we sent yesterday.  That gets things a lot closer than just starting directly from GALEX NUV.  The E(B-V) tweak has not yet been included; using some sort of median binning like was done to improve the $u_{est}$ to $u_{sdss}$ transformation may be in order.  The results look like they may be qualitatively similar in scope to the CFIS u-band comparison (but sometimes opposite in sign!)  The RA,DEC positions from GALEX seem a bit worse than some of the other catalogs; so we used a match radius of 3 arcsec instead of 1 arcsec in the python notebook (matching SDSS coordinates to GALEX coordinates).
+The Galaxy Evolution Explorer ($GALEX$) all-sky survey catalog in the NUV (1771-2831 \AA) and FUV (1344-1786 \AA) bands provides a unique photometric dataset to constrain the u-band of a multi-band survey such as the SDSS. Processed and calibrated archival data from the eight year, All-sky Imaging (AIS) and Medium depth Imaging (MIS) surveys are available at $MAST$\footnote{\url{https://galex.stsci.edu/GR6/}}. Due to the failure of the FUV detector midway through the survey, the available imaging depth in this band is shallower by nearly 1 ABmag than the NUV depth of 20.8 ABmag in the AIS. Overall, the source number count in the FUV is, on average, only a tenth of that in the NUV. Given these limitations in the FUV survey, we extracted only sources in the NUV catalog corresponding to the Stripe 82 footprint.  
  
-The GALEX catalog in the Stripe82 area can be found here:
+\citet{2017ApJS..230...24B} provide full details of the GALEX survey, and we summarize only the NUV details, which are pertinent to our analysis here. The survey area had a fairly uniform coverage, leading to total exposure times of $\sim$150s in the AIS, and $\sim$1500s in the MIS. The corresponding NUV survey depths are 20.8 and 22.7 ABmag in the two surveys respectively. Objects in the S82 region were extracted and matched with our SDSS catalog using a matching aperture radius of 3'', which corresponds to the matching radius used internally by GALEX to match their NUV and FUV sources. The GALEX catalogs do not list the RA, Dec positional errors for their sources, and we found their listed sky positions generally carry a greater uncertainty than the other catalogs used in this work.
 
-\url{https://data.darkenergysurvey.org/public_calib/SDSS_Stripe82_stuff/index.html}
+Our matched GALEX catalog consists of 150945 NUV sources in the S82 footprint for which we have NUV aperture magnitudes and uncertainties, as well as various fitted geometric measures for each of them. The astrometry has greater uncertainty than that of SDSS, with mean positional uncertainties of ??''. We also find that the available depth in the S82 region is not very deep, with $>$80\% of the matched sample brighter than r=18 mag. {\bf Add a few more details, eg mean positional uncertainty, from the matched SDSS-Galex catalog}
+  
 
-It was originally matched to SDSS DR13 by Sahar a couple years ago.  The GALEX catalog is indeed from the Bianchi et al. (2017) \citep{2017ApJS..230...24B}.  As it turns out, it does not go very deep (c. 80\% of the sample is brighter than r=18.0) and  -- as alluded above ? the astrometry seems to be noticeably noisier than that of SDSS.
+%% From {\bf Doug's email on 10/22} To make the process simpler, we first transformed the GALEX NUV to an estimated u-band using the transformation equation we sent yesterday.  That gets things a lot closer than just starting directly from GALEX NUV.  The E(B-V) tweak has not yet been included; using some sort of median binning like was done to improve the $u_{est}$ to $u_{sdss}$ transformation may be in order.  The results look like they may be qualitatively similar in scope to the CFIS u-band comparison (but sometimes opposite in sign!)  The RA,DEC positions from GALEX seem a bit worse than some of the other catalogs; so we used a match radius of 3 arcsec instead of 1 arcsec in the python notebook (matching SDSS coordinates to GALEX coordinates).
+ 
+%% The GALEX catalog in the Stripe82 area can be found here:
+%% \url{https://data.darkenergysurvey.org/public_calib/SDSS_Stripe82_stuff/index.html}
+
+%% It was originally matched to SDSS DR13 by Sahar a couple years ago.  The GALEX catalog is indeed from the Bianchi et al. (2017) \citep{2017ApJS..230...24B}.  As it turns out, it does not go very deep (c. 80\% of the sample is brighter than r=18.0) and  -- as alluded above ? the astrometry seems to be noticeably noisier than that of SDSS.
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
