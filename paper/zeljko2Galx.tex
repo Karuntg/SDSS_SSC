@@ -85,7 +85,7 @@ magnitude). Analogous plots for Declination quantities are similar.
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Gaia-based photometric zeropoint corrections  \label{sec:GaiaCorr}}
+\subsubsection{Gaia-based photometric zeropoint corrections  \label{sec:GaiaCorr2}}
 
 Gaia DR2 reported Gmag magnitudes, which approximately span the SDSS $griz$ bandpasses, 
 and BP and RP magnitudes, which approximately correspond to the blue and red halfs of the 
@@ -179,7 +179,7 @@ $ugriz$ magnitudes. The standard deviation for the applied correction is 3.5 mil
 \begin{figure}[th!]
     \centering\includegraphics[width=9cm]{figures/GmagCorrection_Dec_Hess.png} 
 \caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here results are shown for
-0.01 degree wide Declination bins. The 12 cleary visible regions correspond to
+0.01 degree wide Declination bins. The 12 clearly visible regions correspond to
 two SDSS scans (in R.A. direction) and six CCD columns in the SDSS camera. 
 The standard deviation for the applied correction is 6.2 millimag, with a maximum
 absolute value of $\sim0.01$ mag.}
@@ -469,10 +469,14 @@ we recalibrated the new SDSS catalog using Gaia data, for this comparison it sho
 matter that SDSS data were used in calibration of the CFIS catalog. Nevertheless, the
 results of this section should be treated with caution. 
 
-A star-by-star comparison for about 150,000 sufficiently bright blue stars is illustrated in 
-Figure~\ref{fig:CFIS}. The binned median scatter for Declination direction is 5.7 millimag with 
-systematic differences of up to about 0.01 mag. The constraints in R.A. direction are more noisy, 
-with residuals appearing about twice as large as in Declination direction. 
+A star-by-star comparison for about 150,000 sufficiently bright ($r<20$) blue ($1.0 <u-g < 2.1$) 
+stars is illustrated in Figure~\ref{fig:CFIS}. The binned median scatter for Declination direction is 
+5.7 millimag with systematic differences of up to about 0.01 mag. The constraints in R.A. direction 
+are more noisy, with residuals appearing about twice as large as in Declination direction. 
+These residuals compare favorably to the results of analysis by \cite{2017ApJ...848..128I}, 
+who showed that some SDSS runs in Data Release 13 have $u$-band zeropoint errors as large
+as 0.05 mag. 
+
  
 \begin{figure}[th!]
     \centering\includegraphics[width=9cm]{figures/colorResidCFISug_Dec_Hess.png} 
@@ -517,11 +521,61 @@ Note that there is a slight correlation between these two plots.
  
 In the final plot,
 %%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot3.png ,
-the difference between the observed $u_{mMed}$ magtitude and the GALEX-transformed $u_{mMed-est}$ for each star is plotted against SFD98 E(B-V).    So it looks like the above GALEX � SDSS u-band transformation starts to break down for E(B-V) $>$ 0.15.  Maybe the next step would be including E(B-V) explicitly into the fit for the transformation equation.  Either that, or try a first attempt at the 2D figures using Zeljko?s jupyter notebooks.
+the difference between the observed $u_{mMed}$ magtitude and the GALEX-transformed $u_{mMed-est}$ for each star is plotted against SFD98 E(B-V).    So it looks like the above GALEX à SDSS u-band transformation starts to break down for E(B-V) $>$ 0.15.  Maybe the next step would be including E(B-V) explicitly into the fit for the transformation equation.  Either that, or try a first attempt at the 2D figures using Zeljko?s jupyter notebooks.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Offsets from AB magnitude scale \label{sec:AB}} 
 
+We estimate offsets from AB magnitude scale using photometry for three DA white dwarfs observed by HST
+(see Table~\ref{tab:HST}). XXX Doug expands this section, refers to G. Narayan et al. (2019) and other refs,
+and other details explaining how synthetic ugriz photometry is generated for these three stars...
+
+% From Doug's email: 
+% As to the precision and accuracy of the synthetic mags, that is a little hard to quantify.  Narayan et al (2019) report 
+% uncertainties for the synthetic magnitudes of the 2 DA’s from their sample at about 0.5% (5 milli-mags), but I don’t know if 
+% that includes uncertainties in the reddening and in version of the SDSS filters used.  The HST CalSpec database (which 
+% included GD50) is usually quoted as having an accuracy of about 1% (10 milli-mags) in the optical on average for any given 
+% star in its database. 
+% When I get observed DA WD spectra modeled by Pier-Emmanuel Tremblay (a former postdoc of Bergeron), he sends me not 
+% only the best-fit model but also the +/-1sigma Teff, logg models as well.  When I calculate the synthetic mags for those, I
+% usually get a spread of less than 1% in the resulting synthetic mags; so I think Gautham Narayan’s estimate of a statistical
+% rms of 0.5% for his models is reasonable.  So maybe 0.5% (5 millimag) precision/statistical error, and c. 1% (10 milli-mags)
+% accuracy/systematic error.
+
+Table~\ref{tab:AB} presents numerical summary of the comparison between SDSS magnitudes 
+and HST-based synthetic magnitudes for three white dwarfs. We used unweighted mean because 
+formal uncertainties for SDSS photometry are subdominant to systematic errors in HST-based
+synthetic magnitudes, estimated at about 0.01 mag. Uncertainty of the mean offsets was 
+computed from the observed scatter of three values. In the $riz$ bands we detect significant
+($>3\sigma$) deviations, ranging from 0.015 mag to 0.035 mag, while in the $u$ and $g$ bands 
+we can only place upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively). 
+
+\begin{deluxetable}{r|r|c|c|c|c|c}[ht!]
+\tablecaption{Synthetic SDSS magnitudes for three WD dwarfs with HST photometry$^a$. \label{tab:HST}}
+\tablehead{
+  \colhead{R.A. } & \colhead{Dec.} & \colhead{u} & \colhead{g} & \colhead{r} & \colhead{i} & \colhead{z} 
+}
+\startdata
+    352.4221875 &        0.185500 &      18.154 &       18.145 &    18.466 &     18.754 &     19.042 \\  
+      15.8424625 &  $-$0.346592 &      18.627 &       19.057 &    19.558 &     19.923 &     20.258 \\
+      57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &   $-$99.999$^b$ \\
+\enddata
+\tablenotetext{a}{Give here reference to HST data, or some other comment?} 
+\tablenotetext{b}{The CalSpec spectrum stopped at about 9000 \AA and thus did not cover all of SDSS $z$ band.} 
+\end{deluxetable}
 
 
+\begin{deluxetable}{l|c|c|c|c|c}[ht!]
+\tablecaption{AB offsets implied by three WD dwarfs with HST photometry$^a$. \label{tab:AB}}
+\tablehead{
+\colhead{$\Delta u$}  & \colhead{$\Delta g$}  & \colhead{$\Delta r$}  & \colhead{$\Delta i$}  & \colhead{$\Delta z$}  
+}
+\startdata 
+   {\rm mean}            &    $-$0.009    &        0.000     &      0.015    &       0.016    &      0.035     \\ 
+  $\sigma_{\rm mean}$ &         0.019    &        0.014     &      0.004    &       0.004    &      0.011     \\
+\enddata
+\tablenotetext{a}{Offsets are defined as additive corrections to SDSS photometry to place it on AB scale (in mag). 
+Listed values are unweighted mean and its uncertainty.}  
+\end{deluxetable}
+ 
