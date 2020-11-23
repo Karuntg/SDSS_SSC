@@ -492,21 +492,27 @@ only for Declination $>$ -0.45 degree.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison of the new v3.4 SDSS catalog and transformed nUV data from the GALEX catalog  \label{sec:Galextest}} 
 
-We also use the NUV magnitudes from GALEX (see Section~\ref{ssec:galex} to provide an independent check on the SDSS u-band magnitudes, following the zeropoint corrections with Gaia photometry described in \S \ref{sec:GaiaCorr}. For this we derive 
+We also use the NUV magnitudes from GALEX (see Section~\ref{ssec:galex}) to provide an independent check on the SDSS u-band magnitudes, following the zeropoint corrections with Gaia photometry described in \S \ref{sec:GaiaCorr}. For this we derive 
 GALEX to SDSS u transformation equations. Using GALEX NUV with SDSS (g,i) or with SDSS (r,i) yields the tightest GALEX to SDSS u transformation equation:
  
  \begin{equation}
  % \begin{multline}
  \begin{split}
-  u_sdss = & NUV_galex + 0.939 \\
-                  & ? 1.008*(NUV_galex ? g_sdss) + 0.017*(NUV_galex ? g_sdss)**2 \\
-                  & ? 0.599*(g_sdss ? i_sdss) + 0.860*(g_sdss ? i_sdss)**2
+  u_sdss = & NUV_{galex} + 0.939 \\
+                  & - 1.008*(NUV_{galex} -- g_{sdss}) + 0.017*(NUV_{galex} -- g_{sdss})^2 \\
+                  & -- 0.599*(g_{sdss} -- i_{sdss}) + 0.860*(g_{sdss} -- i_{sdss})^2
  \end{split}
 %  \end{multline}
 \end{equation}
  
-Quality plots for this fit are shown in Figure \ref{figures/GalexQA.png} {\bf need to redo these plots in BW; select subplots to include}. The rms per star for this relation is 0.071 mag ? so still a bit noisy, but about as good as we think we can get for transforming GALEX to SDSS u (but see below regarding E(B-V)?).
-     
+Quality plots for this fit are shown in Figure \ref{fig:GalexQA} {\bf need to redo these plots in BW; select subplots to include}. The rms per star for this relation is 0.071 mag ? so still a bit noisy, but about as good as we think we can get for transforming GALEX to SDSS u (but see below regarding E(B-V)?).
+ 
+ \begin{figure}[th!]
+    \centering\includegraphics[width=14cm]{figures/Galex_QA.png}
+\caption{{\bf  To be filled}} 
+\label{fig:GalexQA}
+\end{figure}
+    
 The quality plots for this fit can be found in the attached plot,
 %%   sdss_galex_transform_u.20180614.norder2.niter3.uNUV.NUVg.gi_sdss.qa1.png
  
