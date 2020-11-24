@@ -128,10 +128,16 @@ We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) publ
 
 \subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
 
-\tbd{KT to fill in details}
+{\bf Citations}: 
 
 Pan-STARRS \citep{2010SPIE.7733E..0EK}
+\citep{2020ApJS..251....6M} Magnier 2020a
+\citep{2020ApJS..251....3M} Magnier 2020b
+\citep{2020ApJS..251....5M}, Magnier 2020c
+\citep{2016arXiv161205560C} Chambers 2016
 
+The Panoramic Survey Telescope And Rapid Response System, Telescope 1 (Pan-STARRS-1, or PS1), commissioned in 2010, is the first of four 1.8m telescopes planned to map three quarters of the entire sky visible from Hawaii. This panchromatic, synoptic survey, called the 3$\pi$ Steradian Survey is carried out in five colors, $grizy_{P1}$ to limiting magnitudes of 23.3, 23.2, 23.1, 22.3, and 21.4, with photometric uncertainties of 7-12 millimag in the various bandpasses. The astrometry in the 3$\pi$ Steradian Survey has been cross-calibrated against the Gaia DR1 catalog to yield positional uncertainties of 2.3, and 1.7 milli-arc.sec in the RA, and Dec directions. Chambers ea 2016 provide full details about the PS1 observatory, the surveys carried out and the resulting data products. The series of three papers, Magnier ea (2020 a,b and c) provides details about the processing and calibrations of the surveys. 
+   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
@@ -146,7 +152,9 @@ CFIS DR2 notes on Evernote from Gwyn
 The Canada-France Imaging Survey (CFIS) is a large observing program being carried out at the Canada-France-Hawaii Telescope to map the northern sky in the $MegaCam$ $u$- and $r$-bands. With a broad range of science goals, including providing ground-based optical photometry to complement the $Euclid$ space mission, CFIS aims to cover 10000 deg$^2$ in the $u$-band to a depth of 24.4mag with an uncertainty less than 0.2 mag. The corresponding $r$-band coverage would be smaller, 5000 deg$^2$ to an expected depth of ?? mag. For our analysis, we were provided the $u$-band data from the CFIS data release, DR2 in January 2020, which overlaps the Stripe 82 footprint; there are no CFIS $r$-band observations available for that region (Gwyn, personal comm.).  It should also be noted that in this region, CFIS data are available only for Declination $>$ 0.45 degree.
 
 The CFIS Stripe 82 catalog contains close to 965000 sources, of which 315000 matched within a match radius of 0''.5 with stars in our catalog. The astrometry over the complete CFIS survey region has been calibrated against $Gaia$ DR1, thus reducing positional uncertainties to $<$ 0''.034 (Ibata ea 2017). For the objects in the Stripe 82 region, we crosschecked the positions against matched objects in our $Gaia$ DR2 catalog (see \S \ref{ssec:gaia}) and found a median offset of 0''.033. From the matched objects, we select only bright stars, redder than the main sequence by applying cuts of 1. $\leq (u-g)_{SDSS} \leq 2.1$, and $r_{SDSS} \leq $ 20 mag, similar to the cuts used by Ibata (2017) in their photometric cross-calibration using SDSS DR13. This color-magnitude cut yields 150114 stars, which are used in the comparison described in \S \ref{sec:CFIStest}.   
-  
+
+It should be mentioned that the transmission curve of the MegaCam u-band filter used for the CFIS survey differs noticeably from that of the SDSS u-band filter, even though their wavelength passbands are nearly identical (see Figure 2 in Ibata ea 2017). This difference in transmission should be kept in mind while interpreting the photometry of matched sources in the two surveys, described in \S \ref{sec:CFIStest}.
+   
 %   MAG_AUTO vs MAG_COG: That's pretty standard. While MAG_AUTO works well for galaxies, but not stars. For fainter stars, it systematically underestimates the Kron-radius.
 
 % - I'd be interested in seeing which transformation you derived. I use the one described on this page: \url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/megapipe/docs/filt.html}
@@ -159,7 +167,7 @@ The CFIS Stripe 82 catalog contains close to 965000 sources, of which 315000 mat
 
 % - Following from that last point, have you considered extending your analsis to the rest of the sky? I find the coloured, all-sky plots very revealing.
 
-{\bf Zeljko 6/19/2020}
+% {\bf Zeljko 6/19/2020}
 
 % - MAG_AUTO vs MAG_COG: That's pretty standard. While MAG_AUTO works well for galaxies, but not stars. For fainter stars, it systematically underestimates the Kron-radius.
 
