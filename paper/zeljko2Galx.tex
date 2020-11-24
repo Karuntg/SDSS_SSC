@@ -557,7 +557,7 @@ computed from the observed scatter of three values. In the $riz$ bands we detect
 ($>3\sigma$) deviations, ranging from 0.015 mag to 0.035 mag, while in the $u$ and $g$ bands 
 we can only place upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively). 
 
-\begin{deluxetable}{r|r|c|c|c|c|c}[ht!]
+\begin{deluxetable}{r|r|l|l|l|l|l}[ht!]
 \tablecaption{Synthetic SDSS magnitudes for three WD dwarfs with HST photometry$^a$. \label{tab:HST}}
 \tablehead{
   \colhead{R.A. } & \colhead{Dec.} & \colhead{u} & \colhead{g} & \colhead{r} & \colhead{i} & \colhead{z} 
@@ -565,17 +565,17 @@ we can only place upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectiv
 \startdata
     352.4221875 &        0.185500 &      18.154 &       18.145 &    18.466 &     18.754 &     19.042 \\  
       15.8424625 &  $-$0.346592 &      18.627 &       19.057 &    19.558 &     19.923 &     20.258 \\
-      57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &   $-$99.999$^b$ \\
+      57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &     99.999$^b$ \\
 \enddata
 \tablenotetext{a}{Give here reference to HST data, or some other comment?} 
 \tablenotetext{b}{The CalSpec spectrum stopped at about 9000 \AA and thus did not cover all of SDSS $z$ band.} 
 \end{deluxetable}
 
 
-\begin{deluxetable}{l|c|c|c|c|c}[ht!]
+\begin{deluxetable}{l|r|r|r|r|r}[ht!]
 \tablecaption{AB offsets implied by three WD dwarfs with HST photometry$^a$. \label{tab:AB}}
 \tablehead{
-\colhead{$\Delta u$}  & \colhead{$\Delta g$}  & \colhead{$\Delta r$}  & \colhead{$\Delta i$}  & \colhead{$\Delta z$}  
+      & \colhead{$\Delta u$}  & \colhead{$\Delta g$}  & \colhead{$\Delta r$}  & \colhead{$\Delta i$}  & \colhead{$\Delta z$}  
 }
 \startdata 
    {\rm mean}            &    $-$0.009    &        0.000     &      0.015    &       0.016    &      0.035     \\ 
