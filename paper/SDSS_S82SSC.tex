@@ -3,6 +3,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{url}
 \usepackage{hyperref}
+ \usepackage{xcolor}
 
 %%%%%%%%%%%%%%%%%%%%%%
 \received{\today}
@@ -14,7 +15,14 @@
 \graphicspath{{./}{figures/}}
 
 % user defined
-\newcommand{\tbd}[1]{\textcolor{magenta}{#1}} % indicate TBDs
+%%%%%%%%%%%%%%%%%
+% HIGHLIGHT COMMENTS
+\newcommand{\tbd}[1]{\textcolor{red}{#1}} % indicate TBDs
+\newcommand{\KT}[1]{\textcolor{magenta}{#1}} % KT
+\newcommand{\ZI}[1]{\textcolor{blue}{#1}} % KT
+\newcommand{\AS}[1]{\textcolor{purple}{#1}} % KT
+%%%%%%%%%%%%%%%%%
+
 \def\eq#1{\begin{equation} #1 \end{equation}}
 \def\mic              {\hbox{$\mu\mathrm{m}$}}
 % paper 1
@@ -137,7 +145,8 @@ Pan-STARRS \citep{2010SPIE.7733E..0EK}
 \citep{2016arXiv161205560C} Chambers 2016
 
 The Panoramic Survey Telescope And Rapid Response System, Telescope 1 (Pan-STARRS-1, or PS1), commissioned in 2010, is the first of four 1.8m telescopes planned to map three quarters of the entire sky visible from Hawaii. This panchromatic, synoptic survey, called the 3$\pi$ Steradian Survey is carried out in five colors, $grizy_{P1}$ to limiting magnitudes of 23.3, 23.2, 23.1, 22.3, and 21.4, with photometric uncertainties of 7-12 millimag in the various bandpasses. The astrometry in the 3$\pi$ Steradian Survey has been cross-calibrated against the Gaia DR1 catalog to yield positional uncertainties of 2.3, and 1.7 milli-arc.sec in the RA, and Dec directions. Chambers ea 2016 provide full details about the PS1 observatory, the surveys carried out and the resulting data products. The series of three papers, Magnier ea (2020 a,b and c) provides details about the processing and calibrations of the surveys. 
-   
+  
+  \KT{work in progress} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
