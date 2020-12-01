@@ -114,8 +114,7 @@ All these processing steps were completed on a single quad-core desktop needing 
 
 \subsection{Gaia Data Release 2 (DR2) Data} \label{ssec:gaia}
  
-The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for sources brighter than magnitude Gmag$\sim$21 \citep{2018A&A...616A...1G}. This dataset
-is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for approximately 1.7 billion sources. This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm), for 1.4 billion sources.
+The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.7 billion sources \citep{2018A&A...616A...1G}. This dataset is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm).
     
 Gaia DR2 photometry is superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
 it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:v34}. 
@@ -135,38 +134,41 @@ We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) publ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Pan-STARRS (PS1) Data} \label{ssec:ps1}
-
-{\bf Citations to include}: 
-
-\begin{itemize}
-\item Pan-STARRS \citep{2010SPIE.7733E..0EK}
-\item \citep{2020ApJS..251....6M} Magnier 2020a
-\item \citep{2020ApJS..251....3M} Magnier 2020b
-\item \citep{2020ApJS..251....5M}, Magnier 2020c
-\item \citep{2016arXiv161205560C} Chambers 2016
-\end{itemize}
-
-The Panoramic Survey Telescope And Rapid Response System, Telescope 1 (Pan-STARRS-1, or PS1), commissioned in 2010, is the first of four 1.8m telescopes planned to map three quarters of the entire sky visible from Hawaii (Kaiser ea 2010). This panchromatic, synoptic survey, called the 3$\pi$ Steradian Survey is carried out in five colors, $grizy_{P1}$ up to limiting magnitudes of 23.3, 23.2, 23.1, 22.3, and 21.4 mag, with photometric uncertainties of 7-12 millimag in the various bandpasses. The astrometry in the 3$\pi$ Steradian Survey has been cross-calibrated against the Gaia DR1 catalog to yield positional uncertainties of 2.3, and 1.7 milli-arc.sec in the RA, and Dec directions. Chambers ea 2016 provide full details about the PS1 observatory, the surveys carried out and the resulting data products. In the series of three recent papers, Magnier ea (2020 a,b and c) provide complete details about the processing and calibrations of the survey. 
-
- For our cross-calibration, we used the 2019 data release PS1-DR2 from $MAST$. The catalog overlapping the Stripe 82 region contains over 7 million point sources taken from the stacked 3$\pi$ Steradian Survey. From the large set of measured and derived quantities available for these objects, we downloaded $grizy_{P1}$ PSF photometry and various quality flags. For this region, the mean positional uncertainties are 12 and 11 milli-arc.sec in the RA and Dec directions. Based on this positional precision and that of our SDSS standard stars catalog, we matched both catalogs using a matching aperture of 0.5 arc.sec. The resulting matched catalog containing $>$ 909000 objects are used in our analysis presented in \S \ref{sec:DESPS1}. Taking the r-band as being representative, the mean number of visits used to obtain the mean PSF magnitudes for these matched stars is 14, thus providing robust statistical measures of their photometry.
-       
-%  \KT{work in progress} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+The Panoramic Survey Telescope And Rapid Response System, Telescope 1 (Pan-STARRS-1, or PS1), commissioned 
+in 2010, is the first of planned four 1.8m telescopes designed to map three quarters of the entire sky visible from 
+Hawaii \citep{2010SPIE.7733E..0EK}. This panchromatic, synoptic survey, called the 3$\pi$ Steradian Survey is 
+carried out in five bands, $grizy_{P1}$, with limiting magnitudes of 23.3, 23.2, 23.1, 22.3, and 21.4 mag. 
+\cite{2016arXiv161205560C}  provide full details about the PS1 observatory, the surveys carried out and the 
+resulting data products, while complete details about the processing and calibrations of the survey are 
+provided in a series of three papers \citep{2020ApJS..251....6M, 2020ApJS..251....3M, 2020ApJS..251....5M}. 
+ 
+Here we used the 2019 data release PS1-DR2 from $MAST$. The catalog overlapping the Stripe 82 region contains 
+over 7 million point sources taken from the stacked 3$\pi$ Steradian Survey. From the large set of measured and 
+derived quantities available for these objects, we downloaded $grizy_{P1}$ PSF photometry and various quality flags. 
+For this region, the mean positional uncertainties are 12 and 11 milli-arcsec in the RA and Dec directions. Based 
+on this positional precision and that of our SDSS standard stars catalog, we matched both catalogs using a matching 
+radius of 0.5 arcsec. The resulting matched catalog used in our analysis presented in \S \ref{sec:DESPS1} contains 
+909,000 objects. Taking the $r$ band as being representative, the mean number of visits used to obtain the mean 
+PSF magnitudes for these matched stars is 14. 
+        
 
 \subsection{Canada-France Imaging Survey (CFIS) Data} \label{ssec:cfis}
 
-\tbd{Emails from SGwyn to fill in details, see email on 6/18/2020}
+The Canada-France Imaging Survey (CFIS) is a large observing program being carried out at the Canada-France-Hawaii 
+Telescope (CFHT) to map the northern sky in the MegaCam $u$ and $r$ bands. With a broad range of science goals, 
+including providing ground-based optical photometry to complement the Euclid space mission, CFIS aims to cover 
+10,000 deg$^2$ in the $u$ band to a depth of 24.4 mag. For our analysis, we were provided the $u$ band data which 
+overlaps the Stripe 82 footprint from the CFIS Data Release 2 (DR2, January 2020). In this region, CFIS data are available
+only for Declination $>+0.45$ degree, thus covering only about a quarter of the Stripe 82 survey footprint. 
 
-{\bf Citations}: 
-
-Ibata et al (2017) 2017ApJ...848..128I (Note interesting comparison with sDSS DR13 u-band photometry on page 3) 
-CFIS DR2 notes on Evernote from Gwyn
-
-The Canada-France Imaging Survey (CFIS) is a large observing program being carried out at the Canada-France-Hawaii Telescope (CFHT) to map the northern sky in the $MegaCam$ $u$- and $r$-bands. With a broad range of science goals, including providing ground-based optical photometry to complement the $Euclid$ space mission, CFIS aims to cover 10000 deg$^2$ in the $u$-band to a depth of 24.4mag with an uncertainty less than 0.2 mag. The corresponding $r$-band coverage would be smaller, 5000 deg$^2$ to an expected depth of ?? mag. For our analysis, we were provided the $u$-band data from the CFIS data release, DR2 in January 2020, which overlaps the Stripe 82 footprint; there are no CFIS $r$-band observations available for that region (Gwyn, personal comm.).  It should also be noted that in this region, CFIS data are available only for declination $>$ 0.45 degree, thus covering only about a quarter of the Stripe 82 survey footprint in the declination direction.
-
-The available CFIS-DR2 Stripe 82 catalog contains close to 965000 sources, of which $\sim$315000 matched within a match radius of 0.5 arc.sec with stars in our SDSS standard stars catalog. The astrometry over the complete CFIS survey region has been calibrated against $Gaia$ DR1, thus reducing positional uncertainties to $<$ 0''.034 (Ibata ea 2017). For the objects in the Stripe 82 region, we crosschecked the positions against matched objects in our $Gaia$ DR2 catalog (see \S \ref{ssec:gaia}) and found a median positional uncertainty of 0''.033. From the matched objects, we select only bright stars, redder than the main sequence by applying cuts of 1. $\leq (u-g)_{SDSS} \leq 2.1$, and $r_{SDSS} \leq $ 20 mag, similar to the cuts used by Ibata (2017) in their photometric cross-calibration using SDSS DR13. This color-magnitude cut yields 150114 stars, which are used in the comparison described in \S \ref{sec:CFIStest}.   
-
-It should be mentioned that the transmission curve of the MegaCam u-band filter used for the CFIS survey differs noticeably from that of the SDSS u-band filter, even though their wavelength passbands are nearly identical (see Figure 2 in Ibata ea 2017). This difference in transmission should be kept in mind while interpreting the photometry of matched sources in the two surveys, described in \S \ref{sec:CFIStest}.
+The available CFIS DR2-Stripe 82 catalog contains close to 965,000 sources, of which $\sim$315,000 matched within 
+a match radius of 0.5 arcsec with stars in our SDSS standard stars catalog. The astrometry over the complete CFIS survey 
+region has been calibrated against $Gaia$ DR1, and has positional uncertainties to $<$ 0'.034 arcsec 
+\citep{2017ApJ...848..128I}.  From the matched objects, we select only bright stars, $r \leq 20$ mag,  with colors  
+$\leq (u-g)_{SDSS} \leq 2.1$, following \cite{2017ApJ...848..128I}. This color-magnitude cut yields 150,114 stars, which 
+are used in the comparison described in \S \ref{sec:CFIStest}.  We note that that the transmission curve of the MegaCam 
+$u$ band filter used for the CFIS survey differs noticeably from that of the SDSS $u$ band filter (see Figure 2 in \citealt{2017ApJ...848..128I}).  
    
 %   MAG_AUTO vs MAG_COG: That's pretty standard. While MAG_AUTO works well for galaxies, but not stars. For fainter stars, it systematically underestimates the Kron-radius.
 
@@ -274,26 +276,32 @@ Thanks to the availability of photometric data from recent wide-field surveys (G
 and CFIS), we were able to derive robust zeropoint corrections and establish that this new catalog
 is superior to the original catalog. Using a combination of comparison to other catalogs and 
 astrophysical constraints, we find that that the contribution of the zeropoint errors to photometric
-errors is $<5$ millimag for the $gri$ bands, and $<10$ millimag for the $u$ and $z$ bands. 
+uncertainties is $<5$ millimag for the $gri$ bands, and $<10$ millimag for the $u$ and $z$ bands. 
 
 Various catalog cross-comparisons have revealed minor problems with all the analyzed catalogs.
 For example, we detected DES $z$ band zeropoint errors of up to 0.01-0.02 mag, as a function 
-of R.A., and demonstreted that Gaia Gmag magnitudes appear too faint by about 0.02 mag at
+of R.A., and demonstrated that Gaia Gmag magnitudes appear too faint by about 0.02 mag at
 Gmag$\sim$20.
  
 We constrained offsets from the absolute AB magnitude scale using three white dwarfs with the 
 HST CalSpec absolute photometry data. In the $riz$ bands we measured significant ($>3\sigma$) 
 deviations, ranging from 0.015 mag to 0.035 mag (see Table~\ref{tab:AB}), while in the $u$ and $g$ 
-bands we only placed upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively).  
+bands we only placed upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively). These
+constraints on absolute AB magnitude scale could be improved by extend the number of such 
+calibrators.
 
 Thanks to its high stellar density, about 1 star per square arcmin, and demonstrated sub-percent 
-photometry, this catalog is a good resource for both calibrating and testing other surveys. In
-particular, it will enable high-precision photometric testing of data collected during the 
-commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
+internal photometric precision, this catalog is a good resource for both calibrating and testing 
+other surveys. In particular, it will enable high-precision photometric testing of data collected 
+during the commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \acknowledgments
+
+We thank Stephen Gwyn for providing the CFIS catalog to us, and for discussions of the
+$u$ band photometry. 
+
 Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating
 Institutions, the National Science Foundation, the US Department of Energy, the National Aeronautics and 
 Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education 
