@@ -387,7 +387,7 @@ and 1.3 millimag, respectively, and 1.8 millimag and 3.4 millimag for the $y$ co
   
 The quality of photometric zeropoint calibration for the new SDSS catalog can be conveniently
 tested with the DES (see Section~\ref{ssec:des}) and Pan-STARRS (see Section~\ref{ssec:ps1}) catalogs. 
-Both catalogs list $griz$ photometry of sufficient precision for esentially all stars
+Both catalogs list $griz$ photometry of sufficient precision for essentially all stars
 from Stripe 82. Their photometric calibration procedures are expected to result in different 
 spatial patterns and thus a cross-comparison with the v3.4 catalog can reveal residual problems
 with zeropoint calibration. They are also deeper than Gaia DR2 catalog and thus can provide
@@ -499,17 +499,30 @@ only for Declination $>$ -0.45 degree.}
 \subsection{Comparison of the new v3.4 SDSS catalog and transformed nUV data from the GALEX catalog  \label{sec:Galextest}} 
 
 We also use the NUV magnitudes from GALEX (see Section~\ref{ssec:galex}) to provide an independent check on the SDSS u-band magnitudes, following the zeropoint corrections with Gaia photometry described in \S \ref{sec:GaiaCorr}. For this we derive 
-GALEX to SDSS u transformation equations. Using GALEX NUV with SDSS (g,i) or with SDSS (r,i) yields the tightest GALEX to SDSS u transformation equation:
- 
- \begin{equation}
- % \begin{multline}
- \begin{split}
-  u_sdss = & NUV_{galex} + 0.939 \\
-                  & - 1.008*(NUV_{galex} -- g_{sdss}) + 0.017*(NUV_{galex} -- g_{sdss})^2 \\
-                  & -- 0.599*(g_{sdss} -- i_{sdss}) + 0.860*(g_{sdss} -- i_{sdss})^2
- \end{split}
-%  \end{multline}
+GALEX to SDSS u transformation equations. Using GALEX NUV magnitudes, with SDSS (g,i) magnitudes (or equivalently, with SDSS (r,i)) yields the tightest GALEX to SDSS u-band transformation equation. Using a second order fit, the fitted coefficients for the estimated SDSS $u_{est}$ is given by:
+
+\begin{equation}
+\begin{split}
+u_{est}  = & NUV_{galex}  - 1.008*(NUV_{galex} - g_{sdss}) + 0.017*(NUV_{galex}  - g_{sdss})^2  \\
+    & -0.599*(g_{sdss} - i_{sdss}) + 0.860*(g_{sdss} - i_{sdss})^2 + 0.939
+\end{split}
 \end{equation}
+ 
+%  \begin{equation}
+% \begin{multline}
+%  \begin{split}
+
+% u_{est} = NUV_{galex}  - 1.008*(NUV_{galex} - g_{sdss}) + 0.017*(NUV_{galex}  - g_{sdss})^2 \\
+%		-0.599*(g_{sdss} - i_{sdss}) + 0.860*(g_{sdss} - i_{sdss})^2 + 0.939
+
+% u_{est} =  NUV_{galex} + 0.939 - 1.008*(NUV_{galex} - g_{sdss}) + 0.017*(NUV_{galex} - g_{sdss})^2 \\
+%                    - 0.599*(g_{sdss} - i_{sdss}) + 0.860*(g_{sdss} - i_{sdss})^2
+
+%   u_{est} =  NUV + 0.939 - 1.008*(NUV - g) + 0.017*(NUV - g)^2 - 0.599*(g - i) + 0.860*(g - i)^2
+
+% \end{split}
+% \end{multline}
+% \end{equation}
  
 Quality plots for this fit are shown in Figure \ref{fig:GalexQA} {\bf need to redo these plots in BW; select subplots to include}. The rms per star for this relation is 0.071 mag ? so still a bit noisy, but about as good as we think we can get for transforming GALEX to SDSS u (but see below regarding E(B-V)?).
  
