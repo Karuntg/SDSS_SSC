@@ -49,6 +49,11 @@
 {Betoule}, M., {Marriner}, J., {Regnault}, N., {et~al.} 2013, \aap, 552, A124,
   \dodoi{10.1051/0004-6361/201220610}
 
+\bibitem[{{Bianchi} {et~al.}(2017){Bianchi}, {Shiao}, \&
+  {Thilker}}]{2017ApJS..230...24B}
+{Bianchi}, L., {Shiao}, B., \& {Thilker}, D. 2017, \apjs, 230, 24,
+  \dodoi{10.3847/1538-4365/aa7053}
+
 \bibitem[{{Blanton} {et~al.}(2017){Blanton}, {Bershady}, {Abolfathi},
   {Albareti}, {Allende Prieto}, {Almeida}, {Alonso-Garc{\'\i}a}, {Anders},
   {Anderson}, {Andrews}, {Aquino-Ort{\'\i}z}, {Arag{\'o}n-Salamanca},
@@ -272,8 +277,8 @@
 {Gunn}, J.~E., {Carr}, M., {Rockosi}, C., {et~al.} 1998, \aj, 116, 3040,
   \dodoi{10.1086/300645}
 
-\bibitem[{Hunter(2007)}]{matplotlib}
-Hunter, J.~D. 2007, Computing In Science \& Engineering, 9, 90,
+\bibitem[{Hunter(2007)}]{Hunter:2007}
+Hunter, J.~D. 2007, Computing in Science \& Engineering, 9, 90,
   \dodoi{10.1109/MCSE.2007.55}
 
 \bibitem[{{Ibata} {et~al.}(2017){Ibata}, {McConnachie}, {Cuilland re},
@@ -323,27 +328,27 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   Photo-Optical Instrumentation Engineers (SPIE) Conference Series, Vol. 7733,
   Ground-based and Airborne Telescopes III, 77330E, \dodoi{10.1117/12.859188}
 
-\bibitem[{{Magnier} {et~al.}(2020{\natexlab{a}}){Magnier}, {Schlafly},
+\bibitem[{{Magnier} {et~al.}(2020{\natexlab{a}}){Magnier}, {Chambers},
+  {Flewelling}, {Hoblitt}, {Huber}, {Price}, {Sweeney}, {Waters}, {Denneau},
+  {Draper}, {Hodapp}, {Jedicke}, {Kaiser}, {Kudritzki}, {Metcalfe}, {Stubbs},
+  \& {Wainscoat}}]{Euge20a}
+{Magnier}, E.~A., {Chambers}, K.~C., {Flewelling}, H.~A., {et~al.}
+  2020{\natexlab{a}}, \apjs, 251, 3, \dodoi{10.3847/1538-4365/abb829}
+
+\bibitem[{{Magnier} {et~al.}(2020{\natexlab{b}}){Magnier}, {Sweeney},
+  {Chambers}, {Flewelling}, {Huber}, {Price}, {Waters}, {Denneau}, {Draper},
+  {Farrow}, {Jedicke}, {Hodapp}, {Kaiser}, {Kudritzki}, {Metcalfe}, {Stubbs},
+  \& {Wainscoat}}]{Euge20b}
+{Magnier}, E.~A., {Sweeney}, W.~E., {Chambers}, K.~C., {et~al.}
+  2020{\natexlab{b}}, \apjs, 251, 5, \dodoi{10.3847/1538-4365/abb82c}
+
+\bibitem[{{Magnier} {et~al.}(2020{\natexlab{c}}){Magnier}, {Schlafly},
   {Finkbeiner}, {Tonry}, {Goldman}, {R{\"o}ser}, {Schilbach}, {Casertano},
   {Chambers}, {Flewelling}, {Huber}, {Price}, {Sweeney}, {Waters}, {Denneau},
   {Draper}, {Hodapp}, {Jedicke}, {Kaiser}, {Kudritzki}, {Metcalfe}, {Stubbs},
-  \& {Wainscoat}}]{2020ApJS..251....6M}
+  \& {Wainscoat}}]{Euge20c}
 {Magnier}, E.~A., {Schlafly}, E.~F., {Finkbeiner}, D.~P., {et~al.}
-  2020{\natexlab{a}}, \apjs, 251, 6, \dodoi{10.3847/1538-4365/abb82a}
-
-\bibitem[{{Magnier} {et~al.}(2020{\natexlab{b}}){Magnier}, {Chambers},
-  {Flewelling}, {Hoblitt}, {Huber}, {Price}, {Sweeney}, {Waters}, {Denneau},
-  {Draper}, {Hodapp}, {Jedicke}, {Kaiser}, {Kudritzki}, {Metcalfe}, {Stubbs},
-  \& {Wainscoat}}]{2020ApJS..251....3M}
-{Magnier}, E.~A., {Chambers}, K.~C., {Flewelling}, H.~A., {et~al.}
-  2020{\natexlab{b}}, \apjs, 251, 3, \dodoi{10.3847/1538-4365/abb829}
-
-\bibitem[{{Magnier} {et~al.}(2020{\natexlab{c}}){Magnier}, {Sweeney},
-  {Chambers}, {Flewelling}, {Huber}, {Price}, {Waters}, {Denneau}, {Draper},
-  {Farrow}, {Jedicke}, {Hodapp}, {Kaiser}, {Kudritzki}, {Metcalfe}, {Stubbs},
-  \& {Wainscoat}}]{2020ApJS..251....5M}
-{Magnier}, E.~A., {Sweeney}, W.~E., {Chambers}, K.~C., {et~al.}
-  2020{\natexlab{c}}, \apjs, 251, 5, \dodoi{10.3847/1538-4365/abb82c}
+  2020{\natexlab{c}}, \apjs, 251, 6, \dodoi{10.3847/1538-4365/abb82a}
 
 \bibitem[{Oliphant(2006)}]{numpy}
 Oliphant, T.~E. 2006, A guide to NumPy, Vol.~1 (Trelgol Publishing USA)
