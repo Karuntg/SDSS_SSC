@@ -115,21 +115,55 @@ All these processing steps were completed on a single quad-core desktop needing 
 \subsection{Gaia Data Release 2 (DR2) Data} \label{ssec:gaia}
  
 The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.7 billion sources \citep{2018A&A...616A...1G}. This dataset is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm).
-    
-Gaia DR2 photometry is superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
+
+% DLT, 10 Dec 2020:  Added the hedge-word ``generally'' in the following sentence (I know folks who would migth quibble otherwise(!))...
+Gaia DR2 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
 it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:v34}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Deep Energy Survey (DES) Data} \label{ssec:des}
+\subsection{Dark Energy Survey (DES) Data} \label{ssec:des}
 
-\tbd{DT/SA to fill in details}
- 
-Dark Energy Survey \citep{2016MNRAS.460.1270D}
+% DLT/SA update:  10 Dec 2020:
 
-Old text from Doug, probably a good start but needs editing: 
+The Dark Energy Survey (DES; \citealt{2016MNRAS.460.1270D}) is an
+imaging survey of the Southern Galactic Cap in 5 filter passbands
+($grizY_{DES}$) that was conducted from 2013 to 2019 with the 570
+mega-pixel Dark Energy Camera (DECam;
+\citealt{2008arXiv0810.3600H,2015AJ....150..150F}) on the Victor
+M.\ Blanco 4-m telescope at the Cerro Tololo Interamerican
+Observatory.
 
-We use the Dark Energy Survey Data Release 1 (DES DR1; Abbott et al.\ 2018) public data set. DES DR1 object catalog consists $\sim$ 400 million objects covering 5000$deg^{2}$ of the southern Galactic cap in the five DES grizY filters. The 10$sigma$ depth in grizY is 24.33, 24.08, 23.44, 22.69, and 21.44 mag, and median point-spread function is 1.12, 0.96, 0.88, 0.84, and 0.90 FWHM in grizY respectively, with a photometric precision of $<$1\% in all bands. The quoted astrometric precision is 151 mas (for a full discussion about the astrometric solution and the accuracy see Abbott et al.\ 2018). We made use of the DES DR1 access through the NOAO Data Lab (http://datalab.noao.edu) via Table Access Protocol (TAP) service, and downloaded the overlapping area with S82. We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2 of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all good data with IMAFLAGS\_ISO==0 (in the i-band).
+For this paper, we made use of the DES Data Release 1 (DES DR1;
+\citealt{2018ApJS..239...18A}) public data set, which is based on the
+first 3 years of DES observations.  The DES DR1 object catalog
+consists of $\sim$ 400 million objects to a depth of 24.33, 24.08,
+23.44, 22.69, 21.44 mag in $ugrizY_{DES}$ ($S/N=10\sigma$).  The DES
+DR1's photometric calibration is estimated to be be uniform at the
+sub-percent level (RMS) for each of the five filter passbands over the
+entirety of the survey footprint.  Its astrometric precision is quoted
+to be 151~milli-arcsec (RMS).  We downloaded DES DR1 data via the NOAO
+Data Lab\footnote{\url{http://datalab.noao.edu}} Table Access Protocol
+(TAP) service, selecting stars in the general area of the SDSS
+Stripe~82 region of the DES footprint.  For the purposes of our
+analysis, we downloaded the catalog-coadd weighted mean PSF magnitude
+({\tt WAVG\_MAG\_PSF}) and magnitude error ({\tt WAVG\_MAGERR\_PSF} )
+as well as the number of observations that went into the weighted
+catalog-coadd weighted mean PSF magnitude ({\tt N\_EPOCHS}) in each
+filter band for each downloaded DES object.  In total, 3\,585\,229
+stars were downloaded in the region (RA $>$ $270^{\circ}$ or $<$
+$105^{\circ}$; DEC $=$ $-3.5^{\circ}$ to $+3.5^{\circ}$), of which
+619\,741 were matched to our SDSS catalog using a match radius of
+0.5~arcsec.
+
+%We made use of the DES DR1 access through the NOAO Data Lab () via
+%Table Access Protocol (TAP) service, and downloaded the overlapping
+%area with S82.
+
+%We selected stars via SPREAD\_MODEL and SPREADERR\_MODEL (in the
+%i-bands; in particular EXTENDED\_COADD $\leq$1 as described in eq.~2
+%of Abbott et al.\ 2018), with WAVG\_MAG\_PSF in AB mag keeping all
+%good data with IMAFLAGS\_ISO==0 (in the i-band).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

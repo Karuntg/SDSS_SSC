@@ -5,6 +5,40 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Abbott} {et~al.}(2018){Abbott}, {Abdalla}, {Allam}, {Amara},
+  {Annis}, {Asorey}, {Avila}, {Ballester}, {Banerji}, {Barkhouse}, {Baruah},
+  {Baumer}, {Bechtol}, {Becker}, {Benoit-L{\'e}vy}, {Bernstein}, {Bertin},
+  {Blazek}, {Bocquet}, {Brooks}, {Brout}, {Buckley-Geer}, {Burke}, {Busti},
+  {Campisano}, {Cardiel-Sas}, {Carnero Rosell}, {Carrasco Kind}, {Carretero},
+  {Castander}, {Cawthon}, {Chang}, {Chen}, {Conselice}, {Costa}, {Crocce},
+  {Cunha}, {D'Andrea}, {da Costa}, {Das}, {Daues}, {Davis}, {Davis}, {De
+  Vicente}, {DePoy}, {DeRose}, {Desai}, {Diehl}, {Dietrich}, {Dodelson},
+  {Doel}, {Drlica-Wagner}, {Eifler}, {Elliott}, {Evrard}, {Farahi}, {Fausti
+  Neto}, {Fernandez}, {Finley}, {Flaugher}, {Foley}, {Fosalba}, {Friedel},
+  {Frieman}, {Garc{\'\i}a-Bellido}, {Gaztanaga}, {Gerdes}, {Giannantonio},
+  {Gill}, {Glazebrook}, {Goldstein}, {Gower}, {Gruen}, {Gruendl}, {Gschwend},
+  {Gupta}, {Gutierrez}, {Hamilton}, {Hartley}, {Hinton}, {Hislop}, {Hollowood},
+  {Honscheid}, {Hoyle}, {Huterer}, {Jain}, {James}, {Jeltema}, {Johnson},
+  {Johnson}, {Kacprzak}, {Kent}, {Khullar}, {Klein}, {Kovacs}, {Koziol},
+  {Krause}, {Kremin}, {Kron}, {Kuehn}, {Kuhlmann}, {Kuropatkin}, {Lahav},
+  {Lasker}, {Li}, {Li}, {Liddle}, {Lima}, {Lin}, {L{\'o}pez-Reyes}, {MacCrann},
+  {Maia}, {Maloney}, {Manera}, {March}, {Marriner}, {Marshall}, {Martini},
+  {McClintock}, {McKay}, {McMahon}, {Melchior}, {Menanteau}, {Miller},
+  {Miquel}, {Mohr}, {Morganson}, {Mould}, {Neilsen}, {Nichol}, {Nogueira},
+  {Nord}, {Nugent}, {Nunes}, {Ogando}, {Old}, {Pace}, {Palmese},
+  {Paz-Chinch{\'o}n}, {Peiris}, {Percival}, {Petravick}, {Plazas}, {Poh},
+  {Pond}, {Porredon}, {Pujol}, {Refregier}, {Reil}, {Ricker}, {Rollins},
+  {Romer}, {Roodman}, {Rooney}, {Ross}, {Rykoff}, {Sako}, {Sanchez}, {Sanchez},
+  {Santiago}, {Saro}, {Scarpine}, {Scolnic}, {Serrano}, {Sevilla-Noarbe},
+  {Sheldon}, {Shipp}, {Silveira}, {Smith}, {Smith}, {Smith}, {Soares-Santos},
+  {Sobreira}, {Song}, {Stebbins}, {Suchyta}, {Sullivan}, {Swanson}, {Tarle},
+  {Thaler}, {Thomas}, {Thomas}, {Troxel}, {Tucker}, {Vikram}, {Vivas},
+  {Walker}, {Wechsler}, {Weller}, {Wester}, {Wolf}, {Wu}, {Yanny}, {Zenteno},
+  {Zhang}, {Zuntz}, {DES Collaboration}, {Juneau}, {Fitzpatrick}, {Nikutta},
+  {Nidever}, {Olsen}, {Scott}, \& {NOAO Data Lab}}]{2018ApJS..239...18A}
+{Abbott}, T.~M.~C., {Abdalla}, F.~B., {Allam}, S., {et~al.} 2018, \apjs, 239,
+  18, \dodoi{10.3847/1538-4365/aae9f0}
+
 \bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration},
   {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
   {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
@@ -167,6 +201,28 @@
 {Dark Energy Survey Collaboration}, {Abbott}, T., {Abdalla}, F.~B., {et~al.}
   2016, \mnras, 460, 1270, \dodoi{10.1093/mnras/stw641}
 
+\bibitem[{{Flaugher} {et~al.}(2015){Flaugher}, {Diehl}, {Honscheid}, {Abbott},
+  {Alvarez}, {Angstadt}, {Annis}, {Antonik}, {Ballester}, {Beaufore},
+  {Bernstein}, {Bernstein}, {Bigelow}, {Bonati}, {Boprie}, {Brooks},
+  {Buckley-Geer}, {Campa}, {Cardiel-Sas}, {Castander}, {Castilla}, {Cease},
+  {Cela-Ruiz}, {Chappa}, {Chi}, {Cooper}, {da Costa}, {Dede}, {Derylo},
+  {DePoy}, {de Vicente}, {Doel}, {Drlica-Wagner}, {Eiting}, {Elliott}, {Emes},
+  {Estrada}, {Fausti Neto}, {Finley}, {Flores}, {Frieman}, {Gerdes},
+  {Gladders}, {Gregory}, {Gutierrez}, {Hao}, {Holland}, {Holm}, {Huffman},
+  {Jackson}, {James}, {Jonas}, {Karcher}, {Karliner}, {Kent}, {Kessler},
+  {Kozlovsky}, {Kron}, {Kubik}, {Kuehn}, {Kuhlmann}, {Kuk}, {Lahav}, {Lathrop},
+  {Lee}, {Levi}, {Lewis}, {Li}, {Mandrichenko}, {Marshall}, {Martinez},
+  {Merritt}, {Miquel}, {Mu{\~n}oz}, {Neilsen}, {Nichol}, {Nord}, {Ogando},
+  {Olsen}, {Palaio}, {Patton}, {Peoples}, {Plazas}, {Rauch}, {Reil}, {Rheault},
+  {Roe}, {Rogers}, {Roodman}, {Sanchez}, {Scarpine}, {Schindler}, {Schmidt},
+  {Schmitt}, {Schubnell}, {Schultz}, {Schurter}, {Scott}, {Serrano}, {Shaw},
+  {Smith}, {Soares-Santos}, {Stefanik}, {Stuermer}, {Suchyta}, {Sypniewski},
+  {Tarle}, {Thaler}, {Tighe}, {Tran}, {Tucker}, {Walker}, {Wang}, {Watson},
+  {Weaverdyck}, {Wester}, {Woods}, {Yanny}, \& {DES
+  Collaboration}}]{2015AJ....150..150F}
+{Flaugher}, B., {Diehl}, H.~T., {Honscheid}, K., {et~al.} 2015, \aj, 150, 150,
+  \dodoi{10.1088/0004-6256/150/5/150}
+
 \bibitem[{{Frieman} {et~al.}(2008){Frieman}, {Bassett}, {Becker}, {Choi},
   {Cinabro}, {DeJongh}, {Depoy}, {Dilday}, {Doi}, {Garnavich}, {Hogan},
   {Holtzman}, {Im}, {Jha}, {Kessler}, {Konishi}, {Lampeitl}, {Marriner},
@@ -276,6 +332,10 @@
   {Brinkman}}]{1998AJ....116.3040G}
 {Gunn}, J.~E., {Carr}, M., {Rockosi}, C., {et~al.} 1998, \aj, 116, 3040,
   \dodoi{10.1086/300645}
+
+\bibitem[{{Honscheid} \& {DePoy}(2008)}]{2008arXiv0810.3600H}
+{Honscheid}, K., \& {DePoy}, D.~L. 2008, arXiv e-prints, arXiv:0810.3600.
+\newblock \doarXiv{0810.3600}
 
 \bibitem[{Hunter(2007)}]{Hunter:2007}
 Hunter, J.~D. 2007, Computing in Science \& Engineering, 9, 90,
