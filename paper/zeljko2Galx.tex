@@ -106,7 +106,7 @@ and $r-z$ colors, and used the median residuals per bin as zeropoint corrections
 the $ugiz$ bands. 
 
 Given a large number of matched stars ($\sim 400,000$), and a large number of color combinations,
-we do not attempt to derive analytic fits for synethtic magnitudes and colors but instead
+we do not attempt to derive analytic fits for {\bf (DLT:) synthetic} magnitudes and colors but instead
 use 0.05 mag narrow color bins and linear interpolation between the bins. We have verified
 that even sixth-order polynomial fits do not provide better results than this simple 
 numerical approach. An example of such a transformation is shown in Figure~\ref{fig:GrVSgi}. 
@@ -404,7 +404,10 @@ updated SDSS catalog is well below 0.01 mag (rms), with typical values of 3-7 mi
 direction and 1-2 millimag in the Declination direction. As discernible in the two bottom panels
 in Figure~\ref{fig:DESPSRA}, there are systematic residual errors in the $z$ band zeropoint as a 
 function of  Declination at the level of a few millimag. Note also implied DES $z$ band zeropoint errors 
-of up to 0.01-0.02 mag, as a function of R.A. (see the bottom left panel in Figure~\ref{fig:DESPSRA}). 
+of up to 0.01-0.02 mag, as a function of R.A. (see the bottom left panel in Figure~\ref{fig:DESPSRA})
+{\bf (DLT:), although a similar trend in the equivalent Pan-STARRS plot (bottom right panel in Figure~\ref{fig:DESPSRA})
+may indicate some of the issue may also reside with the Gaia DR2 calibrations upon which the SDSS Stripee82 calibrations are based.\footnote{
+For a comparison of DES DR1 and Gaia DR2 calibrations, see, e.g., Fig.~9 of \citet{2018ApJS..239...18A}.}}
 
 The variation of the magnitude differences
 with magnitude (see Figure~\ref{fig:drVSr}) shows good agreement (to within $\sim$5 millimag) 
@@ -501,16 +504,75 @@ only for Declination $>$ -0.45 degree.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison of the new v3.4 SDSS catalog and transformed nUV data from the GALEX catalog  \label{sec:Galextest}} 
 
-We also use the NUV magnitudes from GALEX (see Section~\ref{ssec:galex}) to provide an independent check on the SDSS u-band magnitudes, following the zeropoint corrections with Gaia photometry described in \S \ref{sec:GaiaCorr}. For this we derive 
-GALEX to SDSS u transformation equations. Using GALEX NUV magnitudes, with SDSS (g,i) magnitudes (or equivalently, with SDSS (r,i)) yields the tightest GALEX to SDSS u-band transformation equation. Using a second order fit, the fitted coefficients for the estimated SDSS $u_{est}$ is given by:
+We also use the NUV magnitudes from GALEX (see
+Section~\ref{ssec:galex}) to provide an independent check on the SDSS
+u-band magnitudes, following the zeropoint corrections with Gaia
+photometry described in \S \ref{sec:GaiaCorr}. For this we derive the
+following GALEX to SDSS u transformation equation:
+%Using GALEX NUV magnitudes, with SDSS ($g$,$i$) magnitudes yields the
+%tightest GALEX to SDSS u-band transformation equation. Using a second
+%order fit, the fitted coefficients for the estimated SDSS $u_{est}$ is
+%given by:
 
 \begin{equation}
 \begin{split}
-u_{est}  = & NUV_{galex}  - 1.008*(NUV_{galex} - g_{sdss}) + 0.017*(NUV_{galex}  - g_{sdss})^2  \\
-    & -0.599*(g_{sdss} - i_{sdss}) + 0.860*(g_{sdss} - i_{sdss})^2 + 0.939
+u_{est} = & NUV_{galex}  - 0.999\times(NUV_{galex} - g_{sdss}) + 0.015\times(NUV_{galex}  - g_{sdss})^2  \\
+         & -0.426\times(g_{sdss} - i_{sdss}) + 0.821*(g_{sdss} - i_{sdss})^2 + 0.939 \\
+         & + T \times [ -1.233\times(E(B-V)-0.15) + 3.430\times(E(B-V)-0.15)^{2} ] \\
 \end{split}
 \end{equation}
- 
+where $T$ is a step function in the value of the interstellar reddening, E(B-V),
+from the \citet{1998ApJ...500..525S} reddening map:
+\begin{align}
+T(E(B-V)) = \left\{ \begin{array}{cc} 
+                0 & \hspace{5mm} E(B-V) \leq 0.15 \\
+                1 & \hspace{5mm} 0.15 < E(B-V) < 0.3 \\
+                \end{array} \right.
+\end{align}
+This transformation relation, which is suitable for stars with $0.5 <
+(u-g)_{sdss} < 2.0$, $0.2 < (g-r)_{sdss} < 0.8$, $0.3 < (g-i)_{sdss} <
+1.0$, and $E(B-V) < 0.3$, has a per star RMS of $\sigma=0.060$ mag
+(the relatively high RMS is due in part to the relatively high RMS in
+the GALEX $NUV$ magnitudes).  This relation converts the GALEX $NUV$
+magnitudes in to very reasonable approximations of the SDSS $u$-band.
+To refine these approximations, we then applied the same sort of
+numerical transformation that was used for the SDSS/Gaia
+transfrormation in Figure~\ref{fig:GrVSgi}; this improved the overall
+per star RMS to $\sigma=0.050$, with most of the improvement occurring
+for the bluest ($(u-g)_{sdss} \la 1.0$) and the reddest ($(u-g)_{sdss}
+\ga 1.0$) stars in our sample.
+
+Despite the relatively noisy results, we can make several conclusions
+based upon the binned data consisting of 54,660 matches between the
+v3.4 SDSS catalog and the GALEX catalog.  First, in
+Figure~\ref{fig:GALEX_umag}, we show the difference between the
+SDSS-measured and GALEX-predicted $u_{sdss}$ vs. SDSS $u_{sdss}$.
+Although the relation, even when binned like here, is noisy, no
+obvious strong trends are in seen in this plot.  Second, in
+Figure~\ref{fig:GALEX_RA}, we plot this magnitude difference vs. RA
+along SDSS Stripe 82.  Here, a noticeable large-scale trends can
+indeed be seen at the $\sim$0.01-0.02 mag level.  It is interesting
+that these trends in $u$ are qualitatively similar -- but opposite in
+sign -- to some of the trends seen in the comparison plots with DES
+and Pan-STARRS1 in Section~\ref{sec:DESPS1} (see, e.g.,
+Fig.~\ref{fig:DESPSRA}). {\bf (DLT: Check this!)}.  Finally, in
+Figure~\ref{fig:GALEX_Dec}, we plot this magnitude difference vs. DEC
+across SDSS Stripe82.  Unlike for the CFIS comparison in the previous
+section (see, e.g., Fig.~\ref{fig:CFIS}, the GALEX comparison covers
+the full DEC range of Stripe 82.  Overall, there appear to be no
+obvious large-scale trends.  The hints of smaller scale
+($\sim0.4^{\circ}$) variations -- roughly on the scale of an SDSS
+cameral column -- seen in the CFIS comparison (Fig.~\ref{fig:CFIS}),
+however, are not seen here, likely due to the relative ``noisiness''
+of the GALEX comparison.
+
+
+
+%\end{eqnarray}
+
+
+
+
 %  \begin{equation}
 % \begin{multline}
 %  \begin{split}
@@ -527,37 +589,84 @@ u_{est}  = & NUV_{galex}  - 1.008*(NUV_{galex} - g_{sdss}) + 0.017*(NUV_{galex} 
 % \end{multline}
 % \end{equation}
  
-Quality plots for this fit are shown in Figure \ref{fig:GalexQA} {\bf need to redo these plots in BW; select subplots to include}. The rms per star for this relation is 0.071 mag ? so still a bit noisy, but about as good as we think we can get for transforming GALEX to SDSS u (but see below regarding E(B-V)?).
+%Quality plots for this fit are shown in Figure \ref{fig:GalexQA} {\bf need to redo these plots in BW; select subplots to include}. The rms per star for this relation is 0.071 mag ? so still a bit noisy, but about as good as we think we can get for transforming GALEX to SDSS u (but see below regarding E(B-V)?).
  
- \begin{figure}[th!]
-    \centering\includegraphics[width=14cm]{figures/Galex_QA.png}
-\caption{{\bf  To be filled}} 
-\label{fig:GalexQA}
-\end{figure}
+% \begin{figure}[th!]
+%    \centering\includegraphics[width=14cm]{figures/Galex_QA.png}
+%\caption{{\bf  To be filled}} 
+%\label{fig:GalexQA}
+%\end{figure}
     
-The quality plots for this fit can be found in the attached plot,
-%%   sdss_galex_transform_u.20180614.norder2.niter3.uNUV.NUVg.gi_sdss.qa1.png
+%The quality plots for this fit can be found in the attached plot,
+%%%   sdss_galex_transform_u.20180614.norder2.niter3.uNUV.NUVg.gi_sdss.qa1.png
  
-In the next plot,
-%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot1.png ,
-is plotted the 2D sky distribution of the matches, binned into 0.21-sq-deg healpixels, with each bin color coded to show the median difference between the SDSS $u_{mMed}$ mag and the GALEX-transformed $u_{mMed-est}$ in the healpixel.
+%In the next plot,
+%%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot1.png ,
+%is plotted the 2D sky distribution of the matches, binned into 0.21-sq-deg healpixels, with each bin color coded to show the median difference between the SDSS $u_{mMed}$ mag and the GALEX-transformed $u_{mMed-est}$ in the healpixel.
  
-The next plot,
-%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot2.png ,
-is the same as the previous plot, but now the healpixels are color coded by the median SFD98 E(B-V) in that healpixel.
-Note that there is a slight correlation between these two plots.
+%The next plot,
+%%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot2.png ,
+%is the same as the previous plot, but now the healpixels are color coded by the median SFD98 E(B-V) in that healpixel.
+%Note that there is a slight correlation between these two plots.
  
-In the final plot,
-%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot3.png ,
-the difference between the observed $u_{mMed}$ magtitude and the GALEX-transformed $u_{mMed-est}$ for each star is plotted against SFD98 E(B-V).    So it looks like the above GALEX à SDSS u-band transformation starts to break down for E(B-V) $>$ 0.15.  Maybe the next step would be including E(B-V) explicitly into the fit for the transformation equation.  Either that, or try a first attempt at the 2D figures using Zeljko?s jupyter notebooks.
+%In the final plot,
+%%%  stripe82calibStars_v3.4_vs_GALEX_u-band_plot3.png ,
+%the difference between the observed $u_{mMed}$ magtitude and the GALEX-transformed $u_{mMed-est}$ for each star is plotted against SFD98 E(B-V).    So it looks like the above GALEX à SDSS u-band transformation starts to break down for E(B-V) $>$ 0.15.  Maybe the next step would be including E(B-V) explicitly into the fit for the transformation equation.  Either that, or try a first attempt at the 2D figures using Zeljko?s jupyter notebooks.
+
+
+\begin{figure}[th!]
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_umag_Hess.png}
+\caption{Analogous to Figure~\ref{fig:gaiaJump}, except that here residuals 
+  residuals between the SDSS $u$ band magnitudes and predicted $u$
+  band magnitudes transformed from the GALEX catalog are shown. The
+  binned median scatter is Z.Z millimag.
+  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
+}
+\label{fig:GALEX_umag}
+\end{figure}
+
+
+
+\begin{figure}[th!]
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_RA_Hess.png}
+\caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here residuals 
+  residuals between the SDSS $u$ band magnitudes and predicted $u$
+  band magnitudes transformed from the GALEX catalog are shown.  The
+  binned median scatter is Z.Z millimag.
+  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
+}
+\label{fig:GALEX_RA}
+\end{figure}
+
+
+
+\begin{figure}[th!]
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_Dec_Hess.png}
+\caption{Analogous to Figure~\ref{fig:graycorrDec}, except that here residuals 
+  residuals between the SDSS $u$ band magnitudes and predicted $u$
+  band magnitudes transformed from the GALEX catalog are shown.  The
+  binned median scatter is Z.Z millimag.
+  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
+}
+\label{fig:GALEX_Dec}
+\end{figure}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Offsets from AB magnitude scale \label{sec:AB}} 
 
-We estimate offsets from AB magnitude scale using photometry for three DA white dwarfs observed by HST
-(see Table~\ref{tab:HST}). XXX Doug expands this section, refers to G. Narayan et al. (2019) and other refs,
-and other details explaining how synthetic ugriz photometry is generated for these three stars...
+We estimate offsets from AB magnitude scale using photometry from three DA white dwarfs observed by HST (see Table~\ref{tab:HST}): GD50 (specifically, the calibrated spectrum file {\tt gd50\_004.fits}) from the HST CalSpec database of spectrophotometric standard stars \citep{2014PASP..126..711B}\footnote{\url{https://www.stsci.edu/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/calspec}}, and SDSSJ~232941.32$+$001107.8 and SDSSJ~010322.19-002047.7 from \citet{2019ApJS..241...20N}
+(the flux-calibrated modeled spectrum files provided by G. Narayan, private communication).  These three spectrophotometric calibrators are particularly useful for our purposes since they are faint enough not to be saturated in the SDSS photometry ($r>14$) and they lie within the SDSS Stripe 82 footprint, making direct comparison to the SDSS measurements relatively simple.  Synthetic AB magnitudes for these three DA white dwarfs was accomplished via numerical integration of Equation~8 of \citet{1996AJ....111.1748F}, which serves to define broad-band AB magnitudes.  This equation requires not only a well-calibrated spectrum, but also the well-calibrated bandpass response curves for the photometric system in question.  Here, we make use of the SDSS bandpass response curves from Table~4 of \citet{2010AJ....139.1628D}.  Our results for the synthetic SDSS AB magnitues for these three stars can be found in Table~\ref{tab:HST}.  The errors on these synthetic AB magnitudes are expected to be $\sim0.5-1.0$~mag (statisical) and $\sim0.01$~mag (systematic).  {\bf (DLT:  Reference???)}
+
+
+
+
+%XXX Doug expands this section, refers to G. Narayan et al. (2019) and other refs,
+%and other details explaining how synthetic ugriz photometry is generated for these three stars...
 
 % From Doug's email: 
 % As to the precision and accuracy of the synthetic mags, that is a little hard to quantify.  Narayan et al (2019) report 
@@ -579,15 +688,16 @@ computed from the observed scatter of three values. In the $riz$ bands we detect
 ($>3\sigma$) deviations, ranging from 0.015 mag to 0.035 mag, while in the $u$ and $g$ bands 
 we can only place upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively). 
 
-\begin{deluxetable}{r|r|l|l|l|l|l}[ht!]
+\begin{deluxetable}{r|r|r|l|l|l|l|l}[ht!]
 \tablecaption{Synthetic SDSS magnitudes for three WD dwarfs with HST photometry$^a$. \label{tab:HST}}
 \tablehead{
-  \colhead{R.A. } & \colhead{Dec.} & \colhead{u} & \colhead{g} & \colhead{r} & \colhead{i} & \colhead{z} 
+  \colhead{Name} & \colhead{R.A. } & \colhead{Dec.} & \colhead{u} & \colhead{g} & \colhead{r} & \colhead{i} & \colhead{z} 
 }
 \startdata
-    352.4221875 &        0.185500 &      18.154 &       18.145 &    18.466 &     18.754 &     19.042 \\  
-      15.8424625 &  $-$0.346592 &      18.627 &       19.057 &    19.558 &     19.923 &     20.258 \\
-      57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &     99.999$^b$ \\
+     GD50                     &  57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &     \nodata$^b$ \\
+     SDSSJ~232941.32+001107.8 & 352.4221875 &     0.185500 &      18.154 &       18.145 &    18.466 &     18.754 &     19.042 \\  
+     SDSSJ~010322.19-002047.7 &  15.8424625 &  $-$0.346592 &      18.627 &       19.057 &    19.558 &     19.923 &     20.258 \\
+%     GD50                     &  57.2091083 &  $-$0.975636 &      13.409 &       13.784 &    14.295 &     14.655 &     99.999$^b$ \\
 \enddata
 \tablenotetext{a}{Give here reference to HST data, or some other comment?} 
 \tablenotetext{b}{The CalSpec spectrum stopped at about 9000 \AA and thus did not cover all of SDSS $z$ band.} 
