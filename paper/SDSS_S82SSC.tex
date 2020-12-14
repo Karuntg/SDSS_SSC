@@ -117,8 +117,10 @@ All these processing steps were completed on a single quad-core desktop needing 
 The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.7 billion sources \citep{2018A&A...616A...1G}. This dataset is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm).
 
 % DLT, 10 Dec 2020:  Added the hedge-word ``generally'' in the following sentence (I know folks who would migth quibble otherwise(!))...
-Gaia DR2 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use 
-it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:v34}. 
+Gaia DR2 photometry is {\bf (DLT:) generally} superior to ground-based
+photometry for sources with sufficient signal-to-noise ratio, and we
+use it to derive zeropoint corrections for SDSS photometry, as
+described in Section~\ref{sec:v34}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -273,7 +275,7 @@ The Galaxy Evolution Explorer ($GALEX$) all-sky survey catalog in the NUV (1771-
  
 \citet{2017ApJS..230...24B} provide full details of the GALEX survey, and we summarize only the NUV details, which are pertinent to our analysis here. The survey area had a fairly uniform coverage, leading to total exposure times of $\sim$150s in the AIS, and $\sim$1500s in the MIS. The corresponding NUV survey depths are 20.8 and 22.7 ABmag in the two surveys respectively. Objects in the S82 region were extracted and matched with our SDSS catalog using a matching aperture radius of 3'', which corresponds to the matching radius used internally by GALEX to match their NUV and FUV sources. The GALEX catalogs do not list the RA, Dec positional errors for their sources, and we found their listed sky positions generally carry a greater uncertainty than the other catalogs used in this work.
 
-Our matched GALEX catalog consists of 150945 NUV sources in the S82 footprint for which we obtained NUV aperture magnitudes and uncertainties, as well as various fitted geometric measures for each of them. The astrometry has greater uncertainty than that of SDSS, with mean positional uncertainties of ??''. We also find that the available depth in the S82 region is not very deep, with $>$80\% of the matched sample brighter than r=18 mag. {\bf Add a few more details, eg mean positional uncertainty, from the matched SDSS-Galex catalog}
+Our matched GALEX catalog consists of 150945 NUV sources in the S82 footprint for which we obtained NUV aperture magnitudes and uncertainties, as well as various fitted geometric measures for each of them. The astrometry has greater uncertainty than that of SDSS, with mean positional uncertainties of {\bf (DLT:) 1.0'' rms; we also note that there is an overall mean shift in the GALEX astrometry relative to tha of the SDSS by -0.1'' (RA) and +0.3'' (DEC).}   In addition, we find that the available depth in the S82 region is not very deep, with $>$80\% of the matched sample brighter than r=18 mag. 
   
 
 %% From {\bf Doug's email on 10/22} To make the process simpler, we first transformed the GALEX NUV to an estimated u-band using the transformation equation we sent yesterday.  That gets things a lot closer than just starting directly from GALEX NUV.  The E(B-V) tweak has not yet been included; using some sort of median binning like was done to improve the $u_{est}$ to $u_{sdss}$ transformation may be in order.  The results look like they may be qualitatively similar in scope to the CFIS u-band comparison (but sometimes opposite in sign!)  The RA,DEC positions from GALEX seem a bit worse than some of the other catalogs; so we used a match radius of 3 arcsec instead of 1 arcsec in the python notebook (matching SDSS coordinates to GALEX coordinates).
