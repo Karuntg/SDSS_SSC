@@ -86,7 +86,9 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[SDSS Stripe 82 Standard Stars Catalog: New and Improved]{Photometric Cross-Calibration and Comparison of the SDSS Stripe 82 Standard Stars Catalog with Gaia DR2, Pan-STARRS1, DES, CFIS and GALEX Catalogs}
+\title[SDSS Stripe 82 Standard Stars Catalog: New and Improved]{Photometric Cross-Calibration
+of the SDSS Stripe 82 Standard Stars Catalog with Gaia, and Comparison with Pan-STARRS1, DES, 
+CFIS and GALEX Catalogs}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -122,15 +124,16 @@ $^{5}$National Research Council, Canadian Astronomy Data Centre, Victoria, BC, V
 \begin{abstract}
 We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with
 post-2007 SDSS imaging data. Our catalog lists averaged SDSS $ugriz$ photometry
-for nearly a million stars brighter than $r\sim22$ matched with the earlier version of the catalog. 
-However, this new version is based on 2-3 times more measurements per star, resulting in random errors which are 1.4-1.7 
-times smaller than in the original catalog, and about three times smaller than those 
-for individual SDSS runs. Random errors in the new catalog are below 0.01 mag for stars brighter 
-than 20.0, 21.0, 21.0, 20.5, and 19.0 in $ugriz$, respectively. We achieve this error threshold by 
-using Gaia DR2 Gmag photometry to derive gray photometric zeropoint corrections, as functions 
-of R.A. and Declination, for the SDSS catalog, and Gaia's BP-RP colors to derive corrections in the 
-$ugiz$ bands, relative to the $r$ band. We test the quality of recalibrated SDSS photometry by 
-comparing it to Pan-STARRS1, DES and CFIS photometry for the same stars. This multi-survey 
+for nearly a million stars brighter than $r\sim22$ matched with the original version of the catalog. 
+The updated version reported here is based on 2-3 times more measurements per star, resulting 
+in random errors which are 1.4-1.7 times smaller than in the original catalog, and about three 
+times smaller than those for individual SDSS runs. Random errors in the new catalog are below 
+0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0 in $ugriz$, respectively. 
+We achieve this error threshold by using Gaia Gmag photometry to derive gray photometric 
+zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, and Gaia's 
+BP-RP colors to derive corrections in the $ugiz$ bands, relative to the $r$ band. We test the 
+quality of recalibrated SDSS $ugriz$ photometry by comparing it to Pan-STARRS1, DES, CFIS 
+and GALEX photometry for the same stars. This multi-survey 
 comparison indicates that the spatial variation of photometric zero points in the updated SDSS 
 catalog is well below 0.01 mag (rms), with typical values of 3-7 millimag in the R.A. direction and 
 1-2 millimag in the Declination direction, except for the $u$ band with a scatter of about 6 millimag.
@@ -139,10 +142,10 @@ with the HST CalSpec absolute photometry data, we find statistically significant
 AB zeropoint offsets in the $riz$ bands, ranging from 0.015 mag to 0.035 mag, while in the $u$ 
 and $g$ bands we only placed upper limits (at $2\sigma$: 0.038 mag and 0.028 mag, respectively).  
 We also report a few minor photometric problems with all the surveys considered here, including 
-Gaia DR2. Due to its large size and cross-checks with other surveys, this updated SDSS catalog can 
-be used to robustly calibrate or test $ugriz$ photometry below 1\% level, for example, as needed 
-for the commissioning phase of the Rubin Observatory Legacy Survey of Space and Time. 
-
+Gaia DR2 (which are gone in Gaia EDR3). Due to its large size and cross-checks with other surveys, 
+this updated SDSS catalog can be used to robustly calibrate or test $ugriz$ photometry below 
+1\% level, for example, as needed for the commissioning phase of the Rubin Observatory Legacy 
+Survey of Space and Time. 
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -210,6 +213,10 @@ The final dataset, consisting of all the light curves in the five $ugriz$ filter
 For our primary astrometric and photometric cross calibration we use the Gaia data release DR2 catalogs.  Gaia is a European /Space Agency (ESA) mission designed to map over a billion stars in the Milky Way and the local group in three dimensions, providing accurate proper motion and radial velocity measurements. \citet{GaiaCollab2016} provide a detailed overview about the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations), while technical details for specific topics relevant to our work may found in the following citations: pre-processing and source-list creation \citep{Fabr2016}, astrometric solution \citep{LInd2018}, processing the photometric data \citep{Riel2018}, photometric content and validation \citep{Evan2018}, and full catalog validation \citep{Aren2018}. A full description of the data products in Gaia DR2 may be found in \citet{GaiaCollab2018b}. Here we summarize only the pertinent details.
 
 The second Gaia Data Release, Gaia DR2, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.7 billion sources \citep{GaiaCollab2018b}. This dataset is based on the first 22 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm). Gaia DR2 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:GaiaCorr}. 
+
+Just before this manuscript was ready for submission, Gaia Early Data Release 3 (EDR3)
+became available. As we discuss in \S~\ref{sec:EDR3} below, the small photometric differences 
+between DR2 and EDR3 are inconsequential for the results presented here. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dark Energy Survey (DES) Data} \label{ssec:des}
@@ -415,10 +422,11 @@ the robust standard deviation for each bin. The horizontal solid and long-dashed
 lines at zero and $\pm$0.01 mag, respectively, are added to guide the eye.
 Note the jump by about 3 millimag at Gmag$\sim$16 -- this jump was a known and 
 larger problem in Gaia Data Release 1, and apparently not entirely fixed in DR2. 
-Note also large ($\sim0.01-0.02$ mag) discrepancy at the faint end -- a comparison 
+Note also large ($\sim0.03$ mag) discrepancy at the faint end -- a comparison 
 of the SDSS catalog with Pan-STARRS and DES catalogs (see Figure~\ref{fig:drVSr}) 
-suggests that its origin is a bias in Gaia's photometry at the faint end, rather than 
-a problem with SDSS photometry.}
+suggests that its origin is a bias in Gaia's DR2 photometry at the faint end, rather than 
+a problem with SDSS photometry. This bias is much smaller when using Gaia EDR3 
+photometry (see Figure~\ref{fig:gaiaJumpEDR3}). }
 \label{fig:gaiaJump}
 \end{figure}
 
@@ -562,10 +570,44 @@ $g-r$ residuals are shown as a function of Declination. The binned median scatte
 \label{fig:grVSgaiaRADec}
 \end{figure}
  
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Comparison with Gaia EDR3 catalog \label{sec:EDR3}} 
+
+The Gaia EDR3 catalog became available as this manuscript was ready for submission.
+Although reported photometric differences between Gaia DR2 and EDR3 are too small
+to have a substantial impact on the results presented here, we rederived gray zeropoint
+correction for the v3.4 catalog using the EDR3 Gmag data. As expected, the implied 
+zeropoint corrections show only tiny deviations from zero with an rms of only about 
+2.2 milimag in R.A direction and 0.9 milimag in Dec direction. We also analyzed the 
+changes of the BP-RP color by directly comparing DR2 and EDR3 values. The implied 
+zeropoint changes have an rms of 3.1 milimag for R.A. direction and 0.8 milimag
+for Dec direction, implying inconsequential changes for the zeropoint corrections
+in the $ugiz$ bands.   
+
+Nevertheless, there is one substantial change between DR2 and EDR3 photometry. 
+We reported in Figure~\ref{fig:gaiaJump} a likely bias in Gaia DR2 Gmag photometry 
+at the faint end of about 0.03 mag. As Figure~\ref{fig:gaiaJumpEDR3} shows, 
+this bias is much smaller in EDR3. Furthermore, a jump by about 3 millimag 
+at Gmag$\sim$16 is gone in EDR3. 
+ 
+
+\begin{figure}[th!]
+    \centering\includegraphics[width=9cm]{figures/GmagCorrectionTestEDR3_Gmag_Hess.png} 
+\caption{Analogous to Figure~\ref{fig:gaiaJump}, except that here synthetic Gmag values 
+generated using SDSS $gri$ photometry are compared to Gaia's Early Data Release 3 
+instead of Data Release 2. This figure shows better agreement: the implied bright- to faint-end 
+zeropoint gradient went from about 0.035 mag to $<$0.020 mag, and the small $\sim$milimag 
+jump at Gmag$\sim$16 disappeared.}
+\label{fig:gaiaJumpEDR3}
+\end{figure}
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Comparison of the SDSS v2.6 and v3.4 catalogs \label{sec:v26v34}} 
- 
+
 The v2.6 (``old'') SDSS Standard Star Catalog has been extensively used 
 \citep[e.g.,][]{2008AJ....135..338F},
 and here we briefly analyze differences between the v3.4 (``new'') and v2.6 magnitudes
@@ -625,7 +667,7 @@ for median values per bin for all bands and both coordinates is listed in Table~
 \begin{figure}[th!]
     \centering\includegraphics[width=9cm]{figures/testV26vsV33_r_dr_r_mag_Hess.png} 
 \caption{Analogous to Figure~\ref{fig:v26v34drDec}, except that here the $r$ band
-differences are shown as a function of the $r$ band magnitude. The scatted of median
+differences are shown as a function of the $r$ band magnitude. The scatter of median
 values per bin is 1.9 millimag. The scatter of individual values is $\sim0.01$ mag
 for $r<20$, and it is due to more data in the new catalog.} 
 \label{fig:v26v34drr}
@@ -711,7 +753,9 @@ of up to 0.01-0.02 mag, as a function of R.A. (see the bottom left panel in Figu
 The variation of the magnitude differences
 with magnitude (see Figure~\ref{fig:drVSr}) shows good agreement (to within $\sim$5 millimag) 
 even at the faint end ($20<r<21$), where Gaia Gmag magnitudes appear too faint by about
-0.02 mag, and thus demonstrates a likely problem with Gaia DR2 photometry. 
+0.02 mag, and thus demonstrates a likely problem with Gaia DR2 photometry. Note that 
+this problem seems fixed in Gaia EDR3 photometry (see \S~\ref{sec:EDR3}), which strengthens
+our conclusion. 
  
 % \begin{deluxetable}{l|c|c|c|c}[ht!]
 % \tablecaption{The robust standard deviation for binned median magnitude differences between
@@ -780,8 +824,9 @@ are binned by Declination.}
     \centering\includegraphics[width=7cm]{figures/colorResidDES2_di_rmag_Hess.png} 
 \caption{A comparison of the magnitude differences between the SDSS v3.4 catalog
 and DES catalog, for the $r$ and $i$ bands. Note the good agreement even at the
-faint end ($20<r<21$), where Gaia Gmag magnitudes appear too faint by about
-0.02 mag (see Figure~\ref{fig:gaiaJump}).} 
+faint end ($20<r<21$), where Gaia Gmag magnitudes from DR2 appear too faint by about
+0.03 mag (see Figure~\ref{fig:gaiaJump}). This bias is much smaller when using Gaia EDR3 
+photometry (see Figure~\ref{fig:gaiaJumpEDR3}). } 
 \label{fig:drVSr}
 \end{figure}
 
