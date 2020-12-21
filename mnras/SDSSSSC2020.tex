@@ -386,7 +386,7 @@ numerical approach. An example of such a transformation is shown in Figure~\ref{
 
 \begin{figure}[th!]
   \centering\includegraphics[width=8cm]{figures/GrVSgi.png} 
-\caption{The variation of the difference between Gaia's Gmag magnitude from Data Release 2
+\caption{The variation of the difference between Gaia's Gmag magnitude from Early Data Release 3
 and SDSS $r$ magnitude with the SDSS $g-i$ color.
 The  color map illustrates the distribution of $\sim 393,000$ matched stars with 
 $16<$Gmag$<19.5$. The two (barely distinguishable) solid lines represent the median 
@@ -414,19 +414,16 @@ photometry are $<1-2$ millimag at Gmag$\sim$20.5).
 
 \begin{figure}[th!]
     \centering\includegraphics[width=9cm]{figures/GmagCorrectionTest_Gmag_Hess.png} 
-\caption{The variation of the residuals between Gaia's Gmag from Data Release 2
+\caption{The variation of the residuals between Gaia's Gmag from Early Data Release 3
 and synthetic Gmag values generated using SDSS $gri$ photometry. The two solid 
 lines represent the median values $\pm$ uncertainty of the median for each
 0.05 mag wide Gmag bin. The short-dashed lines show the median values $\pm$ 
 the robust standard deviation for each bin. The horizontal solid and long-dashed 
 lines at zero and $\pm$0.01 mag, respectively, are added to guide the eye.
-Note the jump by about 3 millimag at Gmag$\sim$16 -- this jump was a known and 
-larger problem in Gaia Data Release 1, and apparently not entirely fixed in DR2. 
-Note also large ($\sim0.03$ mag) discrepancy at the faint end -- a comparison 
+Note an overall gradient of $\sim0.02$ mag from the bright to the faint end -- a comparison 
 of the SDSS catalog with Pan-STARRS and DES catalogs (see Figure~\ref{fig:drVSr}) 
-suggests that its origin is a bias in Gaia's DR2 photometry at the faint end, rather than 
-a problem with SDSS photometry. This bias is much smaller when using Gaia EDR3 
-photometry (see Figure~\ref{fig:gaiaJumpEDR3}). }
+suggests that its origin is a bias in Gaia's EDR3 photometry rather than a problem with 
+SDSS photometry.}
 \label{fig:gaiaJump}
 \end{figure}
 
@@ -440,7 +437,7 @@ Figures~\ref{fig:graycorrRA} and \ref{fig:graycorrDec}.
 
 \begin{figure}[th!]
   \centering\includegraphics[width=8cm]{figures/GmagCorrection_RA_Hess.png} 
-\caption{The R.A. variation of the residuals between Gaia's Gmag from DR2
+\caption{The R.A. variation of the residuals between Gaia's Gmag from EDR3
 and synthetic Gmag values generated using SDSS $gri$ photometry. The 
 color map illustrates the distribution of $\sim 372,000$ matched stars with 
 $16<$Gmag$<19.5$ and $0.4 < g-i < 3.0$. The two solid lines represent the 
@@ -449,7 +446,7 @@ The short-dashed lines show the median values $\pm$ the robust standard
 deviation for each bin. The horizontal solid and long-dashed lines at zero and 
 $\pm$0.01 mag, respectively, are added to guide the eye. The mean of the two 
 solid lines is the gray correction, as a function of R.A., applied to the SDSS 
-$ugriz$ magnitudes. The standard deviation for the applied correction is 3.5 millimag.}
+$ugriz$ magnitudes. The standard deviation for the applied correction is 3.2 millimag.}
 \label{fig:graycorrRA}
 \end{figure}
 
@@ -458,7 +455,7 @@ $ugriz$ magnitudes. The standard deviation for the applied correction is 3.5 mil
 \caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here results are shown for
 0.01 degree wide Declination bins. The 12 clearly visible regions correspond to
 two SDSS scans (in R.A. direction) and six CCD columns in the SDSS camera. 
-The standard deviation for the applied correction is 6.2 millimag, with a maximum
+The standard deviation for the applied correction is 6.5 millimag, with a maximum
 absolute value of $\sim0.01$ mag.}
 \label{fig:graycorrDec}
 \end{figure}
@@ -513,11 +510,12 @@ The robust standard deviation for all zeropoint corrections is listed in Table~\
 		\hline
 		Color & rms for R.A. & rms for Dec \\
 		\hline
- gray (Gmag) &    3.5         &    6.2   \\
-    $u-r$        &   0.0$^b$  &   20.4   \\     
-    $g-r$        &   4.0         &    4.2    \\
-    $r-i$         &   4.1         &    3.2    \\ 
-    $r-z$        &   7.4         &    2.9    \\ 
+      % ZI updated to v4.2 catalog 
+ gray (Gmag) &    3.2         &    6.5   \\
+    $u-r$        &   0.0$^b$  &   20    \\     
+    $g-r$        &   3.9         &    4.2    \\
+    $r-i$         &   3.7         &    3.2    \\ 
+    $r-z$        &   6.8         &    2.9    \\ 
 		\hline
 	\end{tabular}
 		\caption{The robust standard deviation for binned SDSS-based vs. Gaia-based color residuals$^a$. Notes: (a) The standard deviation for applied Gaia-based zeropoint corrections. The robust standard deviation is estimated using interquartile range. The units are millimag. (b) For the $u$ band, we could not confirm the R.A. behavior of Gaia-based zeropoint correction with the CFIS data and didn't apply it. The large $u$ band correction as a function of Declination was validated with the CFIS data (see Section~\ref{sec:CFIStest}).}
@@ -554,7 +552,7 @@ labeled v3.4, and it is publicly available\footnote{See \url{http://faculty.wash
 
 \subsubsection{Validation of recalibration  \label{sec:SSCvsGaia}} 
   
-By construction, the new v3.4 catalog should not show appreciable zeropoint residuals when 
+By construction, the new v4.2 catalog should not show appreciable zeropoint residuals when 
 binned by R.A. and Declination. We have verified this expectation for all colors used in 
 recalibration. For illustration, Figure~\ref{fig:grVSgaiaRADec} shows such a test for the $g-r$ 
 color, with binned median scatter of the order 1 millimag. 
@@ -563,7 +561,7 @@ color, with binned median scatter of the order 1 millimag.
     \centering\includegraphics[width=7cm]{figures/colorResidGaiaColors_gr_RA_Hess.png} 
     \centering\includegraphics[width=7cm]{figures/colorResidGaiaColors_gr_Dec_Hess.png} 
 \caption{Left: analogous to Figure~\ref{fig:graycorrRA}, except that here residuals between
-the SDSS $g-r$ color from the v3.4 catalog and a synthetic $g-r$ color generated using 
+the SDSS $g-r$ color from the v4.2 catalog and a synthetic $g-r$ color generated using 
 Gaia's $BP-RP$ color are shown. The binned median scatter is 1.6 millimag. Right: the 
 $g-r$ residuals are shown as a function of Declination. The binned median scatter is 
 0.8 millimag.}
@@ -573,6 +571,8 @@ $g-r$ residuals are shown as a function of Declination. The binned median scatte
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison with Gaia EDR3 catalog \label{sec:EDR3}} 
+
+XXX REMOVE THIS SECTION AND FIGURE 
 
 The Gaia EDR3 catalog became available as this manuscript was ready for submission.
 Although reported photometric differences between Gaia DR2 and EDR3 are too small
@@ -606,13 +606,13 @@ jump at Gmag$\sim$16 disappeared.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Comparison of the SDSS v2.6 and v3.4 catalogs \label{sec:v26v34}} 
+\subsection{Comparison of the SDSS v2.6 and v4.2 catalogs \label{sec:v26v34}} 
 
 The v2.6 (``old'') SDSS Standard Star Catalog has been extensively used 
 \citep[e.g.,][]{2008AJ....135..338F},
-and here we briefly analyze differences between the v3.4 (``new'') and v2.6 magnitudes
+and here we briefly analyze differences between the v4.2 (``new'') and v2.6 magnitudes
 to inform the future users about catalog consistency. 
-In our analysis, we first compare v2.6 and v3.4 magnitudes of individual stars and 
+In our analysis, we first compare v2.6 and v4.2 magnitudes of individual stars and 
 bin the differences by R.A., Declination and magnitude. 
 
 On average, both catalog versions are on the same magnitude scale (the median $ugriz$ 
@@ -636,6 +636,7 @@ for median values per bin for all bands and both coordinates is listed in Table~
 % \colhead{Band} & \colhead{rms for R.A.} & \colhead{rms for Dec}
 % }
 % \startdata
+%    NOTE NOTE NOTE: these values are for v3.4 catalog 
 %        $u$        &        2.3$^a$    &    25.5      \\
 %        $g$        &        4.5    &      9.4      \\  
 %        $r$         &        2.0    &      7.0      \\  
@@ -652,35 +653,36 @@ for median values per bin for all bands and both coordinates is listed in Table~
 		\hline
 		Band & rms for R.A. & rms for Dec \\
 		\hline
-       $u$        &        2.3$^a$    &    25.5      \\
-       $g$        &        4.5    &      9.4      \\  
-       $r$         &        2.0    &      7.0      \\  
-       $i$         &        5.3    &      6.5      \\ 
-       $z$        &        8.9    &      8.4      \\ 
+       % ZI updated to v4.2 catalog 
+       $u$        &        2.0$^a$    &    25.5      \\
+       $g$        &        4.0    &      9.7      \\  
+       $r$         &        1.7    &      7.1      \\  
+       $i$         &        4.1    &      6.5      \\ 
+       $z$        &        7.5    &      8.4      \\ 
 		\hline
 	\end{tabular}
-	\caption{The robust standard deviation for magnitude differences between the v2.6 (old)and v3.4 (new) catalogs. Notes: (a) For the $u$ band, the scatter in R.A. direction is due to more observations in v3.4 than in v2.6, rather than zeropoint correction.}
+	\caption{The robust standard deviation for magnitude differences between the v2.6 (old) and v4.2 (new) catalogs. Notes: (a) For the $u$ band, the scatter in R.A. direction is due to more observations in v4.2 than in v2.6, rather than zeropoint correction.}
 	\label{tab:oldnewRMS}
 \end{table}
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/testV26vsV33_r_dr_r_mag_Hess.png} 
-\caption{Analogous to Figure~\ref{fig:v26v34drDec}, except that here the $r$ band
-differences are shown as a function of the $r$ band magnitude. The scatter of median
-values per bin is 1.9 millimag. The scatter of individual values is $\sim0.01$ mag
-for $r<20$, and it is due to more data in the new catalog.} 
+    \centering\includegraphics[width=9cm]{figures/testV26vsV42_r_dr_r_mag_Hess.png} 
+\caption{The differences between $r$ band magnitudes listed in the v2.6 and v4.2 
+SDSS Standard Star catalogs,  shown as a function of the $r$ band magnitude. The 
+scatter of median values per bin is 1.7 millimag. The scatter of individual values is 
+$\sim0.01$ mag for $r<20$, and it is due to more data in the new catalog.} 
 \label{fig:v26v34drr}
 \end{figure}
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/testV26vsV33_r_dr_Dec_Hess.png} 
-\caption{The differences between $r$ band magnitudes listed in the v2.6 and v3.4 
-    SDSS Standard Star catalogs. The size of the four regions corresponds to the
-field-of-view size of the SDSS Photometric Telescope. The standard 
-deviation for median values per bin is 6.8 millimag, with extreme values about 0.01 mag. 
-The scatter of binned medians in R.A. direction is much smaller -- 2.0 millimag. 
+    \centering\includegraphics[width=9cm]{figures/testV26vsV42_r_dr_Dec_Hess.png} 
+\caption{Analogous to Figure~\ref{v26v34drr}, except that here the $r$ band
+differences are shown as a function of Declination (cross-scan direction). The size 
+of the four regions corresponds to the field-of-view size of the SDSS Photometric Telescope. 
+The standard deviation for median values per bin is 7.1 millimag, with extreme values about 
+0.01 mag. The scatter of binned medians in R.A. direction is much smaller -- 1.7 millimag. 
 For statistics in other bands, please see Table~\ref{tab:oldnewRMS}.}
 \label{fig:v26v34drDec}
 \end{figure}
@@ -688,7 +690,7 @@ For statistics in other bands, please see Table~\ref{tab:oldnewRMS}.}
 
 
 Given the quality of Gaia photometry, there should be no doubt that SDSS $ugriz$ photometry
-reported in the new v.3.4 catalog is superior to the old v2.6 catalog. Nevertheless, we perform
+reported in the new v4.2 catalog is superior to the old v2.6 catalog. Nevertheless, we perform
 additional tests, based on the position of the stellar locus in the $g-r$ vs. $u-g$, $r-i$ vs. $g-r$ 
 and $i-z$ vs. $r-i$ color-color diagrams  \citep{2004AN....325..583I}. The tests are based
 on the second principal color for the blue part of the stellar locus, whose median should 
@@ -702,12 +704,12 @@ $<10$ millimag for the $u$ and $z$ bands.}
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_r_w_old_RA_Hess.png}
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_r_w_new_RA_Hess.png}
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_r_w_old_Dec_Hess.png}
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_r_w_new_Dec_Hess.png}
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_old_RA_Hess.png}
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_new_RA_Hess.png}
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_old_Dec_Hess.png}
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_new_Dec_Hess.png}
 \caption{A comparison of the $w$ color, the second principal color in the SDSS
-$r-i$ vs. $g-r$ color-color diagram, behavior for the v2.6 (left) and v3.4 (right)
+$r-i$ vs. $g-r$ color-color diagram, behavior for the v2.6 (left) and v4.2 (right)
 catalogs. The standard deviation of the median $w$ values binned by R.A. and Dec
 is 2.6 millimag and 1.1 millimag for v2.6 and 1.0 millimag and 0.3 millimag for v3.4,
 respectively.}
@@ -716,13 +718,13 @@ respectively.}
  
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_snew_u_s_new_RA_Hess.png}
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_snew_u_s_new_Dec_Hess.png} 
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_ynew_z_y_new_RA_Hess.png} 
-    \centering\includegraphics[width=7cm]{figures/testV26vsV33_ynew_z_y_new_Dec_Hess.png}  
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_snew_u_s_new_RA_Hess.png}
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_snew_u_s_new_Dec_Hess.png} 
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_ynew_z_y_new_RA_Hess.png} 
+    \centering\includegraphics[width=7cm]{figures/testV26vsV42_ynew_z_y_new_Dec_Hess.png}  
 \caption{The behavior of the $s$ color (top two panels), the second principal color in the SDSS
 $g-r$ vs. $u-g$ color-color diagram, and the $y$ color (bottom two panels), the second 
-principal color in the SDSS $i-z$ vs. $r-i$ color-color diagram, for the new v3.4 catalog.
+principal color in the SDSS $i-z$ vs. $r-i$ color-color diagram, for the new v4.2 catalog.
 The standard deviation of the median $s$ values binned by R.A. and Declination is 9.8 millimag 
 and 1.3 millimag, respectively, and 1.8 millimag and 3.4 millimag for the $y$ color.}
 \label{fig:comparesy} 
@@ -750,12 +752,10 @@ in Figure~\ref{fig:DESPSRA}, there are systematic residual errors in the $z$ ban
 function of  Declination at the level of a few millimag. Note also implied DES $z$ band zeropoint errors 
 of up to 0.01-0.02 mag, as a function of R.A. (see the bottom left panel in Figure~\ref{fig:DESPSRA}), although a similar trend in the equivalent Pan-STARRS plot (bottom right panel in Figure~\ref{fig:DESPSRA}) may indicate that the reason for this issue may reside partially with the Gaia DR2 calibration upon which the SDSS Stripe 82 calibrations are based \footnote{For a comparison of DES DR1 and Gaia DR2 calibrations, see e.g., Fig. 9 of \citet{2018ApJS..239...18A}}
 
-The variation of the magnitude differences
-with magnitude (see Figure~\ref{fig:drVSr}) shows good agreement (to within $\sim$5 millimag) 
-even at the faint end ($20<r<21$), where Gaia Gmag magnitudes appear too faint by about
-0.02 mag, and thus demonstrates a likely problem with Gaia DR2 photometry. Note that 
-this problem seems fixed in Gaia EDR3 photometry (see \S~\ref{sec:EDR3}), which strengthens
-our conclusion. 
+The variation of the magnitude differences with magnitude (see Figure~\ref{fig:drVSr}) is flat to 
+within $\sim$5 millimag (recall that differences with respect to Gaia Gmag magnitudes show
+a much larger bright-to-faint-end gradient of $\sim$20 mag). This much smaller gradient 
+implies a likely problem with Gaia EDR3 photometry at the 0.01-0.02 mag level.   
  
 % \begin{deluxetable}{l|c|c|c|c}[ht!]
 % \tablecaption{The robust standard deviation for binned median magnitude differences between
