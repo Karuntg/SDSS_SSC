@@ -1,0 +1,53 @@
+### This is file stripe82calibStars_v4.2.dat created on December 20, 2020.
+###  
+### This version (4.2) INCLUDES GAIA-BASED COLOR CORRECTIONS (EDR3).
+### The version with only EDR3-based gray corrections is v4.1! 
+### 
+### A catalog of 991,472 standard stars from SDSS stripe 82.
+###
+### This catalog is a revised version of the catalog described in 
+### Ivezic et al. 2007 (Astronomical Journal, 134, 973). The main 
+### differences include:
+### - due to additional SDSS data, about twice as many epochs are used 
+###    in photometric averaging, resulting in about 30% smaller random 
+###    photometric errors
+### - systematic photometric zeropoint errors, as functions of RA and
+###    Dec are estimated and corrected for using Gaia EDR3 photometry.
+###
+### Processing details and catalog analysis are discussed in 
+###  Thanjavur et al. (2021). 
+### 
+### The selection steps for this catalog include: 
+###  1) star is listed in the original 2007 catalog (v2.6)
+###  2) the star remained non-variable (chi2 < 3 in gri); 
+###  this version includes 98.5% stars from the original (v2.6) catalog
+###
+### There is one line per star, and each line lists (in this order):
+###  0) every line starts with the string CALIBSTARS_ID, where ID is the
+###     star's sequential listing number from the v2.6 catalog
+###  1) RA Dec RArms Decrms: the mean position and its rms per coordinate,
+###     this is J2000, decimal degrees for RA and Dec, and arcsec for rms
+###     NB: standard errors can be computed as rms/sqrt(Ntot)
+###  2) Ntot: the total number of epochs
+###  3) Ar: the Schlegel, Finkbeiner & Davis (1998) ISM extinction value in 
+###     the r band; extinction in other bands can be computed as [Rv=3.1]: 
+###     Am = Cm*Ar, with Cm=(1.873, 1.377, 0.758, 0.537) for m=(ugiz) 
+###  4) and then in each band (ugriz, in this order):
+###       (Nobs mmed mmu msig mrms mchi2), which are: 
+###       the total number of observations in this band
+###       the median magnitude 
+###       the mean magnitude
+###       the standard error for the mean (1.25 larger for the median)
+###       the root-mean-square scatter
+###       chi2 per degree of freedom (computed using the mean magnitude)
+### 
+### **** IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT **** 
+###  1) To select sources with reliable photometry in the u and z bands
+###     don't forget to require Nobs >= 4
+###  2) to avoid a slight bias (~0.02 mag) at the faint end in the gri  
+###     bands, require msig*sqrt(Nobs) < 0.03 
+### **** IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT **** 
+### 
+###  For more details, in case of problems, etc., send email to 
+###  Karun Thanjavur (karun@uvic.ca) or Zeljko Ivezic (ivezic@uw.edu).
+### 
