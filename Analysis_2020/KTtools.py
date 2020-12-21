@@ -177,6 +177,22 @@ def plotdelMagBW_KT(d, kw):
     # get the colormap from kw
     cmap = kw['cmap']
     fig, ax = plt.subplots(figsize=(12, 8))
+    fig.subplots_adjust(
+        # the left side of the subplots of the figure
+        left=0.15,  
+        # the right side of the subplots of the figure
+        right=0.98,
+        # the bottom of the subplots of the figure
+        bottom=0.15,
+        # the top of the subplots of the figure
+        top=0.98,
+        # the amount of width reserved for space between subplots,
+        # expressed as a fraction of the average axis width
+        wspace=0.3,   
+        # the amount of height reserved for space between subplots,
+        # expressed as a fraction of the average axis height
+        hspace=0.3)   
+
     # ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=kw['symbSize'], c='black') 
     X, Y = np.meshgrid(xedges, yedges)
     cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
@@ -205,12 +221,14 @@ def plotdelMagBW_KT(d, kw):
     ax.plot(xBinM, TwoSigP, c='silver', linewidth=3)
     ax.plot(xBinM, TwoSigM, c='silver', linewidth=3)
     #
-    ax.set_xlabel(kw['Xlabel'], fontsize=22)
-    ax.set_ylabel(kw['Ylabel'], fontsize=22)
+    labelFontSize = 32
+    ticksFontSize = 28
+    ax.set_xlabel(kw['Xlabel'], fontsize=labelFontSize)
+    ax.set_ylabel(kw['Ylabel'], fontsize=labelFontSize)
     ax.set_xlim(kw['Xmin'], kw['Xmax'])
     ax.set_ylim(kw['Ymin'], kw['Ymax'])
-    plt.xticks(fontsize=22)
-    plt.yticks(fontsize=22)
+    plt.xticks(fontsize=ticksFontSize)
+    plt.yticks(fontsize=ticksFontSize)
     plt.savefig(kw['plotName'], dpi=600)
     print('saved plot as:', kw['plotName']) 
     plt.show()
