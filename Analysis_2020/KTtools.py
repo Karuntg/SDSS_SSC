@@ -181,7 +181,7 @@ def plotdelMagBW_KT(d, kw):
         # the left side of the subplots of the figure
         left=0.15,  
         # the right side of the subplots of the figure
-        right=0.98,
+        right=0.97,
         # the bottom of the subplots of the figure
         bottom=0.15,
         # the top of the subplots of the figure
