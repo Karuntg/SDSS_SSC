@@ -850,66 +850,79 @@ following GALEX to SDSS u transformation equation:
 %\end{equation}
 \begin{equation}
 \begin{split}
-u_{est} = & NUV  - 0.999\times(NUV - g) + 0.015\times(NUV  - g)^2  \\
-         & -0.426\times(g - i) + 0.821*(g - i)^2 + 0.939 \\
-         & + T \times [ -1.233\times(E(B-V)-0.15) ... \\
-         & + 3.430\times(E(B-V)-0.15)^{2} ] \\
+u_{est} = & NUV - 0.990\times(NUV - g) + 0.014\times(NUV  - g)^2  \\
+         & -0.407\times(g - i) + 0.797*(g - i)^2 + 0.835  \\
+         & + T \times [ -1.346\times(E(B-V)-0.15) ... \\
+         & + 3.400\times(E(B-V)-0.15)^{2} ] \\
 \end{split}
 \end{equation}
 
 where $NUV$ refers to GALEX, and $g$ and $i$ are SDSS magnitudes. $T$ is a step function in the value of the interstellar reddening, E(B-V),
 from the \citet{1998ApJ...500..525S} reddening map:
 \begin{align}
-T(E(B-V)) = \left\{ \begin{array}{cc} 
-                0 & \hspace{5mm} E(B-V) \leq 0.15 \\
-                1 & \hspace{5mm} 0.15 < E(B-V) < 0.3 \\
-                \end{array} \right.
+  T = \left\{ \begin{array}{cc} 
+    0 & \hspace{5mm} E(B-V) \leq 0.15 \\
+    1 & \hspace{5mm} 0.15 < E(B-V) < 0.3 \\
+  \end{array} \right.
 \end{align}
 This transformation relation, which is suitable for stars with $0.5 <
 (u-g)_{sdss} < 2.0$, $0.2 < (g-r)_{sdss} < 0.8$, $0.3 < (g-i)_{sdss} <
-1.0$, and $E(B-V) < 0.3$, has a per star RMS of $\sigma=0.060$ mag
+1.0$, and $E(B-V) < 0.3$, has a per star RMS of $\sigma=0.061$ mag
 (the relatively high RMS is due in part to the relatively high RMS in
 the GALEX $NUV$ magnitudes).  This relation converts the GALEX $NUV$
-magnitudes in to very reasonable approximations of the SDSS $u$-band.
+magnitudes into very reasonable approximations of the SDSS $u$-band.
 To refine these approximations, we then applied the same sort of
 numerical transformation that was used for the SDSS/Gaia
-transfrormation in Figure~\ref{fig:GrVSgi}; this improved the overall
-per star RMS to $\sigma=0.050$, with most of the improvement occurring
+transformation in Figure~\ref{fig:GrVSgi}; this improved the overall
+per star RMS to $\sigma=0.055$, with most of the improvement occurring
 for the bluest ($(u-g)_{sdss} \la 1.0$) and the reddest ($(u-g)_{sdss}
 \ga 1.0$) stars in our sample.
 
 Despite the relatively noisy results, we can make several conclusions
-based upon the binned data consisting of 54,660 matches between the
-v3.4 SDSS catalog and the GALEX catalog.  First, in
+based upon the binned data consisting of 89,722 matches between the
+v4.2 SDSS catalog and the GALEX catalog.  First, in
 Figure~\ref{fig:GALEX_umag}, we show the difference between the
-SDSS-measured and GALEX-predicted $u_{sdss}$ vs. SDSS $u_{sdss}$.
-Although the relation, even when binned like here, is noisy, no
-obvious strong trends are seen in this plot.  Second, in
-Figure~\ref{fig:GALEX_RA}, we plot this magnitude difference vs. RA
-along SDSS Stripe 82.  Here, a noticeable large-scale trends can
-indeed be seen at the $\sim$0.01-0.02 mag level.  It is interesting
-that these trends in $u$ are qualitatively similar -- but opposite in
-sign -- to some of the trends seen in the comparison plots with DES
-and Pan-STARRS1 in Section~\ref{sec:DESPS1} (see, e.g.,
-Fig.~\ref{fig:DESPSRA}). {\bf (DLT: Check this!)}.  Finally, in
-Figure~\ref{fig:GALEX_Dec}, we plot this magnitude difference vs. DEC
-across SDSS Stripe82.  Unlike for the CFIS comparison in the previous
-section (see, e.g., Fig.~\ref{fig:CFIS}, the GALEX comparison covers
-the full DEC range of Stripe 82.  Overall, there appear to be no
-obvious large-scale trends.  The hints of smaller scale
+SDSS-measured and GALEX-predicted $u_{sdss}$ vs. SDSS $u_{sdss}$ for
+the 80,053 matches that lie within the color and $E(B-V)$ cuts used
+for the initial transformation equation (Eq.~1).  Although the
+relation, even when binned like here, is noisy, there is clearly a
+noticeable trend in the residuals vs. SDSS $u$.  As with the
+comparison with Gaia (Fig~\ref{fig:gaiaJump}, we expect that this
+magnitude dependence is associated with the GALEX photometry rather
+than with SDSS.  Second, in Figure~\ref{fig:GALEX_RA}, we plot this
+magnitude difference vs. RA along SDSS Stripe 82.  Here, in addition
+to the cuts used for Figure~\ref{fig:GALEX_umag}, we also apply a cut
+of $u_{sdss}\le20.0$, to avoid the worst deviations seen in that
+figure; this results in a sample of 69,783 matches.  We do note some
+small but significant large-scale trends with RA, at the 9.5 millimag
+level (RMS).  
+%Here, a noticeable large-scale trends can
+%indeed be seen at the $\sim$0.01-0.02 mag level.  It is interesting
+%that these trends in $u$ are qualitatively similar -- but opposite in
+%sign -- to some of the trends seen in the comparison plots with DES
+%and Pan-STARRS1 in Section~\ref{sec:DESPS1} (see, e.g.,
+%Fig.~\ref{fig:DESPSRA}). {\bf (DLT: Check this!)}.
+Third and finally, in Figure~\ref{fig:GALEX_Dec}, we plot this
+magnitude difference vs. DEC across SDSS Stripe82 using the same
+sample of 69,783 matches used for Figure~\ref{fig:GALEX_RA}.  Unlike
+for the CFIS comparison in the previous section (see, e.g.,
+Fig.~\ref{fig:CFIS}, the GALEX comparison covers the full DEC range of
+Stripe 82.  Overall, aside of a possible slight gradient, there appear
+to be no strong large-scale trends.  The hints of smaller scale
 ($\sim0.4^{\circ}$) variations -- roughly on the scale of a SDSS
 camera column -- seen in the CFIS comparison (Fig.~\ref{fig:CFIS}),
-however, are not seen here, likely due to the relative ``noisiness''
+however, are not seen here, perhaps due to the relative ``noisiness''
 of the GALEX comparison.
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_umag_Hess.png}
-\caption{Analogous to Figure~\ref{fig:gaiaJump}, except that here residuals 
-  residuals between the SDSS $u$ band magnitudes and predicted $u$
-  band magnitudes transformed from the GALEX catalog are shown. The
-  binned median scatter is Z.Z millimag.
-  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_est_umag_Hess.png}
+\caption{Analogous to Figure~\ref{fig:gaiaJump}, except that here
+  residuals residuals between the SDSS $u$ band magnitudes and
+  predicted $u$ band magnitudes transformed from the GALEX catalog are
+  shown.  The individual star scatter is 54.5 millimag (dot-dashed
+  lines); the binned median scatter is 24.5 millimag solid grey
+  lines).
 }
 \label{fig:GALEX_umag}
 \end{figure}
@@ -917,12 +930,14 @@ of the GALEX comparison.
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_RA_Hess.png}
-\caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here residuals 
-  residuals between the SDSS $u$ band magnitudes and predicted $u$
-  band magnitudes transformed from the GALEX catalog are shown.  The
-  binned median scatter is Z.Z millimag.
-  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXbright_du_est_RA_Hess.png}
+\caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here
+  residuals residuals between the SDSS $u$ band magnitudes and
+  predicted $u$ band magnitudes transformed from the GALEX catalog are
+  shown.  Unlike in Figure~\ref{fig:GALEX_umag}, we exclude matches for
+  which SDSS $u$$>$20.0 The individual star scatter is 52.9 millimag
+  (dot-dashed lines); the binned median scatter is 9.5 millimag (solid
+  grey lines).
 }
 \label{fig:GALEX_RA}
 \end{figure}
@@ -930,13 +945,14 @@ of the GALEX comparison.
 
 
 \begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/colorResidGALEXug_du_Dec_Hess.png}
-\caption{Analogous to Figure~\ref{fig:graycorrDec}, except that here residuals 
-  residuals between the SDSS $u$ band magnitudes and predicted $u$
-  band magnitudes transformed from the GALEX catalog are shown.  The
-  binned median scatter is Z.Z millimag.
-  {\bf (DLT:  replace with jupyternotebook-generate figure when available.)}
-}
+    \centering\includegraphics[width=9cm]{figures/colorResidGALEXbright_du_est_Dec_Hess.png}
+\caption{Analogous to Figure~\ref{fig:graycorrDec}, except that here
+  residuals residuals between the SDSS $u$ band magnitudes and
+  predicted $u$ band magnitudes transformed from the GALEX catalog are
+  shown.  Unlike in Figure~\ref{fig:GALEX_umag}, we exclude matches
+  for which SDSS $u$$>$20.0 The individual star scatter is 52.9
+  millimag (dot-dashed lines); the binned median scatter is 5.0
+  millimag (solid grey lines).  }
 \label{fig:GALEX_Dec}
 \end{figure}
 
@@ -945,7 +961,7 @@ of the GALEX comparison.
 \subsection{Offsets from AB magnitude scale \label{sec:AB}} 
 
 We estimate offsets from AB magnitude scale using photometry from three DA white dwarfs observed by HST (see Table~\ref{tab:HST}): GD50 (specifically, the calibrated spectrum file {\tt gd50\_004.fits}) from the HST CalSpec database of spectrophotometric standard stars \citep{2014PASP..126..711B}\footnote{\url{https://www.stsci.edu/hst/instrumentation/reference-data-for-calibration-and-tools/astronomical-catalogs/calspec}}, and SDSSJ~232941.32$+$001107.8 and SDSSJ~010322.19-002047.7 from \citet{2019ApJS..241...20N}
-(the flux-calibrated modeled spectrum files provided by G. Narayan, private communication).  These three spectrophotometric calibrators are particularly useful for our purposes since they are faint enough not to be saturated in the SDSS photometry ($r>14$) and they lie within the SDSS Stripe 82 footprint, making direct comparison to the SDSS measurements relatively simple.  Synthetic AB magnitudes for these three DA white dwarfs was accomplished via numerical integration of Equation~8 of \citet{1996AJ....111.1748F}, which serves to define broad-band AB magnitudes.  This equation requires not only a well-calibrated spectrum, but also the well-calibrated bandpass response curves for the photometric system in question.  Here, we make use of the SDSS bandpass response curves from Table~4 of \citet{2010AJ....139.1628D}.  Our results for the synthetic SDSS AB magnitues for these three stars can be found in Table~\ref{tab:HST}.  The errors on these synthetic AB magnitudes are expected to be $\sim0.5-1.0$~mag (statisical) and $\sim0.01$~mag (systematic).  {\bf (DLT:  Reference???)}
+(the flux-calibrated modeled spectrum files provided by G. Narayan, private communication).  These three spectrophotometric calibrators are particularly useful for our purposes since they are faint enough not to be saturated in the SDSS photometry ($r>14$) and they lie within the SDSS Stripe 82 footprint, making direct comparison to the SDSS measurements relatively simple.  Synthetic AB magnitudes for these three DA white dwarfs was accomplished via numerical integration of Equation~8 of \citet{1996AJ....111.1748F}, which serves to define broad-band AB magnitudes.  This equation requires not only a well-calibrated spectrum, but also the well-calibrated bandpass response curves for the photometric system in question.  Here, we make use of the SDSS bandpass response curves from Table~4 of \citet{2010AJ....139.1628D}.  Our results for the synthetic SDSS AB magnitues for these three stars can be found in Table~\ref{tab:HST}.  The errors on these synthetic AB magnitudes are expected to be $\sim$5--10~millimag (statistical) and $\sim$10~mag (systematic) (e.g., \citet{2014PASP..126..711B}).  
 
 
 
@@ -1076,12 +1092,15 @@ during the commissioning phase of the Rubin Observatory Legacy Survey of Space a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 
-{\bf SDSS-IV, DR15} Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, Center for Astrophysics | Harvard \& Smithsonian (CfA), the Chilean Participation Group, the French Participation Group, Instituto de Astrofísica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut für Astrophysik Potsdam (AIP), Max-Planck-Institut für Astronomie (MPIA Heidelberg), Max-Planck-Institut für Astrophysik (MPA Garching), Max-Planck-Institut für Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observatório Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Autónoma de México, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University. \\
-{bf Gaia DR2}: This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAChas been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.\\
+{\bf SDSS-IV, DR15} Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, Center for Astrophysics | Harvard \& Smithsonian (CfA), the Chilean Participation Group, the French Participation Group, Instituto de Astrof{\'i}sica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut f{\"u}r Astrophysik Potsdam (AIP), Max-Planck-Institut f{\"u}r Astronomie (MPIA Heidelberg), Max-Planck-Institut f{\"u}r Astrophysik (MPA Garching), Max-Planck-Institut f{\"u}r Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observat{\'o}rio Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Autónoma de M{\'e}xico, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University. \\
+{bf Gaia DR2}: This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAChas been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.\\
 {\bf DES DR1}: This project used public archival data from the Dark Energy Survey (DES). Funding for the DES Projects has been provided by the U.S. Department of Energy, the U.S. National Science Foundation, the Ministry of Science and Education of Spain, the Science and Technology FacilitiesCouncil of the United Kingdom, the Higher Education Funding Council for England, the National Center for Supercomputing Applications at the University of Illinois at Urbana-Champaign, the Kavli Institute of Cosmological Physics at the University of Chicago, the Center for Cosmology and Astro-Particle Physics at the Ohio State University, the Mitchell Institute for Fundamental Physics and Astronomy at Texas A\&M University, Financiadora de Estudos e Projetos, Funda{\c c}{\~a}o Carlos Chagas Filho de Amparo {\`a} Pesquisa do Estado do Rio de Janeiro, Conselho Nacional de Desenvolvimento Cient{\'i}fico e Tecnol{\'o}gico and the Minist{\'e}rio da Ci{\^e}ncia, Tecnologia e Inova{\c c}{\~a}o, the Deutsche Forschungsgemeinschaft, and the Collaborating Institutions in the Dark Energy Survey.
 The Collaborating Institutions are Argonne National Laboratory, the University of California at Santa Cruz, the University of Cambridge, Centro de Investigaciones Energ{\'e}ticas, Medioambientales y Tecnol{\'o}gicas-Madrid, the University of Chicago, University College London, the DES-Brazil Consortium, the University of Edinburgh, the Eidgen{\"o}ssische Technische Hochschule (ETH) Z{\"u}rich,  Fermi National Accelerator Laboratory, the University of Illinois at Urbana-Champaign, the Institut de Ci{\`e}ncies de l'Espai (IEEC/CSIC), the Institut de F{\'i}sica d'Altes Energies, Lawrence Berkeley National Laboratory, the Ludwig-Maximilians Universit{\"a}t M{\"u}nchen and the associated Excellence Cluster Universe, the University of Michigan, the National Optical Astronomy Observatory, the University of Nottingham, The Ohio State University, the OzDES Membership Consortium, the University of Pennsylvania, the University of Portsmouth, SLAC National Accelerator Laboratory, Stanford University, the University of Sussex, and Texas A\&M University.
-Based in part on observations at Cerro Tololo Inter-American Observatory, National Optical Astronomy Observatory, which is operated by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation.\\{\bf Pan-STARRS PS1, DR2}: The Pan-STARRS1 Surveys (PS1) and the PS1 public science archive have been made possible through contributions by the Institute for Astronomy, the University of Hawaii, the Pan-STARRS Project Office, the Max-Planck Society and its participating institutes, the Max Planck Institute for Astronomy, Heidelberg and the Max Planck Institute for Extraterrestrial Physics, Garching, The Johns Hopkins University, Durham University, the University of Edinburgh, the Queen's University Belfast, the Harvard-Smithsonian Center for Astrophysics, the Las Cumbres Observatory Global Telescope Network Incorporated, the National Central University of Taiwan, the Space Telescope Science Institute, the National Aeronautics and Space Administration under Grant No. NNX08AR22G issued through the Planetary Science Division of the NASA Science Mission Directorate, the National Science Foundation Grant No. AST-1238877, the University of Maryland, Eotvos Lorand University (ELTE), the Los Alamos National Laboratory, and the Gordon and Betty Moore Foundation.\\{\bf CFIS} We thank the Canada-France Imaging Survey collaboration for sharing their data with us. This work is based on data obtained as part of the Canada-France Imaging Survey, a CFHT large program of the National Research Council of Canada and the French Centre National de la Recherche Scientifique. Based on observations obtained with MegaPrime/MegaCam, a joint project of CFHT and CEA Saclay, at the Canada-France-Hawaii Telescope (CFHT) which is operated by the National Research Council (NRC) of Canada, the Institut National des Science de l'Univers (INSU) of the Centre National de la Recherche Scientifique (CNRS) of France, and the University of Hawaii.
- 
+Based in part on observations at Cerro Tololo Inter-American Observatory, National Optical Astronomy Observatory, which is operated by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation.\\
+{\bf Pan-STARRS PS1, DR2}: The Pan-STARRS1 Surveys (PS1) and the PS1 public science archive have been made possible through contributions by the Institute for Astronomy, the University of Hawaii, the Pan-STARRS Project Office, the Max-Planck Society and its participating institutes, the Max Planck Institute for Astronomy, Heidelberg and the Max Planck Institute for Extraterrestrial Physics, Garching, The Johns Hopkins University, Durham University, the University of Edinburgh, the Queen's University Belfast, the Harvard-Smithsonian Center for Astrophysics, the Las Cumbres Observatory Global Telescope Network Incorporated, the National Central University of Taiwan, the Space Telescope Science Institute, the National Aeronautics and Space Administration under Grant No. NNX08AR22G issued through the Planetary Science Division of the NASA Science Mission Directorate, the National Science Foundation Grant No. AST-1238877, the University of Maryland, Eotvos Lorand University (ELTE), the Los Alamos National Laboratory, and the Gordon and Betty Moore Foundation.\\
+{\bf CFIS} We thank the Canada-France Imaging Survey collaboration for sharing their data with us. This work is based on data obtained as part of the Canada-France Imaging Survey, a CFHT large program of the National Research Council of Canada and the French Centre National de la Recherche Scientifique. Based on observations obtained with MegaPrime/MegaCam, a joint project of CFHT and CEA Saclay, at the Canada-France-Hawaii Telescope (CFHT) which is operated by the National Research Council (NRC) of Canada, the Institut National des Science de l'Univers (INSU) of the Centre National de la Recherche Scientifique (CNRS) of France, and the University of Hawaii.\\
+{\bf CDS}:  This research made use of the cross-match service provided by CDS, Strasbourg.
+
  %Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the US Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web site is http://www.sdss.org. 
 
 
