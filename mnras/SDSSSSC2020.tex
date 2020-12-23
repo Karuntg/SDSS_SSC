@@ -51,6 +51,7 @@
 
 %%%%%%% My packages %%%%%%%%%
 %\usepackage{deluxetable}
+\usepackage{ulem}
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{hyperref}
@@ -161,10 +162,8 @@ techniques: photometric
 
 \section{Introduction} \label{sec:intro}
 
-Modern multi-band photometric sky surveys aim to deliver measurements accurate\footnote{Except for zeropoint offsets from the AB magnitude scale, discussed in Section~\ref{sec:AB}.} at the 1\% (0.01 mag) level, to enable cosmological and other high-precision measurements \cite[e.g., the Vera Rubin Observatory Legacy Survey of Space and Time,][]{LSSToverview}. Photometric data are usually calibrated using sets of standard stars whose brightness is known from previous work.
-One of the largest catalogs with sub-percent measurement precision and optical multi-band $ugriz$ photometry
-was constructed by averaging multi-epoch data for about a million stars collected by the Sloan Digital Sky Survey \citep[SDSS,][]{York2000}  in a 300 deg$^2$ region known as SDSS Stripe 82 \citep[][hereafter \pO]{Ivez07}. 
-%The SDSS $ugriz$ photometric system is now in use at many observatories worldwide and this catalog\footnote{Available from \url{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html}} (hereafter \pOc) has been used both for calibration and testing of other surveys. 
+Modern multi-band photometric sky surveys aim to deliver measurements accurate\footnote{Except for zeropoint offsets from the AB magnitude scale, discussed in Section~\ref{sec:AB}.} at the 1\% (0.01 mag) level, to enable cosmological and other high-precision measurements \citealt[e.g., the Vera Rubin Observatory Legacy Survey of Space and Time,][]{LSSToverview}. Photometric data are usually calibrated using sets of standard stars whose brightness is known from previous work. One of the largest catalogs with sub-percent measurement precision and optical multi-band $ugriz$ photometry
+was constructed by averaging multi-epoch data for about a million stars collected by the Sloan Digital Sky Survey \citep[SDSS,][]{York2000}  in a 300 deg$^2$ region known as SDSS Stripe 82 \citep[][hereafter \pO]{Ivez07}. The SDSS $ugriz$ photometric system is now in use at many observatories worldwide and this catalog\footnote{Available from \url{}} (hereafter \pOc) has been used both for calibration and testing of other surveys. 
 
 After completion of \pOc, SDSS obtained additional imaging data, about 2-3 times more measurements 
 per star depending on its sky position within Stripe 82. This increased number of data points results in averaged photometry with
@@ -190,7 +189,7 @@ Our results are summarized and discussed in \S4.
 
 In the SDSS survey, Stripe 82 is a contiguous, 300 deg$^2$ equatorial region, which stretches between $-60^{\circ}\;\leq\;RA\;\leq\;60^{\circ}$ [20h to 4h], and $-1.266^{\circ}\;\leq\;Dec\;\leq\;1.266^{\circ}$. Following the initial concerted effort by the SDSS collaboration between 2001 and 2008 to map this region repeatedly to a forecast imaging depth, $r \leq 22$, several other surveys in various wavebands too have targeted this same patch of sky to provide a rich multi-wavelength dataset suitable for a variety of investigations. SDSS observations have also continued in this region \citep[e.g., the SDSS-II search for supernovae,][]{2008AJ....135..338F}, resulting in an imaging depth deeper than what was initially planned.  
 
-Data from the SDSS imaging camera \citep{1998AJ....116.3040G} were collected in drift-scan mode. The images which correspond to the same sky location in each of the five photometric bandpasses (these five images are collected over $\sim$5 minutes, with an exposure time of 54 seconds for each band) are grouped together for simultaneous processing as a field. A field is defined as a 36 second (1361 pixels)  stretch of drift-scanning data from a single column of CCDs (sometimes called a {\it scan line}; for more details, see \pO\ and references therein). 
+Data from the SDSS imaging camera \citep{1998AJ....116.3040G} were collected in drift-scan mode. The images which correspond to the same sky location in each of the five photometric bandpasses (these five images are collected over $\sim$5 minutes, with an exposure time of 54 seconds for each band) are grouped together for simultaneous processing as a {\it field}. A field is defined as a 36 second (1361 pixels)  stretch of drift-scanning data from a single column of CCDs (sometimes called a {\it scan line}; for more details, see \pO\ and references therein). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{The 2007 SDSS Standard Star Catalog}
@@ -200,7 +199,7 @@ The SDSS standard star catalog, \pO\ (version 2.6) was constructed by averaging 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Post-2007 SDSS data \label{ssec:DR15}}
 
-In this work, we used the SDSS Data Release 15 (DR15) as available in April 2019 \citep{Blan17}. In DR15, the Stripe 82 region is covered by 118 {\it runs}, which include 32,292 fields, each with observations in the five   $ugriz$ SDSS filters. Using our programmatic query tool, we obtained the processed data for all these runs from the DR15 public database. In the database, the data are presented as individual FITS tables, named \verb photoObj_<run>_<camcol>_<field>.fits. From each fits table, we extracted photometric and astrometric quantities, time of observation, and several ancillary data for all the objects into a formatted master file for further processing.
+In this work, we used the SDSS Data Release 15 (DR15) as available in April 2019 \citep{Blan17}. In DR15, the Stripe 82 region is covered by 118 {\it runs}, which include 32,292 fields, each with observations in the five   $ugriz$ SDSS filters. Using our programmatic query tool, we obtained the processed data for all these runs from the DR15 public database\footnote{\url{https://dr15.sdss.org/sas/dr15/eboss/photoObj/}}. In the database, the data are presented as individual FITS tables, named \verb photoObj_<run>_<camcol>_<field>.fits. From each fits table, we extracted photometric and astrometric quantities, time of observation, and several ancillary data for all the objects into a formatted master file for further processing.
 
 The objects in each of these data files were then matched with the standard stars in the \pO\ catalog using their mean sky positions (R.A. and Declination) and a matching radius of 0.5 arcsec. For matching, only deblended objects ({\it nchild}=0), lying between rows $64 < objc\_rowc < 1424$ in each field, were selected to avoid poor photometry due to blending or lying close to edges of the CCD. From these matched objects, only those with photometric error $<$0.1 mag were selected to compute photometric zeropoint offsets between the \pO\ catalog and DR15. These offsets were obtained independently for all runs and fields, in all five filters, and applied to bring our DR15 based catalog to the same photometric scale as the \pO\ catalog -- in essence, we have re-calibrated photometry for all Stripe 82 runs in DR15 using the \pO\ catalog. In addition, the MJD and fractional MJD of observation were computed using the median of the TAI values (the GPS based time reported by the SDSS Apache Point Observatory) for these matched objects. In the final step, the photometric, astrometric and other details for each of these matched standard stars were written to independent (one per star) light curve files. All these processing steps were completed on a single quad-core desktop needing several days of processing. Further processing of these light curves is described in Section~\ref{sec:averaging}. 
 
@@ -210,10 +209,10 @@ The final dataset, consisting of all the light curves in the five $ugriz$ filter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gaia Early Data Release 3 (EDR3) Data} \label{ssec:gaia}
  
-For our primary astrometric and photometric cross calibration we use the Gaia Early Data Release 3 catalogs.  Gaia is a European /Space Agency (ESA) mission designed to map over a billion stars in the Milky Way and the local group in three dimensions, providing accurate proper motion and radial velocity measurements. \citet{GaiaCollab2016} provide a detailed overview about the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations), while technical details for specific topics relevant to our work may found in the following citations: pre-processing and source-list creation \citep{Fabr2016}, astrometric solution \citep{LInd2018}, processing the photometric data \citep{Riel2018}, photometric content and validation \citep{Evan2018}, and full catalog validation \citep{Aren2018}. A detailed description of Gaia data products  
+For our primary astrometric and photometric cross calibration we use the Gaia Early Data Release 3 catalogs.  Gaia is a European Space Agency (ESA) mission designed to map over a billion stars in the Milky Way and the local group in three dimensions, providing accurate proper motion and radial velocity measurements. \citet{GaiaCollab2016} provide a detailed overview about the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations), while technical details for specific topics relevant to our work may found in the following citations: pre-processing and source-list creation \citep{Fabr2016}, astrometric solution \citep{LInd2018}, processing the photometric data \citep{Riel2018}, photometric content and validation \citep{Evan2018}, and full catalog validation \citep{Aren2018}. A detailed description of Gaia data products  
 may be found in \citet{GaiaCollab2018b}. Here we summarize only the pertinent details.
 
-The third Gaia Data Release, Gaia EDR3, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.8 billion sources\footnote{See https://www.cosmos.esa.int/web/gaia/earlydr3}. This dataset is based on the first 34 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm). Gaia EDR3 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:GaiaCorr}. 
+The third Gaia Data Release, Gaia EDR3, includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.8 billion sources\footnote{See \url{https://www.cosmos.esa.int/web/gaia/earlydr3}.}. This dataset is based on the first 34 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (Gmag hereafter) for sources brighter than Gmag$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm). Gaia EDR3 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:GaiaCorr}. 
  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,7 +253,7 @@ only for Declination $>+0.45$ degree, thus covering only about a quarter of the 
 
 The available CFIS DR2-Stripe 82 catalog contains close to 965,000 sources, of which $\sim$315,000 matched within 
 a link radius of 0.5 arcsec with stars in our SDSS standard stars catalog. The astrometry over the complete CFIS survey 
-region has been calibrated against $Gaia$ DR2.  The residuals of the astrometric solution are typically 10 mas.  From the matched objects, we select only bright stars, $r \leq 20$ mag,  with colors  $\leq (u-g)_{SDSS} \leq 2.1$, following \cite{2017ApJ...848..128I}. This color-magnitude cut yields 150,114 stars, which are used in the comparison described in \S \ref{sec:CFIStest}.  We note that that the transmission curve of the MegaCam $u$ band filter used for the CFIS survey differs noticeably from that of the SDSS $u$ band filter\footnote{\url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/megapipe/docs/filt.html}}.
+region has been calibrated against $Gaia$ EDR3.  The residuals of the astrometric solution are typically 10 mas.  From the matched objects, we select only bright stars, $r \leq 20$ mag,  with colors  $\leq (u-g)_{SDSS} \leq 2.1$, following \cite{2017ApJ...848..128I}. This color-magnitude cut yields 150,114 stars, which are used in the comparison described in \S \ref{sec:CFIStest}.  We note that that the transmission curve of the MegaCam $u$ band filter used for the CFIS survey differs noticeably from that of the SDSS $u$ band filter\footnote{\url{https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/megapipe/docs/filt.html}}.
 
 %(see Figure 2 in \citealt{2017ApJ...848..128I}).  
 
@@ -272,11 +271,11 @@ Our matched GALEX catalog consists of 150945 NUV sources in the Stripe 82 footpr
   
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
-\section{The Construction and Analysis of the New v3.4 Catalog \label{sec:v34}}
+\section{The Construction and Analysis of the New v4.2 Catalog \label{sec:v42}}
 
 We first describe the construction of the new SDSS catalog and derivation of photometric
-zeropoint corrections using Gaia DR2 data, and then compare the resulting photometry to 
-Gaia DR2, DES, Pan-STARRS, CFIS and GALEX catalogs. 
+zeropoint corrections using Gaia EDR3 data, and then compare the resulting photometry to 
+Gaia EDR3, DES, Pan-STARRS, CFIS and GALEX catalogs. 
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -293,10 +292,8 @@ the original catalog, resulting in a new catalog with 991,472 stars.
 Figure~\ref{fig:rerr_nvso} compares the numbers of epochs for matched stars and their formal
 uncertainties of the mean $r$ band magnitude. The new 2020 catalog has about 2-3 times more 
 measurements per star, depending on its sky position within Stripe 82. Consequently,  formal 
-photometric uncertainties (``random errors'') are about 1.4-1.7 times smaller. A comparison of the photometry between the old and new catalogs is discussed in Section~\ref{sec:v26v34}. This raw catalog
-is labeled version v3.4, and is publicly available from the same
-website\footnote{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html} 
-as the original 2007 catalog. 
+photometric uncertainties (``random errors'') are about 1.4-1.7 times smaller. A comparison of the photometry between the old and new catalogs is discussed in Section~\ref{sec:v26v34}. 
+\KT{Access link to v4.2 removed; provide this access link for the final cat only in sec 3.3?}% \sout{This raw catalog is labeled version v4.2, and is publicly available from the same website\footnote{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html} as the original 2007 catalog.}}
 
 
 
@@ -308,28 +305,28 @@ as the original 2007 catalog.
 % BW
 \includegraphics[width=0.4\textwidth, keepaspectratio]{figures/nepoch_compOvsN_BW.png}
 \includegraphics[width=0.4\textwidth, keepaspectratio]{figures/rerr_compOvsN_BW.png}
-\caption{{\it Left:} A comparison of the number of observational epochs for matched stars in the 2020 versus 2007 Standard Star Catalog (SSC). {\it Right:} A comparison of the median formal $r$ band photometric uncertainties of matched objects in the 2020 versus 2007 SSC, as a function of their mean $r$ magnitudes.
+\caption{{\it Left}: A comparison of the number of observational epochs for matched stars in the 2020 versus 2007 Standard Star Catalog (SSC). {\it Right}: A comparison of the median formal $r$ band photometric uncertainties of matched objects in the 2020 versus 2007 SSC, as a function of their mean $r$ magnitudes.
 \label{fig:rerr_nvso}}
 \end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{The derivation of  photometric zeropoint corrections using Gaia DR2 data\label{sec:GaiaCorr}} 
+\subsection{The derivation of  photometric zeropoint corrections using Gaia EDR3 data\label{sec:GaiaCorr}} 
 
 The variation of photometric zeropoints with position on the sky in the \pOc\ (see their eq.~4) was 
 constrained using a combination of stellar colors \citep[the principal axes in color-color diagrams, for details 
 see][]{2004AN....325..583I} and a standard star network \citep{2002AJ....123.2121S,2006AN....327..821T}. It is likely that 
 residual errors in zeropoint calibration (e.g., a saw-tooth pattern as a function of Declination,
 which was reported by \citealt{2013A&A...552A.124B}; see their Fig.~23) could be further minimized using 
-uniformly calibrated space-based photometry from Gaia Data Release 2 (DR2). 
+uniformly calibrated space-based photometry from Gaia Early Data Release 3 (EDR3). 
 
 \subsubsection{Positional matching of the SDSS and Gaia catalogs}
-Naively, one would positionally match the SDSS and Gaia DR2 catalogs using a matching radius of 
+Naively, one would positionally match the SDSS and Gaia EDR3 catalogs using a matching radius of 
 about 0.3 arcsec because SDSS positions are accurate to better than 0.1 arcsec per coordinate (rms) 
 for sources with $r < 20.5$ mag \citep{2003AJ....125.1559P}.  However, observational epochs are
 sufficiently different that stellar proper motions need to be accounted for; indeed, we find a very 
 strong correlation between the SDSS-Gaia positional differences and proper motions published in 
-the Gaia DR2 catalog (see the left panel in  Figure~\ref{fig:GaiaRApm}). After accounting for proper
+the Gaia EDR3 catalog (see the left panel in  Figure~\ref{fig:GaiaRApm}). After accounting for proper
 motions,  the positions agree at the level of $\sim28$ milliarcsec (robust\footnote{We use robust estimator 
 of standard deviation computed as $\sigma_G = 0.741*(q_{75}-q_{25})$, where $q_{25}$ and $q_{75}$ are 
 the 25\% and 75\% quantiles, and the normalization factor 0.741 assures that $\sigma_G$ is equal to 
@@ -346,10 +343,10 @@ positions ``averaged'' over typically $\sim20$ SDSS runs (see the left panel in 
 \centering \includegraphics[width=0.4\textwidth, keepaspectratio]{figures/astroVSpm_RA_pm.png}
 \centering \includegraphics[width=0.4\textwidth, keepaspectratio]{figures/astroVSpm_RA_r.png}
 
-\caption{The left panel shows the R.A. difference between SDSS and Gaia 
-vs. R.A. proper motion reported by Gaia DR2. The solid line shows the median difference in bins 
+\caption{{\it Left}: The R.A. difference between SDSS and Gaia 
+vs. R.A. proper motion reported by Gaia EDR3. The solid line shows the median difference in bins 
 of proper motion and the dashed lines mark the $\pm \sigma_G$ envelope around the medians,
-where $\sigma_G$ is the robust standard deviation. The right panel shows the R.A. difference 
+where $\sigma_G$ is the robust standard deviation. {\it Right}: The R.A. difference 
 after correcting using the best-fit R.A. difference vs. 
 proper motion curve, as a function of the SDSS $r$ magnitude. The residual differences are dominated 
 by systematic errors in SDSS astrometry at the level of $\sim28$ milliarcsec (note that there is no increase with 
@@ -361,15 +358,15 @@ magnitude). Analogous plots for Declination quantities are similar.
 
 \subsubsection{Gaia-based photometric zeropoint corrections  \label{sec:GaiaCorr2}}
 
-Gaia DR2 reported Gmag magnitudes, which approximately span the SDSS $griz$ bandpasses, 
+Gaia EDR3 reported Gmag magnitudes, which approximately span the SDSS $griz$ bandpasses, 
 and BP and RP magnitudes, which approximately correspond to the blue and red halves of the 
 Gmag bandpass. We first used Gmag data to derive ``gray'' zeropoint corrections (applied to
 all five SDSS bands), and then use the BP-RP color to derive zeropoint corrections for the 
 $ugiz$ bands, relative to the $r$ band. 
 
-The basic idea is simple: use Gaia's Gmag, Gmag$_{GaiaDR2}$, and the SDSS $gri$ magnitudes
+The basic idea is simple: use Gaia's Gmag, Gmag$_{GaiaEDR3}$, and the SDSS $gri$ magnitudes
 to derive synthetic Gmag magnitudes based on SDSS data, Gmag$_{SDSS}$; bin the 
-$\Delta$Gmag = (Gmag$_{SDSS}$-Gmag$_{GaiaDR2}$) residuals by R.A. and Dec, and 
+$\Delta$Gmag = (Gmag$_{SDSS}$-Gmag$_{GaiaEDR3}$) residuals by R.A. and Dec, and 
 use the median residuals per bin as the gray correction for SDSS photometry (as functions
 of R.A. and Dec). Similarly, use Gaia's BP-RP color to derive synthetic $u-r$, $g-r$, $r-i$
 and $r-z$ colors, and use the median residuals per bin as zeropoint corrections for 
@@ -382,8 +379,8 @@ that even sixth-order polynomial fits do not provide better results than this si
 numerical approach. An example of such a transformation is shown in Figure~\ref{fig:GrVSgi}. 
 
 
-\begin{figure}[th!]
-  \centering\includegraphics[width=8cm]{figures/GrVSgi.png} 
+\begin{figure}
+  \centering\includegraphics[width=0.95\columnwidth]{figures/GrVSgi.png} 
 \caption{The variation of the difference between Gaia's Gmag magnitude from Early Data Release 3
 and SDSS $r$ magnitude with the SDSS $g-i$ color.
 The  color map illustrates the distribution of $\sim 393,000$ matched stars with 
@@ -407,8 +404,8 @@ photometry,  are $<2$ millimag at Gmag$\sim$20, and $<5$ millimag when
 comparing to Pan-STARRS). 
 
 
-\begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/GmagCorrectionTest_Gmag_Hess.png} 
+\begin{figure}
+    \centering\includegraphics[width=0.95\columnwidth]{figures/GmagCorrectionTest_Gmag_Hess.png} 
 \caption{The variation of the residuals between Gaia's Gmag from Early Data Release 3
 and synthetic Gmag values generated using SDSS $gri$ photometry. The two solid 
 lines represent the median values $\pm$ uncertainty of the median for each
@@ -430,9 +427,10 @@ The behavior of median Gmag residuals per R.A. and Declination bin is shown in
 Figures~\ref{fig:graycorrRA} and \ref{fig:graycorrDec}. 
 
 
-\begin{figure}[th!]
-  \centering\includegraphics[width=8cm]{figures/GmagCorrection_RA_Hess.png} 
-\caption{The R.A. variation of the residuals between Gaia's Gmag from EDR3
+\begin{figure*}
+  \centering\includegraphics[width=0.45\textwidth]{figures/GmagCorrection_RA_Hess.png} 
+  \centering\includegraphics[width=0.45\textwidth]{figures/GmagCorrection_Dec_Hess.png} 
+\caption{{\it Left}: The R.A. variation of the residuals between Gaia's Gmag from EDR3
 and synthetic Gmag values generated using SDSS $gri$ photometry. The 
 color map illustrates the distribution of $\sim 372,000$ matched stars with 
 $16<$Gmag$<19.5$ and $0.4 < g-i < 3.0$. The two solid lines represent the 
@@ -441,19 +439,24 @@ The short-dashed lines show the median values $\pm$ the robust standard
 deviation for each bin. The horizontal solid and long-dashed lines at zero and 
 $\pm$0.01 mag, respectively, are added to guide the eye. The mean of the two 
 solid lines is the gray correction, as a function of R.A., applied to the SDSS 
-$ugriz$ magnitudes. The standard deviation for the applied correction is 3.2 millimag.}
-\label{fig:graycorrRA}
-\end{figure}
-
-\begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/GmagCorrection_Dec_Hess.png} 
-\caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here results are shown for
+$ugriz$ magnitudes. The standard deviation for the applied correction is 3.2 millimag.
+{\it Right}: Analogous to the left panel, except that here results are shown for
 0.01 degree wide Declination bins. The 12 clearly visible regions correspond to
 two SDSS scans (in R.A. direction) and six CCD columns in the SDSS camera. 
 The standard deviation for the applied correction is 6.5 millimag, with a maximum
 absolute value of $\sim0.01$ mag.}
-\label{fig:graycorrDec}
-\end{figure}
+\label{fig:graycorrRA}
+\end{figure*}
+
+% \begin{figure}
+%     \centering\includegraphics[width=0.95\columnwidth]{figures/GmagCorrection_Dec_Hess.png} 
+% \caption{Analogous to Figure~\ref{fig:graycorrRA}, except that here results are shown for
+% 0.01 degree wide Declination bins. The 12 clearly visible regions correspond to
+% two SDSS scans (in R.A. direction) and six CCD columns in the SDSS camera. 
+% The standard deviation for the applied correction is 6.5 millimag, with a maximum
+% absolute value of $\sim0.01$ mag.}
+% \label{fig:graycorrDec}
+% \end{figure}
 
 
 Except for a few degrees long region at the edge of Stripe 82 (R.A.$>$55 deg), the
@@ -466,9 +469,9 @@ and well calibrated Gaia's photometric zeropoints across the sky, we can now
 constrain SDSS zeropoints with a precision of about 1 millimag per 0.01 degree
 wide Declination bin. 
 
-The residuals shown in Figures~\ref{fig:graycorrRA} and \ref{fig:graycorrDec} are
+The residuals shown in the left and right panels of Figures~\ref{fig:graycorrRA} are
 applied as ``gray'' zeropoint corrections to $ugriz$ magnitudes, as functions of 
-R.A. and Declination, to all 991,472 stars in the catalog. % This catalog version was labeled v3.4, and it is publicly available\footnote{See \url{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html}}. 
+R.A. and Declination, to all 991,472 stars in the catalog. % and \ref{fig:graycorrDec} This catalog version was labeled v4.2, and it is publicly available\footnote{See \url{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html}}. 
 
 In the next re-calibration step, we derive synthetic $u-r$, $g-r$, $r-i$ and $r-z$ colors
 from Gaia's BP-RP color, using the same binning procedure as we used above for 
@@ -519,8 +522,8 @@ The robust standard deviation for all zeropoint corrections is listed in Table~\
 
  
 
-\begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/colorResidGaiaColorsB_ri_Dec_Hess.png} 
+\begin{figure}
+    \centering\includegraphics[width=0.9\columnwidth]{figures/colorResidGaiaColorsB_ri_Dec_Hess.png} 
 \caption{Analogous to Figure~\ref{fig:graycorrDec}, except that here residuals 
 correspond to differences between the SDSS $r-i$ color and a synthetic $r-i$ color
 generated using Gaia's $BP-RP$ color. Note the signature of SDSS camera columns
@@ -537,10 +540,9 @@ zeropoint errors in the SDSS catalog implied by Gaia's and CFIS data agree at th
 level a few millimags in Declination direction, but found larger inconsistencies of $\sim$0.01-0.02 mag
  for R.A. bins. For this reason, we only applied $u$ band 
 correction in Declination direction. The plausible $u$ band zeropoint errors in 
-the new catalog are further discussed in Section~\ref{sec:CFIStest}. This final version of the catalog version was
-labeled v3.4, and it is publicly available\footnote{See \url{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html}}. 
+the new catalog are further discussed in Section~\ref{sec:CFIStest}. %This final version of the catalog version was labeled v4.2, and it is publicly available\footnote{See \url{http://faculty.washington.edu/ivezic/sdss/catalogs/stripe82.html}}. 
 
-%This final  catalog version was labeled v3.4, and it is also publicly available. 
+%This final  catalog version was labeled v4.2, and it is also publicly available. 
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -552,16 +554,16 @@ binned by R.A. and Declination. We have verified this expectation for all colors
 recalibration. For illustration, Figure~\ref{fig:grVSgaiaRADec} shows such a test for the $g-r$ 
 color, with binned median scatter of the order 1 millimag. 
 
-\begin{figure}[th!]
-    \centering\includegraphics[width=7cm]{figures/colorResidGaiaColors_gr_RA_Hess.png} 
-    \centering\includegraphics[width=7cm]{figures/colorResidGaiaColors_gr_Dec_Hess.png} 
-\caption{Left: analogous to Figure~\ref{fig:graycorrRA}, except that here residuals between
+\begin{figure*}
+    \centering\includegraphics[width=0.45\textwidth]{figures/colorResidGaiaColors_gr_RA_Hess.png} 
+    \centering\includegraphics[width=0.45\textwidth]{figures/colorResidGaiaColors_gr_Dec_Hess.png} 
+\caption{{\it Left}: Analogous to Figure~\ref{fig:graycorrRA}, except that here residuals between
 the SDSS $g-r$ color from the v4.2 catalog and a synthetic $g-r$ color generated using 
-Gaia's $BP-RP$ color are shown. The binned median scatter is 1.6 millimag. Right: the 
+Gaia's $BP-RP$ color are shown. The binned median scatter is 1.6 millimag. {\it Right}: The 
 $g-r$ residuals are shown as a function of Declination. The binned median scatter is 
 0.8 millimag.}
 \label{fig:grVSgaiaRADec}
-\end{figure}
+\end{figure*}
  
 
 
@@ -592,12 +594,12 @@ for median values per bin for all bands and both coordinates is listed in Table~
 
 % \begin{deluxetable}{l|c|c}[ht!]
 % \tablecaption{The robust standard deviation for magnitude differences between the v2.6 (old)
-% and v3.4 (new) catalogs. \label{tab:oldnewRMS}}
+% and v4.2 (new) catalogs. \label{tab:oldnewRMS}}
 % \tablehead{
 % \colhead{Band} & \colhead{rms for R.A.} & \colhead{rms for Dec}
 % }
 % \startdata
-%    NOTE NOTE NOTE: these values are for v3.4 catalog 
+%    NOTE NOTE NOTE: these values are for v4.2 catalog 
 %        $u$        &        2.3$^a$    &    25.5      \\
 %        $g$        &        4.5    &      9.4      \\  
 %        $r$         &        2.0    &      7.0      \\  
@@ -605,7 +607,7 @@ for median values per bin for all bands and both coordinates is listed in Table~
 %        $z$        &        8.9    &      8.4      \\ 
 % \enddata
 % \tablenotetext{a}{For the $u$ band, the scatter in R.A. direction is due to more observations
-% in v3.4 than in v2.6, rather than zeropoint correction.} 
+% in v4.2 than in v2.6, rather than zeropoint correction.} 
 % \end{deluxetable}
    
 \begin{table}
@@ -627,8 +629,8 @@ for median values per bin for all bands and both coordinates is listed in Table~
 \end{table}
 
 
-\begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/testV26vsV42_r_dr_r_mag_Hess.png} 
+\begin{figure}
+    \centering\includegraphics[width=0.95\columnwidth]{figures/testV26vsV42_r_dr_r_mag_Hess.png} 
 \caption{The differences between $r$ band magnitudes listed in the v2.6 and v4.2 
 SDSS Standard Star catalogs,  shown as a function of the $r$ band magnitude. The 
 scatter of median values per bin is 1.7 millimag. The scatter of individual values is 
@@ -637,8 +639,8 @@ $\sim0.01$ mag for $r<20$, and it is due to more data in the new catalog.}
 \end{figure}
 
 
-\begin{figure}[th!]
-    \centering\includegraphics[width=9cm]{figures/testV26vsV42_r_dr_Dec_Hess.png} 
+\begin{figure}
+    \centering\includegraphics[width=0.95\columnwidth]{figures/testV26vsV42_r_dr_Dec_Hess.png} 
 \caption{Analogous to Figure~\ref{v26v34drr}, except that here the $r$ band
 differences are shown as a function of Declination (cross-scan direction). The size 
 of the four regions corresponds to the field-of-view size of the SDSS Photometric Telescope. 
@@ -648,7 +650,6 @@ For statistics in other bands, please see Table~\ref{tab:oldnewRMS}.}
 \label{fig:v26v34drDec}
 \end{figure}
  
-
 
 Given the quality of Gaia photometry, there should be no doubt that SDSS $ugriz$ photometry
 reported in the new v4.2 catalog is superior to the old v2.6 catalog. Nevertheless, we perform
@@ -664,7 +665,7 @@ $<10$ millimag for the $u$ and $z$ bands.}
 
 
 
-\begin{figure}[th!]
+\begin{figure*}
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_old_RA_Hess.png}
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_new_RA_Hess.png}
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_r_w_old_Dec_Hess.png}
@@ -675,10 +676,10 @@ catalogs. The standard deviation of the median $w$ values binned by R.A. and Dec
 is 2.6 millimag and 1.1 millimag for v2.6 and 1.0 millimag and 0.3 millimag for v4.2,
 respectively.}
 \label{fig:comparew} 
-\end{figure}
+\end{figure*}
  
 
-\begin{figure}[th!]
+\begin{figure*}
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_snew_u_s_new_RA_Hess.png}
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_snew_u_s_new_Dec_Hess.png} 
     \centering\includegraphics[width=7cm]{figures/testV26vsV42_ynew_z_y_new_RA_Hess.png} 
@@ -689,7 +690,7 @@ principal color in the SDSS $i-z$ vs. $r-i$ color-color diagram, for the new v4.
 The standard deviation of the median $s$ values binned by R.A. and Declination is 9.8 millimag 
 and 1.3 millimag, respectively, and 1.8 millimag and 3.4 millimag for the $y$ color.}
 \label{fig:comparesy} 
-\end{figure}
+\end{figure*}
 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -713,7 +714,7 @@ direction and 1-2 millimag in the Declination direction. Note implied DES $z$ ba
 as a function of R.A. of up to 0.02 mag (see the bottom left panel in Figure~\ref{fig:DESPSRA}), although a 
 similar trend in the equivalent Pan-STARRS plot (bottom right panel in Figure~\ref{fig:DESPSRA}) indicates 
 that the SDSS catalog, calibrated using Gaia EDR3, may be at least partially responsible for observed 
-differences\footnote{For a comparison of DES DR1 and Gaia DR2 calibrations, see e.g., Fig. 9 of \citet{2018ApJS..239...18A}}
+differences\footnote{For a comparison of DES DR1 and Gaia EDR3 calibrations, see e.g., Fig. 9 of \citet{2018ApJS..239...18A}}
 
 The variation of the residual magnitude differences with magnitude (see Figure~\ref{fig:drVSr} for DES results) 
 is typically flat to within $\sim$3-4 millimag for both DES and Pan-STARRS. This much smaller gradient than observed 
@@ -723,12 +724,12 @@ while when comparing to DES $r$ band, the gradient is limited to $<$1 millimag.
 
 % \begin{deluxetable}{l|c|c|c|c}[ht!]
 % \tablecaption{The robust standard deviation for binned median magnitude differences between
-% the new v3.4 SDSS catalog, and DES and Pan-STARRS1 (PS1) catalogs (millimag). \label{tab:DESPS1}}
+% the new v4.2 SDSS catalog, and DES and Pan-STARRS1 (PS1) catalogs (millimag). \label{tab:DESPS1}}
 % \tablehead{
 % \colhead{Band} & \colhead{DES R.A.} & \colhead{DES Dec} & \colhead{PS1 R.A.} & \colhead{PS1 Dec} 
 % }
 % \startdata
-% THESE ARE OLD VALUES FOR v3.4 catalog
+% THESE ARE OLD VALUES FOR v4.2 catalog
 %        $g$        &        5.1    &      1.8   &        3.4    &      1.4        \\
 %        $r$         &        4.1    &      0.8   &        2.6    &      0.7         \\  
 %        $i$         &        7.3    &      1.6   &        3.2    &      1.0         \\ 
@@ -755,7 +756,7 @@ the new v4.2 SDSS catalog, and DES and Pan-STARRS1 catalogs (millimag).}
 \end{table}
 
 
-\begin{figure}[th!]
+\begin{figure*}
     \centering\includegraphics[width=7cm]{figures/colorResidDES42bright_dr_RA_Hess.png}
     % \centering\includegraphics[width=7cm]{figures/colorResidPSbright_dr_RA_Hess.png}
     \centering\includegraphics[width=7cm]{figures/colorResidPSDR2v42bright_dr_RA_Hess.png}
@@ -768,9 +769,9 @@ the new v4.2 SDSS catalog, and DES and Pan-STARRS1 catalogs (millimag).}
 \caption{A comparison of the magnitude differences between the SDSS v4.2 catalog
 and DES (left) and Pan-STARRS (right) catalogs, for the $riz$ bands.}
 \label{fig:DESPSRA}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[th!]
+\begin{figure*}
     \centering\includegraphics[width=7cm]{figures/colorResidDES42bright_dr_Dec_Hess.png}
     % \centering\includegraphics[width=7cm]{figures/colorResidPSbright_dr_Dec_Hess.png}
     \centering\includegraphics[width=7cm]{figures/colorResidPSDR2v42bright_dr_Dec_Hess.png}
@@ -783,9 +784,9 @@ and DES (left) and Pan-STARRS (right) catalogs, for the $riz$ bands.}
 \caption{Analogous to Figure~\ref{fig:DESPSRA}, except that magnitude differences
 are binned by Declination.}
 \label{fig:DESPSDec}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[th!]
+\begin{figure*}
     \centering\includegraphics[width=7cm]{figures/colorResidDES42_dr_rmag_Hess.png}
     \centering\includegraphics[width=7cm]{figures/colorResidDES42_di_rmag_Hess.png} 
 \caption{A comparison of the magnitude differences between the SDSS v4.2 catalog
@@ -793,12 +794,12 @@ and DES catalog, for the $r$ and $i$ bands. Note the very small gradient of the 
 residuals between the bright and faint ends: about 3-4 millimag and thus much smaller
 than $\sim$20 millimag when comparing to Gaia magnitudes (see Figure~\ref{fig:gaiaJump}).} 
 \label{fig:drVSr}
-\end{figure}
+\end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Comparison of the new v3.4 SDSS catalog and $u$ band data from the CFIS catalog  \label{sec:CFIStest}} 
+\subsection{Comparison of the new v4.2 SDSS catalog and $u$ band data from the CFIS catalog  \label{sec:CFIStest}} 
 
 The comparison of the new SDSS catalog with the DES and Pan-STARRS catalogs in the previous
 section did not include the $u$ band. To assess the quality of $u$ band zeropoint calibration, 
@@ -827,7 +828,7 @@ only for Declination $>$ $-$0.45 degree.}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Comparison of the new v3.4 SDSS catalog and transformed nUV data from the GALEX catalog  \label{sec:Galextest}} 
+\subsection{Comparison of the new v4.2 SDSS catalog and transformed nUV data from the GALEX catalog  \label{sec:Galextest}} 
 
 We also use the NUV magnitudes from GALEX (see
 Section~\ref{ssec:galex}) to provide an independent check on the SDSS
@@ -1093,7 +1094,7 @@ during the commissioning phase of the Rubin Observatory Legacy Survey of Space a
 \section*{Acknowledgements}
 
 {\bf SDSS-IV, DR15} Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, Center for Astrophysics | Harvard \& Smithsonian (CfA), the Chilean Participation Group, the French Participation Group, Instituto de Astrof{\'i}sica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut f{\"u}r Astrophysik Potsdam (AIP), Max-Planck-Institut f{\"u}r Astronomie (MPIA Heidelberg), Max-Planck-Institut f{\"u}r Astrophysik (MPA Garching), Max-Planck-Institut f{\"u}r Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observat{\'o}rio Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Aut?noma de M{\'e}xico, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University. \\
-{bf Gaia DR2}: This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAChas been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.\\
+{bf Gaia EDR3}: This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAChas been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.\\
 {\bf DES DR1}: This project used public archival data from the Dark Energy Survey (DES). Funding for the DES Projects has been provided by the U.S. Department of Energy, the U.S. National Science Foundation, the Ministry of Science and Education of Spain, the Science and Technology FacilitiesCouncil of the United Kingdom, the Higher Education Funding Council for England, the National Center for Supercomputing Applications at the University of Illinois at Urbana-Champaign, the Kavli Institute of Cosmological Physics at the University of Chicago, the Center for Cosmology and Astro-Particle Physics at the Ohio State University, the Mitchell Institute for Fundamental Physics and Astronomy at Texas A\&M University, Financiadora de Estudos e Projetos, Funda{\c c}{\~a}o Carlos Chagas Filho de Amparo {\`a} Pesquisa do Estado do Rio de Janeiro, Conselho Nacional de Desenvolvimento Cient{\'i}fico e Tecnol{\'o}gico and the Minist{\'e}rio da Ci{\^e}ncia, Tecnologia e Inova{\c c}{\~a}o, the Deutsche Forschungsgemeinschaft, and the Collaborating Institutions in the Dark Energy Survey.
 The Collaborating Institutions are Argonne National Laboratory, the University of California at Santa Cruz, the University of Cambridge, Centro de Investigaciones Energ{\'e}ticas, Medioambientales y Tecnol{\'o}gicas-Madrid, the University of Chicago, University College London, the DES-Brazil Consortium, the University of Edinburgh, the Eidgen{\"o}ssische Technische Hochschule (ETH) Z{\"u}rich,  Fermi National Accelerator Laboratory, the University of Illinois at Urbana-Champaign, the Institut de Ci{\`e}ncies de l'Espai (IEEC/CSIC), the Institut de F{\'i}sica d'Altes Energies, Lawrence Berkeley National Laboratory, the Ludwig-Maximilians Universit{\"a}t M{\"u}nchen and the associated Excellence Cluster Universe, the University of Michigan, the National Optical Astronomy Observatory, the University of Nottingham, The Ohio State University, the OzDES Membership Consortium, the University of Pennsylvania, the University of Portsmouth, SLAC National Accelerator Laboratory, Stanford University, the University of Sussex, and Texas A\&M University.
 Based in part on observations at Cerro Tololo Inter-American Observatory, National Optical Astronomy Observatory, which is operated by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation.\\
@@ -1120,7 +1121,8 @@ The data described here may be obtained from the following websites: \\
 \url{https://www.cosmos.esa.int/web/gaia/earlydr3}\\
 {\bf DES DR1}:\\
 \url{http://datalab.noao.edu}
- 
+{\bf MAST}:\\
+\url{https://dx.doi.org/10.17909/T9RP4V}
 %The inclusion of a Data Availability Statement is a requirement for articles published in MNRAS. Data Availability Statements provide a standardised format for readers to understand the availability of data underlying the research results described in the article. The statement may refer to original data generated in the course of the study or to third-party data analysed in the article. The statement should describe and provide means of access, where possible, by linking to the data or providing the required accession numbers for the relevant databases or DOIs.
 
 
