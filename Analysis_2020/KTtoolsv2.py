@@ -286,16 +286,22 @@ def plotdelMag2logDC_KT(d, kw):
     # fig.colorbar(cs,location='top')
     cbar = fig.colorbar(cs, spacing='proportional',
                         shrink=0.95, ax=ax)
-    cbar.set_label(label='Log$_{10}$(counts)',size=20)
+    cbar.set_label(label='Counts [dex]',size=20)
     cbar_tix_font = 16 # Adjust as appropriate.
     cbar.ax.tick_params(labelsize=cbar_tix_font)
     
     # plot contours if kw['contur'] = True
     if kw['contur']:
+        # check if contour levels have been set
+        # else use from color bar
         cbar_tix = cbar.get_ticks()
+        cbar_tix = cbar_tix[1:] # skip the min level for clarity
+        if kw.get('cbar_tix'): # if kw set, then use that value
+            cbar_tix = kw['cbar_tix']
         # cbar.location('top')
-        plt.contour(X[1:,1:],Y[1:,1:],logHisto2D,cbar_tix[1:],
-                    colors='brown',linestyles='dashdot',linewidth=3)
+        CS = plt.contour(X[1:,1:],Y[1:,1:],logHisto2D,cbar_tix,
+                    colors='brown',linestyles='dashdot')
+        ax.clabel(CS, CS.levels, inline=True, fmt='%d', fontsize=20,colors='black')
     
     ## Rearrange the plotting order in order to make the lines stand out
     #
