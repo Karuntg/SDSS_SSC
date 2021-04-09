@@ -76,10 +76,11 @@
 \newcommand{\pO}{\hbox{I007}}
 \newcommand{\pOc}{\hbox{I007 catalog}}
 % HIGHLIGHT COMMENTS
-\newcommand{\tbd}[1]{\textcolor{red}{#1}} % indicate TBDs
-\newcommand{\KT}[1]{\textcolor{magenta}{#1}} % KT
-\newcommand{\ZI}[1]{\textcolor{blue}{#1}} % KT
-\newcommand{\AS}[1]{\textcolor{purple}{#1}} % KT
+\newcommand{\tbd}[1]{{\bf \textcolor{red}{#1}}} % indicate TBDs
+\newcommand{\KT}[1]{{\bf \textcolor{magenta}{#1}}} % KT
+\newcommand{\ZI}[1]{{\bf \textcolor{blue}{#1}}} % ZI
+\newcommand{\AS}[1]{{\bf \textcolor{purple}{#1}}} % SA,DT,AS
+\newcommand{\RR}[1]{{\bf \textcolor{black}{#1}}} % for Referee
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,30 +124,12 @@ $^{5}$National Research Council, Canadian Astronomy Data Centre, Victoria, BC, V
 
 %%%%%%%%%%%%% Abstract of the paper
 \begin{abstract}
-We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with
-post-2007 SDSS imaging data. Our catalog lists averaged SDSS $ugriz$ photometry
-for nearly a million stars brighter than $r\sim22$ matched with the original version of the catalog. 
-The updated version reported here is based on 2-3 times more measurements per star, resulting 
-in random errors which are 1.4-1.7 times smaller than in the original catalog, and about three 
-times smaller than those for individual SDSS runs. Random errors in the new catalog are below 
-0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0 in $u,g,r,i,$ and $z$ bands, respectively. 
-We achieve this error threshold by using the Gaia Early Data Release 3 (EDR3) Gmag photometry to derive gray photometric 
-zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, and use the Gaia 
-BP-RP colour to derive corrections in the $ugiz$ bands, relative to the $r$ band. We test the 
-quality of recalibrated SDSS $ugriz$ photometry by comparing it to Pan-STARRS1, DES, CFIS 
-and GALEX photometry for the same stars. This multi-survey 
-comparison indicates that the spatial variation of photometric zero points in the updated SDSS 
-catalog is well below 0.01 mag (RMS), with typical values of 3-7 millimag in the R.A. direction and 
-1-2 millimag in the Declination direction, except for the $u$ band with a scatter of about 6 millimag.
-By comparing updated SDSS photometry with synthetic SDSS photometry for three white dwarfs
-with HST CalSpec absolute photometry data, we find statistically significant ($>3\sigma$) 
-AB zeropoint offsets in the $riz$ bands, ranging from 0.015 to 0.035 mag, while in the $u$ 
-and $g$ bands we only placed upper limits (at $2\sigma$: 0.038 and 0.028 mag, respectively).  
-We also report a few minor photometric problems with all the surveys considered here, including 
-a magnitude-dependent bias of about 0.01 mag between G=16 and G=20 for G magnitudes in the Gaia EDR3 
- catalog. Due to its large size and cross-checks with other surveys, this updated 
-SDSS catalog can be used to robustly calibrate and test $ugriz$ photometry below 1\% level, for example, 
-as needed for the commissioning phase of the Vera C. Rubin Observatory Legacy Survey of Space and Time. 
+
+\noindent We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with post-2007 SDSS imaging data. This improved version lists averaged SDSS $ugriz$ photometry for nearly a million stars brighter than $r\sim22$ mag. With 2-3$\times$ more measurements per star, random errors are 1.4-1.7$\times$ smaller than in the original catalog, and about 3$\times$ smaller than for individual SDSS runs. Random errors in the new catalog are $\la$0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0 mag in $u,g,r,i,$ and $z$-bands, respectively. We achieve this error threshold by using the Gaia Early Data Release 3 (EDR3) Gmag photometry to derive gray photometric zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, and use the Gaia BP-RP colour to derive corrections in the $ugiz$ bands, relative to the $r$-band. The quality of the recalibrated photometry, tested against Pan-STARRS1, DES, CFIS and GALEX surveys, indicates spatial variations of photometric zeropoints $\lid$0.01 mag (RMS), with typical values of 3-7 millimag in the R.A., and 1-2 millimag in the Declination directions, except for $\sol$6 millimag scatter in the $u$-band. We also report a few minor photometric problems with other surveys considered here, including a magnitude-dependent $\sim$0.01 mag bias between $16 \leq Gmag \leq 20$ in the Gaia EDR3. This publicly available catalog offers robust calibration of $ugriz$ photometry below 1\% level, e.g. during commissioning of the Vera C. Rubin Observatory Legacy Survey of Space and Time.
+
+%We test the quality of recalibrated SDSS $ugriz$ photometry by comparing it to Pan-STARRS1, DES, CFIS and GALEX data. This multi-survey comparison indicates that the spatial variation of photometric zeropoints in the updated SDSS catalog is well below 0.01 mag (RMS), with typical values of 3-7 millimag in the R.A. direction and 1-2 millimag in the Declination direction, except for the $u$ band with a scatter of about 6 millimag. 
+
+% We extend the SDSS Stripe 82 Standard Stars Catalog reported in \citet{Ivez07} with post-2007 SDSS imaging data. Our catalog lists averaged SDSS $ugriz$ photometry for nearly a million stars brighter than $r\sim22$ matched with the original version of the catalog. The updated version reported here is based on 2-3 times more measurements per star, resulting in random errors which are 1.4-1.7 times smaller than in the original catalog, and about three times smaller than those for individual SDSS runs. Random errors in the new catalog are below 0.01 mag for stars brighter than 20.0, 21.0, 21.0, 20.5, and 19.0 in $u,g,r,i,$ and $z$ bands, respectively. We achieve this error threshold by using the Gaia Early Data Release 3 (EDR3) Gmag photometry to derive gray photometric zeropoint corrections, as functions of R.A. and Declination, for the SDSS catalog, and use the Gaia BP-RP colour to derive corrections in the $ugiz$ bands, relative to the $r$ band. We test the quality of recalibrated SDSS $ugriz$ photometry by comparing it to Pan-STARRS1, DES, CFIS and GALEX photometry for the same stars. This multi-survey comparison indicates that the spatial variation of photometric zero points in the updated SDSS catalog is well below 0.01 mag (RMS), with typical values of 3-7 millimag in the R.A. direction and 1-2 millimag in the Declination direction, except for the $u$ band with a scatter of about 6 millimag. By comparing updated SDSS photometry with synthetic SDSS photometry for three white dwarfs with HST CalSpec absolute photometry data, we find statistically significant ($>3\sigma$) AB zeropoint offsets in the $riz$ bands, ranging from 0.015 to 0.035 mag, while in the $u$ and $g$ bands we only placed upper limits (at $2\sigma$: 0.038 and 0.028 mag, respectively). We also report a few minor photometric problems with all the surveys considered here, including a magnitude-dependent bias of about 0.01 mag between G=16 and G=20 for G magnitudes in the Gaia EDR3 catalog. Due to its large size and cross-checks with other surveys, this updated SDSS catalog can be used to robustly calibrate and test $ugriz$ photometry below 1\% level, for example, as needed for the commissioning phase of the Vera C. Rubin Observatory Legacy Survey of Space and Time. 
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -977,7 +960,7 @@ during the commissioning phase of the Rubin Observatory Legacy Survey of Space a
 \newpage
 
 \section*{Acknowledgements}
-
+\v{Z}.~Ivezi\'{c} acknowledges support from the University of Washington College of Arts and Sciences, Department of Astronomy, and the DIRAC Institute. The DIRAC Institute is supported through generous gifts from the Charles and Lisa Simonyi Fund for Arts and Sciences, and the Washington Research Foundation. S.S.~Allam and D.L.~Tucker acknowledge that this manuscript has been authored by Fermi Research Alliance, LLC under Contract No. DE-AC02-07CH11359 with the U.S. Department of Energy, Office of Science, Office of High Energy Physics.\\
 {\bf SDSS-IV, DR15} Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, Center for Astrophysics at Harvard \& Smithsonian (CfA), the Chilean Participation Group, the French Participation Group, Instituto de Astrof{\'i}sica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut f{\"u}r Astrophysik Potsdam (AIP), Max-Planck-Institut f{\"u}r Astronomie (MPIA Heidelberg), Max-Planck-Institut f{\"u}r Astrophysik (MPA Garching), Max-Planck-Institut f{\"u}r Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observat{\'o}rio Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Autonoma de M{\'e}xico, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University. \\
 {\bf Gaia EDR3}: This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAChas been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.\\
 {\bf DES DR1}: This project used public archival data from the Dark Energy Survey (DES). Funding for the DES Projects has been provided by the U.S. Department of Energy, the U.S. National Science Foundation, the Ministry of Science and Education of Spain, the Science and Technology FacilitiesCouncil of the United Kingdom, the Higher Education Funding Council for England, the National Center for Supercomputing Applications at the University of Illinois at Urbana-Champaign, the Kavli Institute of Cosmological Physics at the University of Chicago, the Center for Cosmology and Astro-Particle Physics at the Ohio State University, the Mitchell Institute for Fundamental Physics and Astronomy at Texas A\&M University, Financiadora de Estudos e Projetos, Funda{\c c}{\~a}o Carlos Chagas Filho de Amparo {\`a} Pesquisa do Estado do Rio de Janeiro, Conselho Nacional de Desenvolvimento Cient{\'i}fico e Tecnol{\'o}gico and the Minist{\'e}rio da Ci{\^e}ncia, Tecnologia e Inova{\c c}{\~a}o, the Deutsche Forschungsgemeinschaft, and the Collaborating Institutions in the Dark Energy Survey.
