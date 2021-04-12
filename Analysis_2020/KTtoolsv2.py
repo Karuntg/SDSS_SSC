@@ -268,17 +268,34 @@ def plotdelMag2logDC_KT(d, kw):
     Histo2D, xedges, yedges = np.histogram2d(xvect,yvect, bins=(xedges, yedges))
     Histo2D = Histo2D.T
     logHisto2D = Histo2D # initial assignment
-    pidx = Histo2D > 0 # values > 0, can take log10
-    nidx = Histo2D <= 0 # values <= 0, cannot take log10, leave a min value
+    CountMin = 0 
+    # CountMin = 0  # hack for G-gi-Hess.png plot 
+    pidx = Histo2D > CountMin # values > 0, can take log10
+    nidx = Histo2D <= CountMin # values <= 0, cannot take log10, leave a min value
     logHisto2D[pidx] = np.log10(Histo2D[pidx])
     minval = np.min(logHisto2D[pidx]) # find the min val of transformed pix
     logHisto2D[nidx] = minval # set these pix to min val
-    
-    
+      
     # plotting
     # get the colormap from kw
     cmap = kw['cmap']
     fig, ax = plt.subplots(figsize=(12, 8))
+    fig.subplots_adjust(
+        # the left side of the subplots of the figure
+        left=0.15,  
+        # the right side of the subplots of the figure
+        right=1.0,
+        # the bottom of the subplots of the figure
+        bottom=0.1,
+        # the top of the subplots of the figure
+        top=0.95,
+        # the amount of width reserved for space between subplots,
+        # expressed as a fraction of the average axis width
+        wspace=0.15,   
+        # the amount of height reserved for space between subplots,
+        # expressed as a fraction of the average axis height
+        hspace=0.55)   
+
     # ax.scatter(d[kw['Xstr']], d[kw['Ystr']], s=kw['symbSize'], c='black') 
     X, Y = np.meshgrid(xedges, yedges)
     # cs = ax.pcolormesh(X,Y, Histo2D, cmap='Greys')
@@ -301,8 +318,20 @@ def plotdelMag2logDC_KT(d, kw):
         # cbar.location('top')
         CS = plt.contour(X[1:,1:],Y[1:,1:],logHisto2D,cbar_tix,
                     colors='brown',linestyles='dashdot')
-        ax.clabel(CS, CS.levels, inline=True, fmt='%d', fontsize=20,colors='black')
+        # ax.clabel(CS, CS.levels, inline=True, fmt='%d', fontsize=20,colors='black')
     
+    if False:
+        # special case for G-r vs. g-i diagram 
+        import ZItools as zit
+        thetaB = np.array([-0.0307, -0.0885,  0.6632, -1.0179,  0.7262,  -0.2547,  0.0337])
+        thetaR = np.array([ 9.6488, -8.4115, -7.9834, 13.757 , -7.0973, 1.5993, -0.1351])    
+        xfit2 = np.linspace(0.0, 3.5, 1000)
+        yfitB = zit.polynomial_fit(thetaB, xfit2) 
+        yfitR = zit.polynomial_fit(thetaR, xfit2) 
+        yfit2 = np.where(xfit2 < 2.0, yfitB, yfitR)
+        ax.plot(xfit2, yfit2, c='green', linewidth=2, linestyle='solid')
+
+
     ## Rearrange the plotting order in order to make the lines stand out
     #
     rmsBin = np.sqrt(nPtsM) / np.sqrt(np.pi/2) * sigGbinM
@@ -313,8 +342,8 @@ def plotdelMag2logDC_KT(d, kw):
     #
     TwoSigP = medianBinM + kw['Nsigma']*sigGbinM
     TwoSigM = medianBinM - kw['Nsigma']*sigGbinM 
-    ax.plot(xBinM, TwoSigP, c='black', linewidth=3, linestyle='dotted')
-    ax.plot(xBinM, TwoSigM, c='black', linewidth=3, linestyle='dotted')
+    ax.plot(xBinM, TwoSigP, c='black', linewidth=3, linestyle='dashed')
+    ax.plot(xBinM, TwoSigM, c='black', linewidth=3, linestyle='dashed')
     # 
     if (kw['offset'] >= 0):
         offsetColor0 = 'black'
@@ -331,6 +360,7 @@ def plotdelMag2logDC_KT(d, kw):
     ax.set_ylabel(kw['Ylabel'], fontsize=22)
     ax.set_xlim(kw['Xmin'], kw['Xmax'])
     ax.set_ylim(kw['Ymin'], kw['Ymax'])
+    # ax.set_ylim(kw['Ymax'], kw['Ymin'])   # hack for G-gi-Hess.png plot 
     plt.xticks(fontsize=22)
     plt.yticks(fontsize=22)
     plt.savefig(kw['plotName'], dpi=600)
