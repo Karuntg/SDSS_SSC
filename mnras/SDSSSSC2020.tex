@@ -206,7 +206,7 @@ The final dataset, consisting of all the light curves in the five $ugriz$ filter
 For our primary astrometric and photometric cross calibration we use the Gaia Early Data Release 3 (EDR3) catalog.  Gaia is a European Space Agency (ESA) mission designed to map over a billion stars in the Milky Way and the local group in three dimensions, providing accurate proper motion and radial velocity measurements. \citet{GaiaCollab2016} provide a detailed overview of the Gaia mission (spacecraft, instruments, survey and measurement principles, and operations), while technical details for specific topics relevant to our work may be found in the following citations: pre-processing and source-list creation \citep{Fabr2016}, astrometric solution \citep{LInd2018}, processing the photometric data \citep{Riel2018}, photometric content and validation \citep{Evan2018}, and full catalog validation \citep{Aren2018}. A detailed description of Gaia data products  
 may be found in \citet{GaiaCollab2018b}. Here we summarize only the pertinent details.
 
-EDR3 includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.8 billion sources\footnote{See https://www.cosmos.esa.int/web/gaia/earlydr3.}. This dataset is based on the first 34 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (\GG hereafter) for sources brighter than \GG$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm). Gaia EDR3 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:GaiaCorr}. 
+EDR3 includes astrometry, photometry, radial velocities, and information on astrophysical parameters and variability, for approximately 1.8 billion sources\footnote{See https://www.cosmos.esa.int/web/gaia/earlydr3.}. This dataset is based on the first 34 months of the mission and includes celestial positions and the apparent brightness in the broad-band G (\GG\ hereafter) for sources brighter than \GG$\sim$21.  This data release also contains two additional broad-band magnitudes, the BP (330-680 nm) and RP (630-1050 nm). Gaia EDR3 photometry is generally superior to ground-based photometry for sources with sufficient signal-to-noise ratio, and we use it to derive zeropoint corrections for SDSS photometry, as described in Section~\ref{sec:GaiaCorr}. 
  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -346,47 +346,69 @@ magnitude). In an analogous plot for Declination, the residuals are similar.
 
 \subsubsection{Gaia-based photometric zeropoint corrections  \label{sec:GaiaCorr2}}
 
-Gaia EDR3 reported \GG magnitudes, which approximately span the SDSS $griz$ bandpasses, 
+Gaia EDR3 reported \GG\ magnitudes, which approximately span the SDSS $griz$ bandpasses, 
 and BP and RP magnitudes, which approximately correspond to the blue and red halves of the 
-\GG bandpass. We first use \GG data to derive ``gray'' zeropoint corrections (applied to
+\GG\ bandpass. We first use \GG\ data to derive ``gray'' zeropoint corrections (applied to
 all five SDSS bands), and then use the BP-RP colour to derive zeropoint corrections for the 
 $ugiz$ bands, relative to the $r$ band. 
 
-The basic idea is simple: use Gaia's G magnitude, \GG, and the SDSS $gri$ magnitudes
-to derive a synthetic G magnitude, \GS based on SDSS data; next, bin the 
-$\Delta$G = (\GS~-~ \GG) residuals by R.A. and Dec, and 
-use the median residuals per bin as the grey correction for SDSS photometry (as functions
-of R.A. and Dec). Similarly, use Gaia's BP-RP colour to derive synthetic $u-r$, $g-r$, $r-i$
+The basic idea is simple: first, use Gaia's G magnitude, \GG, and the SDSS $gri$ magnitudes
+to derive a synthetic G magnitude, \GS\ based on SDSS data; see Figure~\ref{fig:GrVSgi}.  
+Next, bin the $\Delta$G = (\GS~-~ \GG) residuals by R.A. and Dec, and use the median residuals 
+per bin as the grey correction for SDSS photometry (as functions of R.A. and Dec). 
+Similarly, use Gaia's BP-RP colour to derive synthetic $u-r$, $g-r$, $r-i$
 and $r-z$ colours, and use the median residuals per bin as zeropoint corrections for 
 the $ugiz$ bands. 
 
 Given a large number of matched stars ($\sim 400,000$), and a large number of colour combinations,
 we do not attempt to derive analytic fits for synthetic magnitudes and colours but instead
-use narrow colour bins of 0.05 mag, and linearly interpolate between the bins. We have verified
-that even sixth-order polynomial fits do not provide better results than this simple 
-numerical approach. An example of such a transformation is shown in Figure~\ref{fig:GrVSgi}. 
+use narrow colour bins of 0.05 mag, and linearly interpolate between the bins. We have verified that 
+even sixth-order polynomial fits do not provide better results than this simple numerical approach. 
+\RR{For example, we had to use two piece-wise polynomial fits to be able to fit the \GG-$r$ vs.
+$g-i$ relation with residuals smaller than 0.01 mag, 
+\begin{equation}
+\label{eq:poly}
+         \GG-r = \sum_{k=0}^{k=6} \, a_k\,(g-i)^k,
+\end{equation}
+separately for $0.0 < g-i < 2.0$ and $2.0 < g-i < 3.4$ ($g-i$=2.0 approximately corresponds to 
+M0 MK spectral type). The best fit coeffcients are listed in Table~\ref{tab:poly} and the fit is shown in 
+Figure~\ref{fig:GrVSgi}.}
+
+
+\begin{table*}
+	\centering
+	\caption{The best-fit coefficients for eq.~\ref{eq:poly}.}
+	\label{tab:poly}
+	\begin{tabular}{r|r|r|r|r|r|r|r} % 
+		\hline
+		Colour range & $a_0$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$    \\
+		\hline
+        $0.0 < g-i < 2.0$ &  $-$0.0307 &  $-$0.0885 &   0.6632 &  $-$1.0179 &   0.7262 &   $-$0.2547 &   0.0337  \\
+        $2.0 < g-i < 3.4$ &    9.6488 &  $-$8.4115 &  $-$7.9834 &  13.757 &  $-$7.0973 &  1.5993 &  $-$0.1351   \\
+		\hline
+	\end{tabular} 
+\end{table*}
 
 
 \begin{figure}
-  \centering\includegraphics[width=0.95\columnwidth]{figures/GrVSgi_lr.png} 
-\caption{The variation of the difference between Gaia's \GG magnitude from Early Data Release 3
+%  \centering\includegraphics[width=0.95\columnwidth]{figures/GrVSgi_lr.png} 
+  \centering\includegraphics[width=0.99\columnwidth]{figures/KTGrVSgi-poly.png} 
+\caption{The variation of the difference between Gaia's \GG\ magnitude from Early Data Release 3
 and SDSS $r$ magnitude with the SDSS $g-i$ colour.
-The  colour map illustrates the distribution of $\sim 393,000$ matched stars with 
-$16<$~\GG~$<19.5$. The two (barely distinguishable) solid lines represent the median 
-values $\pm$ uncertainty of the median for 0.05 mag wide $g-i$ bins. The short-dashed 
-lines show the median values $\pm$ the robust standard deviation for 
-each bin. The horizontal solid line at zero is added to guide the eye. The mean of 
-the two solid lines is used to derive the gray zeropoint correction, as a function of R.A.
-and Declination.}
+The  colour map and contours illustrate the distribution of $\sim 393,000$ matched stars with 
+$16<$~\GG~$<19.5$. The thick dashed line represents the median values for 0.05 mag wide $g-i$ bins. 
+These values are used to derive the gray zeropoint correction, as a function of R.A. and Declination.
+The thin dotted lines show the median values $\pm$ the robust standard deviation for 
+each bin. The green solid line is a polynomial fit to the median values, discussed in text. }
 \label{fig:GrVSgi}
 \end{figure}
 
 
-The variation of G magnitude residuals, $\Delta G$, with \GG (see Figure~\ref{fig:gaiaJump}) shows 
+The variation of G magnitude residuals, $\Delta G$, with \GG\ (see Figure~\ref{fig:gaiaJump}) shows 
 an overall gradient of $\sim10$ millimag from bright (G=16) to faint (G=20) end. 
 A comparison of the SDSS catalog with Pan-STARRS and DES catalogs (see 
 Section~\ref{sec:DESPS1} and Figures~\ref{fig:DESPSRA} and \ref{fig:drVSr}) strongly suggests that the
-origin of this discrepancy is a magnitude-dependent bias in Gaia's \GG photometry,
+origin of this discrepancy is a magnitude-dependent bias in Gaia's \GG\ photometry,
 rather than a problem with the SDSS catalog (offsets between the SDSS and DES
 photometry,  are $<2$ millimag at \GG$\sim$20, and $<5$ millimag when
 compared to Pan-STARRS). 
@@ -395,9 +417,9 @@ compared to Pan-STARRS).
 \begin{figure}
     \centering\includegraphics[width=0.95\columnwidth]{figures/GmagCorrectionTest_Gmag_Hess_lr.png} 
 \caption{The variation of the residuals between Gaia's G magnitude from Early Data Release 3, \GG,
-and the synthetic G magnitude values, \GS generated using SDSS $gri$ photometry. The two solid 
+and the synthetic G magnitude values, \GS\ generated using SDSS $gri$ photometry. The two solid 
 lines represent the median values $\pm$ uncertainty of the median for each
-0.05 mag wide \GG bin. The short-dashed lines show the median values $\pm$ 
+0.05 mag wide \GG\ bin. The short-dashed lines show the median values $\pm$ 
 the robust standard deviation for each bin. The horizontal solid and long-dashed 
 lines at zero and $\pm$0.01 mag, respectively, are added to guide the eye.
 Note an overall gradient of $\sim0.01$ mag from bright (G=16) to faint (G=20) 
@@ -410,15 +432,24 @@ Figure~\ref{fig:drVSr}) suggests that its origin is a magnitude-dependent bias i
 
 Given these two features, we limit the calibration sample to the $16<$~\GG~$<19.5$
 magnitude range. We further restrict calibration stars to the $0.4 < (g-i)_{SDSS} < 3.0$ colour 
-range (approximately A0 to M5 spectral range), yielding a sample of $\sim372,000$ stars. 
+range (approximately A0 to M5 spectral range), yielding a sample of $\sim372,000$ stars
+(see Figure~\ref{fig:Ggi} for the \GG\ vs. $g-i$ color-magnitude diagram).
 The behaviour of the median G magnitude residuals per R.A. and Declination bin are shown in 
 the left and right panels respectively of Figure~\ref{fig:graycorrRA}.
+
+\begin{figure}
+    \centering\includegraphics[width=0.99\columnwidth]{figures/G-gi-Hess.png} 
+\caption{A Hess diagram constructed with Gaia's G magnitude and SDSS $g-i$ color.
+The counts are shown on logarithmic scale, according to the legend. The 1-$\sigma$
+and 2-$\sigma$ contours are also shown.}
+\label{fig:Ggi}
+\end{figure}
 
 
 \begin{figure*}
   \centering\includegraphics[width=0.45\textwidth]{figures/GmagCorrection_RA_Hess_lr.png} 
   \centering\includegraphics[width=0.45\textwidth]{figures/GmagCorrection_Dec_Hess_lr.png} 
-\caption{({\it Left}) The R.A. variation of the residuals between Gaia's G magnitude from EDR3, \GG
+\caption{({\it Left}) The R.A. variation of the residuals between Gaia's G magnitude from EDR3, \GG\
 and synthetic G magnitude values, \GS, generated using SDSS $gri$ photometry. The 
 colour map illustrates the distribution of $\sim 372,000$ matched stars within 
 $16<$Gmag$<19.5$ and $0.4 < g-i < 3.0$. The two solid lines represent the 
@@ -427,7 +458,9 @@ The short-dashed lines show the median values $\pm$ the robust standard
 deviation for each bin. The horizontal solid and long-dashed lines at zero and 
 $\pm$0.01 mag, respectively, are added to guide the eye. The mean of the two 
 solid lines is the gray correction, as a function of R.A., applied to the SDSS 
-$ugriz$ magnitudes. The standard deviation for the applied correction is 3.2 millimag. {\it Note}: The stripe of missing data seen at R.A.$\sim$ -37 deg is due to the presence of the globular cluster, $M2$. The resulting high stellar density region was masked off during data processing.
+$ugriz$ magnitudes. The standard deviation for the applied correction is 3.2 millimag. {\it Note}: 
+The stripe of missing data seen at R.A.$\sim$ -37 deg is due to the presence of the globular cluster, $M2$. 
+The resulting high stellar density region was masked off during data processing.
 ({\it Right}) Analogous to the left panel, except that here results are shown for
 0.01 degree wide Declination bins. The 12 clearly visible regions correspond to
 two SDSS scans (in R.A. direction) and six CCD columns in the SDSS camera. 
@@ -453,12 +486,27 @@ R.A. and Declination, to all 991,472 stars in the catalog.
 
 In the next re-calibration step, we derive synthetic $u-r$, $g-r$, $r-i$ and $r-z$ colours
 from Gaia's BP-RP colour, using the same binning procedure as we used above for 
-the \GG~$-r$ vs. $g-i$ variation (see Figure~\ref{fig:GrVSgi}). An example of colour residuals 
+the \GG~$-r$ vs. $g-i$ variation (see Figure~\ref{fig:VSBpRp}). An example of colour residuals 
 is shown in Figure~\ref{fig:riresid}.  The median residuals per R.A. and Declination bins 
 are then used as zeropoint corrections for the $ugiz$ bands. We required that the median
 offsets for all stars are vanishing and thus photometry in the new catalog is on the 
 same AB scale as the old catalog (for related discussion, see Section~\ref{sec:AB}). 
 The robust standard deviation for all zeropoint corrections is listed in Table~\ref{tab:GaiaRMS}. 
+
+
+
+\begin{figure*}
+ \centering\includegraphics[width=0.49\textwidth]{figures/ur-BR.png} 
+ \centering\includegraphics[width=0.49\textwidth]{figures/gr-BR.png} 
+ \centering\includegraphics[width=0.49\textwidth]{figures/ri-BR.png} 
+ \centering\includegraphics[width=0.49\textwidth]{figures/rz-BR.png} 
+\caption{Analogous to Figure~\ref{fig:GrVSgi}, except that the correlations between 
+SDSS colours and Gaia's BP-RP colour are shown.}
+\label{fig:VSBpRp}
+\end{figure*}
+
+
+
 
 \begin{table}
 	\centering
@@ -954,7 +1002,7 @@ uncertainties is $<5$ millimag for the $gri$ bands, and $<10$ millimag for the $
 
 Various catalog cross-comparisons have revealed minor problems with all the analyzed catalogs.
 For example, we detected DES $z$ band zeropoint errors of up to 0.01-0.02 mag, as a function 
-of R.A., and demonstrated that the Gaia EDR3 G magnitude, \GG has an overall gradient of $\sim$0.01mag from the bright to faint end ($ 16 \leq$ ~\GG~ $\leq 19$), and therefore appears too faint by about 0.02 mag at \GG~$\sim$20.
+of R.A., and demonstrated that the Gaia EDR3 G magnitude, \GG\ has an overall gradient of $\sim$0.01mag from the bright to faint end ($ 16 \leq$ ~\GG~ $\leq 19$), and therefore appears too faint by about 0.02 mag at \GG~$\sim$20.
  
 We constrained offsets from the absolute AB magnitude scale using three white dwarfs with the 
 HST CalSpec absolute photometry data. In the $riz$ bands we measured significant ($>3\sigma$) 
